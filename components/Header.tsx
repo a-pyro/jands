@@ -1,5 +1,5 @@
 import { NavItemProps } from './navbar/NavItem'
-import Navbar from './navbar/navbar'
+import Navbar from './navbar/Navbar'
 
 const items: NavItemProps[] = [
   {
