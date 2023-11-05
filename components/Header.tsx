@@ -14,6 +14,10 @@ const items: NavItemProps[] = [
     href: '/contact',
     name: 'Contact',
   },
+  {
+    href: '/works',
+    name: 'Works',
+  },
 ]
 
 export default function Header() {
