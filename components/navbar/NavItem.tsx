@@ -5,5 +5,9 @@ export interface NavItemProps {
   href: string
 }
 export default function NavItem({ name, href }: NavItemProps) {
-  return <Link href={href}> {name} </Link>
+  return (
+    <Link href={href} className="text-red-500">
+      {name}{' '}
+    </Link>
+  )
 }

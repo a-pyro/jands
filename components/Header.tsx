@@ -4,19 +4,19 @@ import Navbar from './navbar/Navbar'
 const items: NavItemProps[] = [
   {
     href: '/',
-    name: 'nav.link.home',
-  },
-  {
-    href: '/about',
-    name: 'nav.link.about',
-  },
-  {
-    href: '/contact',
-    name: 'nav.link.contact',
+    name: 'Home',
   },
   {
     href: '/creations',
-    name: 'nav.link.creations',
+    name: 'Creazioni',
+  },
+  {
+    href: '/about',
+    name: 'Su di noi',
+  },
+  {
+    href: '/contact',
+    name: 'Contatti',
   },
 ]
 
