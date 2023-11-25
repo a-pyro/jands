@@ -1,16 +1,7 @@
-import { createClient } from '@supabase/supabase-js'
-import { CreationToApi } from './schema'
-
-const SUPABASE_API_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || ''
-// const bucketName: BucketName = 'allpic'
-export const supabase = createClient(
-  SUPABASE_API_URL,
-  SUPABASE_SERVICE_ROLE_KEY,
-)
-
-const BUCKET_NAMES = ['allpic'] as const
-const TABLE_NAMES = ['necklaces'] as const
+import { supabase } from '.'
+import { CreationToApi } from './supabase'
+export const BUCKET_NAMES = ['allpic'] as const
+export const TABLE_NAMES = ['necklaces'] as const
 
 export type BucketName = (typeof BUCKET_NAMES)[number]
 export type TableName = (typeof TABLE_NAMES)[number]
@@ -67,6 +58,7 @@ export const insertIntoTable = async ({
   }
 }
 
-// const data = await listBucketData({ bucketName })
-// const urls = await getPublicUrls({ files: data, bucketName })
-// await insertIntoTable({ urls })
+// listBucketData({ bucketName: BUCKET_NAMES[0] })
+//   .then((data) => data)
+//   .then((data) => getPublicUrls({ files: data, bucketName: BUCKET_NAMES[0] }))
+//   .then((data) => insertIntoTable({ urls: data, tableName: TABLE_NAMES[0] }))

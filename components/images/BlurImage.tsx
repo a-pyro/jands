@@ -1,24 +1,17 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
+import { ApiCreation } from '@/app/db/supabase'
 
-export type Pic = {
-  id: number
-  href: string
-  imageSrc: string
-  name: string
-  username: string
-}
-
-export default function BlurImage({ image }: { image: Pic }) {
+export default function BlurImage({ creation }: { creation: ApiCreation }) {
   const [isLoading, setLoading] = useState(true)
 
   return (
-    <a href={image.href} className="group">
+    <a href={'#'} className="group">
       <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
         <Image
           alt=""
-          src={image.imageSrc}
+          src={creation.src ?? ''}
           layout="fill"
           objectFit="cover"
           className={twMerge(
@@ -30,8 +23,8 @@ export default function BlurImage({ image }: { image: Pic }) {
           onLoadingComplete={() => setLoading(false)}
         />
       </div>
-      <h3 className="mt-4 text-sm text-gray-700">{image.name}</h3>
-      <p className="mt-1 text-lg font-medium text-gray-900">{image.username}</p>
+      {/* <h3 className="mt-4 text-sm text-gray-700">{image.name}</h3> */}
+      {/* <p className="mt-1 text-lg font-medium text-gray-900">{image.username}</p> */}
     </a>
   )
 }
