@@ -1,11 +1,15 @@
 import { CREATIONS_NAV_ITEMS } from '@/utils/navbar'
 import Navbar from '@/components/navbar/navbar'
+import { twMerge } from 'tailwind-merge'
+import { CONTAINER_MAX_WIDTH } from '@/utils/css'
 
 const CreationsLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col">
+    <div>
       <Navbar items={CREATIONS_NAV_ITEMS} className="bg-slate-200" />
-      <div>{children}</div>
+      <div className={twMerge('flex flex-col', CONTAINER_MAX_WIDTH)}>
+        {children}
+      </div>
     </div>
   )
 }
