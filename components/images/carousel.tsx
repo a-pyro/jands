@@ -15,21 +15,21 @@ export function Carousel({ creations }: { creations: ApiCreation[] }) {
   }, [active, creations.length])
 
   return (
-    <div className="mx-auto flex ">
+    <section>
       {creations.map(({ src, id }, idx) => (
         <Image
           key={id}
           alt={`${id} picture`}
           src={src}
+          fill
+          draggable={false}
           priority={true}
-          width={700}
-          height={700}
           className={twMerge(
-            'duration-700 ease-in-out',
+            'h-full w-full object-cover duration-700 ease-in-out',
             active === idx ? 'opacity-100' : 'opacity-0',
           )}
         />
       ))}
-    </div>
+    </section>
   )
 }

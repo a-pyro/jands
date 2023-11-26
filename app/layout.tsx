@@ -17,10 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="it" className="h-screen">
+    <html lang="it">
       <body className={`${inter.className}`}>
-        <Header />
-        <main className={'h-[calc(100vh-60px)]'}>{children}</main>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main>{children}</main>
+        </div>
         <Footer />
       </body>
     </html>

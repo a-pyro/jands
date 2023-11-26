@@ -1,5 +1,7 @@
+'use client'
 import { ApiCreation } from '@/app/supabase/types'
 import BlurImage from './blur-image'
+// import { NextjsLightbox } from './nextjs-lightbox'
 
 export default function Gallery({ creations }: { creations: ApiCreation[] }) {
   return (
@@ -9,6 +11,11 @@ export default function Gallery({ creations }: { creations: ApiCreation[] }) {
           <BlurImage key={creation.id} creation={creation} />
         ))}
       </div>
+      {/* <NextjsLightbox
+        slides={creations}
+        open={true}
+        close={() => setOpen(false)}
+      /> */}
     </div>
   )
 }

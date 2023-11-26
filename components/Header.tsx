@@ -1,29 +1,10 @@
-import { NavItemProps } from './navbar/NavItem'
-import Navbar from './navbar/Navbar'
-
-const items: NavItemProps[] = [
-  {
-    href: '/',
-    name: 'Home',
-  },
-  {
-    href: '/creations',
-    name: 'Creazioni',
-  },
-  {
-    href: '/about',
-    name: 'Su di noi',
-  },
-  {
-    href: '/contact',
-    name: 'Contatti',
-  },
-]
+import Navbar from './navbar/navbar'
+import { MAIN_NAV_ITEMS } from '@/utils/navbar'
 
 export default function Header() {
   return (
     <header>
-      <Navbar items={items} />
+      <Navbar items={MAIN_NAV_ITEMS} />
     </header>
   )
 }

@@ -5,20 +5,25 @@ import { twMerge } from 'tailwind-merge'
 import { ApiCreation } from '@/app/supabase/types'
 import Link from 'next/link'
 
-export default function BlurImage({ creation }: { creation: ApiCreation }) {
+interface Props {
+  creation: ApiCreation
+  onClick?: () => void
+}
+export default function BlurImage({ creation, onClick }: Props) {
   const [isLoading, setLoading] = useState(true)
 
   return (
     <Link href={'#'} className="group">
-      <div className="w-full overflow-hidden rounded-lg bg-gray-200">
+      <div className="max-w-xl rounded-lg bg-gray-200">
         <Image
+          onClick={onClick}
           alt={`${creation.id} picture`}
           src={creation.src}
           priority={true}
-          width={700}
-          height={700}
+          width={600}
+          height={600}
           className={twMerge(
-            'duration-700 ease-in-out group-hover:opacity-75',
+            'rounded-lg duration-700 ease-in-out group-hover:opacity-75',
             isLoading
               ? 'scale-110 blur-2xl grayscale'
               : 'scale-100 blur-0 grayscale-0',
