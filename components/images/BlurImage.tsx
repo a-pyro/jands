@@ -15,8 +15,8 @@ export default function BlurImage({ creation }: { creation: ApiCreation }) {
           alt={`${creation.id} picture`}
           src={creation.src}
           priority={true}
-          width={500}
-          height={500}
+          width={700}
+          height={700}
           className={twMerge(
             'duration-700 ease-in-out group-hover:opacity-75',
             isLoading
