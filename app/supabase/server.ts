@@ -4,11 +4,12 @@ import {
 } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import { Database } from './supabase'
+import { SUPABASE_API_URL, SUPABASE_SERVICE_ROLE_KEY } from '.'
 
 export const createServerClient = (cookieStore: ReturnType<typeof cookies>) => {
   return createSupbaseServerClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    SUPABASE_API_URL,
+    SUPABASE_SERVICE_ROLE_KEY,
     {
       cookies: {
         get(name: string) {

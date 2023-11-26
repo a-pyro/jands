@@ -9,21 +9,111 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      necklaces: {
+      about: {
         Row: {
           created_at: string
           id: number
-          src: string | null
+          src: string
         }
         Insert: {
           created_at?: string
           id?: number
-          src?: string | null
+          src: string
         }
         Update: {
           created_at?: string
           id?: number
-          src?: string | null
+          src?: string
+        }
+        Relationships: []
+      }
+      customizations: {
+        Row: {
+          created_at: string
+          id: number
+          src: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          src: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          src?: string
+        }
+        Relationships: []
+      }
+      earings: {
+        Row: {
+          created_at: string
+          id: number
+          src: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          src: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          src?: string
+        }
+        Relationships: []
+      }
+      everythingelse: {
+        Row: {
+          created_at: string
+          id: number
+          src: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          src: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          src?: string
+        }
+        Relationships: []
+      }
+      necklaces: {
+        Row: {
+          created_at: string
+          id: number
+          src: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          src: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          src?: string
+        }
+        Relationships: []
+      }
+      rings: {
+        Row: {
+          created_at: string
+          id: number
+          src: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          src: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          src?: string
         }
         Relationships: []
       }
@@ -42,7 +132,3 @@ export interface Database {
     }
   }
 }
-
-export type ApiCreation = Database['public']['Tables']['necklaces']['Row']
-
-export type CreationToApi = Database['public']['Tables']['necklaces']['Insert']
