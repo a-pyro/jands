@@ -1,3 +1,5 @@
-export default function Page() {
-  return <div>Page</div>
+import CreationPage from '../creation-page'
+
+export default async function Page() {
+  return <CreationPage creationType="rings" />
 }

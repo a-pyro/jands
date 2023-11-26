@@ -1,3 +1,5 @@
+import CreationPage from '../creation-page'
+
 export default function Page() {
-  return <div>Page</div>
+  return <CreationPage creationType="customizations" />
 }
