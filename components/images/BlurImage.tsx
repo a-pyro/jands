@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
-import { ApiCreation } from '@/app/db/supabase'
+import { ApiCreation } from '@/app/supabase/supabase'
 
 export default function BlurImage({ creation }: { creation: ApiCreation }) {
   const [isLoading, setLoading] = useState(true)

@@ -1,5 +1,5 @@
 // import Gallery from '@/components/images/Gallery'
-import { getAllCreations } from './db/get-stuff'
+import { getAllCreations } from './supabase/get-stuff'
 
 export default async function Home() {
   const data = await getAllCreations()

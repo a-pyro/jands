@@ -1,6 +1,13 @@
 import { supabase } from '.'
 import { CreationToApi } from './supabase'
-export const BUCKET_NAMES = ['allpic'] as const
+export const BUCKET_NAMES = [
+  'rings',
+  'necklaces',
+  'everythingelse',
+  'earings',
+  'customizations',
+  'about',
+] as const
 export const TABLE_NAMES = ['necklaces'] as const
 
 export type BucketName = (typeof BUCKET_NAMES)[number]
