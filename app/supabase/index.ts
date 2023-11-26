@@ -1,10 +1,9 @@
-import { createClient } from '@supabase/supabase-js'
-import { Database } from './supabase'
+export const SUPABASE_API_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
 
-const SUPABASE_API_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || ''
-// const bucketName: BucketName = 'allpic'
-export const supabase = createClient<Database>(
-  SUPABASE_API_URL,
-  SUPABASE_SERVICE_ROLE_KEY,
-)
+/** Use */
+export const SUPABASE_SERVICE_ROLE_KEY =
+  process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+
+/** For clientside use */
+export const NEXT_PUBLIC_SUPABASE_ANON_KEY =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
