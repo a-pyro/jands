@@ -10,7 +10,7 @@ export default function BlurImage({ creation }: { creation: ApiCreation }) {
 
   return (
     <Link href={'#'} className="group">
-      <div className=" w-full overflow-hidden rounded-lg bg-gray-200">
+      <div className="w-full overflow-hidden rounded-lg bg-gray-200">
         <Image
           alt={`${creation.id} picture`}
           src={creation.src}
