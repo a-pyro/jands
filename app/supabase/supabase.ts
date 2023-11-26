@@ -132,3 +132,5 @@ export interface Database {
     }
   }
 }
+
+export type ApiCreation = Database['public']['Tables']['about']['Row']
