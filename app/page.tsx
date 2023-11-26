@@ -1,5 +1,5 @@
 import Gallery from '@/components/images/gallery'
-import { getAllCreations, getCreations } from './api/services/creations'
+import { getAllCreations } from './api/services/creations'
 
 export default async function Home() {
   const data = await getAllCreations()
