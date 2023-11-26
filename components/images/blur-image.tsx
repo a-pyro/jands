@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
-import { ApiCreation } from '@/app/supabase/supabase'
+import { ApiCreation } from '@/app/supabase/types'
 import Link from 'next/link'
 
 export default function BlurImage({ creation }: { creation: ApiCreation }) {

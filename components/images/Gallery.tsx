@@ -1,4 +1,4 @@
-import { ApiCreation } from '@/app/supabase/supabase'
+import { ApiCreation } from '@/app/supabase/types'
 import BlurImage from './blur-image'
 
 export default function Gallery({ creations }: { creations: ApiCreation[] }) {
