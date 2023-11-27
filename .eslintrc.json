@@ -35,5 +35,6 @@
     ]
     // "simple-import-sort/imports": "error",
     // "simple-import-sort/exports": "error"
+    // https://engineering.udacity.com/sorting-imports-on-save-in-react-projects-with-eslint-6fd419b994c3
   }
 }
