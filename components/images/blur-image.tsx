@@ -10,7 +10,7 @@ interface Props {
   onClick?: () => void
 }
 export default function BlurImage({ creation, onClick }: Props) {
-  const [isLoading, setLoading] = useState(true)
+  // const [isLoading, setLoading] = useState(true)
 
   return (
     <Link href={'#'} className="group">
@@ -24,11 +24,11 @@ export default function BlurImage({ creation, onClick }: Props) {
           height={600}
           className={twMerge(
             'rounded-lg duration-700 ease-in-out group-hover:opacity-75',
-            isLoading
-              ? 'scale-110 blur-2xl grayscale'
-              : 'scale-100 blur-0 grayscale-0',
+            // isLoading
+            //   ? 'scale-110 blur-2xl grayscale'
+            //   : 'scale-100 blur-0 grayscale-0',
           )}
-          onLoad={() => setLoading(false)}
+          // onLoad={() => setLoading(false)}
         />
       </div>
       {/* <h3 className="mt-4 text-sm text-gray-700">{image.name}</h3> */}

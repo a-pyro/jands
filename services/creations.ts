@@ -1,16 +1,17 @@
 import { createServerClient } from '@/app/supabase/server'
 import { CreationType } from '@/app/supabase/types'
 import { cookies } from 'next/headers'
+import { cache } from 'react'
 
-export const getCreations = async (name: CreationType) => {
+export const getCreations = cache(async (name: CreationType) => {
   const cookieStore = cookies()
   const supabase = createServerClient(cookieStore)
   const { data, error } = await supabase.from(name).select('*')
   if (error) throw error
   return data
-}
+})
 
-export const getAllCreations = async () => {
+export const getAllCreations = cache(async () => {
   const aboutPromise = getCreations('about')
   const customizationsPromise = getCreations('customizations')
   const earingsPromise = getCreations('earings')
@@ -39,4 +40,4 @@ export const getAllCreations = async () => {
   } catch (error) {
     throw error
   }
-}
+})

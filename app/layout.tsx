@@ -18,10 +18,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className} bg-logo`}>
         <div className="flex min-h-screen flex-col">
           <Header />
-          <main>{children}</main>
+          <main className="container mx-auto overflow-hidden px-3">
+            {children}
+          </main>
         </div>
         <Footer />
       </body>
