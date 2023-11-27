@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
-import { type ApiCreation } from '@/app/supabase/types'
+import { type ApiCreation } from '@/supabase/types'
 import Link from 'next/link'
 
 interface Props {

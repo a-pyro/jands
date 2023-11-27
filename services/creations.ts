@@ -1,5 +1,5 @@
-import { createServerClient } from '@/app/supabase/server'
-import { type CreationType } from '@/app/supabase/types'
+import { createServerClient } from '@/supabase/server'
+import { type CreationType } from '@/supabase/types'
 import { cookies } from 'next/headers'
 import { cache } from 'react'
 

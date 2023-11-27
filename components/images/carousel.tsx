@@ -1,5 +1,5 @@
 'use client'
-import { type ApiCreation } from '@/app/supabase/types'
+import { type ApiCreation } from '@/supabase/types'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { twMerge } from 'tailwind-merge'

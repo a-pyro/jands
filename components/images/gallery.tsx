@@ -1,5 +1,5 @@
 'use client'
-import { type ApiCreation } from '@/app/supabase/types'
+import { type ApiCreation } from '@/supabase/types'
 import BlurImage from './blur-image'
 // import { NextjsLightbox } from './nextjs-lightbox'
 

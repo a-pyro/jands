@@ -1,6 +1,6 @@
 import Gallery from '@/components/images/gallery'
 import { getCreations } from '../../services/creations'
-import { type CreationType } from '../supabase/types'
+import { type CreationType } from '../../supabase/types'
 
 export default async function CreationPage({
   creationType,
