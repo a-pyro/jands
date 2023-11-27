@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
-      <body className={`${inter.className} bg-logo`}>
+      <body className={`${inter.className}`}>
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="container mx-auto overflow-hidden px-3">

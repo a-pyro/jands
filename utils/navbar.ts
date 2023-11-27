@@ -11,7 +11,7 @@ export const MAIN_NAV_ITEMS: NavItemProps[] = [
   },
   {
     href: '/about',
-    name: 'Su di noi',
+    name: 'About',
   },
   {
     href: '/contact',

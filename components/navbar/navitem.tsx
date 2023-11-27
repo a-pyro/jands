@@ -19,7 +19,6 @@ export default function NavItem({ name, href }: NavItemProps) {
       )}
     >
       {name}
-      {' 🌸 '}
     </Link>
   )
 }

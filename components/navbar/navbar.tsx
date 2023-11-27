@@ -1,5 +1,6 @@
 import { twMerge } from 'tailwind-merge'
 import NavItem, { NavItemProps } from './navitem'
+import Link from 'next/link'
 
 interface Props {
   items: NavItemProps[]
@@ -15,7 +16,11 @@ export default function Navbar({ items, className = '', logo }: Props) {
         className,
       )}
     >
-      {logo}
+      {logo && (
+        <Link className="mr-3" href="/">
+          {logo}
+        </Link>
+      )}
       {items.map((item) => (
         <NavItem key={item.name} {...item} />
       ))}

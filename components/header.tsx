@@ -5,7 +5,7 @@ import { MAIN_NAV_ITEMS } from '@/utils/navbar'
 export default function Header() {
   return (
     <header>
-      <Navbar items={MAIN_NAV_ITEMS} logo={<Logo />} />
+      <Navbar items={MAIN_NAV_ITEMS} logo={<Logo width={50} height={50} />} />
     </header>
   )
 }
