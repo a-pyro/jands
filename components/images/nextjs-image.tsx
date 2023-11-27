@@ -1,10 +1,10 @@
-import Image, { StaticImageData } from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
 import {
-  RenderSlideProps,
+  type RenderSlideProps,
   isImageFitCover,
   useLightboxProps,
   isImageSlide,
-  Slide,
+  type Slide,
 } from 'yet-another-react-lightbox'
 
 function isNextJsImage(slide: Slide): slide is StaticImageData {
