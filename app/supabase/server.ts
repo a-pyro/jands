@@ -3,8 +3,8 @@ import {
   createServerClient as createSupbaseServerClient,
   type CookieOptions,
 } from '@supabase/ssr'
-import { cookies } from 'next/headers'
-import { Database } from './types'
+import { type cookies } from 'next/headers'
+import { type Database } from './types'
 import { SUPABASE_API_URL, SUPABASE_SERVICE_ROLE_KEY } from '.'
 
 export const createServerClient = (cookieStore: ReturnType<typeof cookies>) => {

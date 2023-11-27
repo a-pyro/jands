@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge'
-import NavItem, { NavItemProps } from './navitem'
+import NavItem, { type NavItemProps } from './navitem'
 import Link from 'next/link'
 
 interface Props {
