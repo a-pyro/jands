@@ -26,6 +26,9 @@ const config: Config = {
         info: 'var(--color-info)',
       },
     },
+    container: {
+      center: true,
+    },
   },
   plugins: [],
 }
