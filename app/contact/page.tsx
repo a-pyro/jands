@@ -1,3 +1,5 @@
+import ContactFrom from '@/components/contact-from'
+
 export default function Contact() {
-  return <div>contact</div>
+  return <ContactFrom />
 }
