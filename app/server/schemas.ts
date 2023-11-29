@@ -6,4 +6,5 @@ export const contactFormSchema = z.object({
   name: z.string().min(1, { message: ERROR_REQUIRED }),
   replyTo: z.string().min(1, { message: ERROR_REQUIRED }).email(),
   message: z.string().min(1, { message: ERROR_REQUIRED }),
+  captchaToken: z.string().min(1, { message: ERROR_REQUIRED }),
 })

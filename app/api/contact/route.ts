@@ -9,9 +9,19 @@ const from = process.env.SENDGRID_FROM_EMAIL ?? ''
 
 sgMail.setApiKey(SENDGRID_API_KEY)
 
-export async function POST(request: Request) {
+export async function POST(request: Request, response: Response) {
   const data = contactFormSchema.parse(await request.json())
-  const { name, replyTo, message } = data
+  const { name, replyTo, message, captchaToken } = data
+
+  const captchaResult = await varifyCaptcha(captchaToken)
+
+  if (captchaResult !== 'success') {
+    const response = {
+      error: 'Captcha verification failed',
+    }
+    return NextResponse.json(response, { status: 400 })
+  }
+
   const msg = {
     to,
     from,
@@ -30,4 +40,14 @@ export async function POST(request: Request) {
     })
 
   return NextResponse.json({ response: data })
+}
+
+export const varifyCaptcha = async (token: string) => {
+  const secret = process.env.RECAPTCHA_SECRET_KEY ?? ''
+  const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`
+  const res = await fetch(url, { method: 'POST' })
+  if (res.ok) {
+    console.log('Captcha verification success')
+    return 'success'
+  } else throw new Error('Captcha verification failed')
 }

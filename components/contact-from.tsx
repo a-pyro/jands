@@ -1,14 +1,28 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { type RefObject, useRef, useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
+
+export type ContactForm = {
+  name: string
+  replyTo: string
+  message: string
+  captchaToken: string
+}
+
+const initForm: ContactForm = {
+  name: '',
+  replyTo: '',
+  message: '',
+  captchaToken: '',
+}
+
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''
 
 const ContactFrom = () => {
-  const [form, setForm] = useState({
-    name: '',
-    replyTo: '',
-    message: '',
-  })
+  const [form, setForm] = useState<ContactForm>({ ...initForm })
+  const recaptcha: RefObject<ReCAPTCHA> = useRef(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -16,29 +30,27 @@ const ContactFrom = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
-    const { name, replyTo, message } = form
 
-    if (!name || !replyTo || !message) {
+    if (Object.values(form).some((v) => v === '')) {
       setError('Compila tutti i campi')
       setLoading(false)
       return
     }
 
-    const response = await fetch('/api/email', {
+    const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, replyTo, message }),
+      body: JSON.stringify(form),
     })
 
     if (response.ok) {
       setSuccess(true)
       setForm({
-        name: '',
-        replyTo: '',
-        message: '',
+        ...initForm,
       })
+      recaptcha?.current?.reset()
     } else {
       setError('Qualcosa è andato storto')
     }
@@ -54,6 +66,13 @@ const ContactFrom = () => {
       ...form,
       [e.target.name]: e.target.value,
     })
+  }
+
+  const onCaptchaChange = (token: string | null) => {
+    // Set the captcha token when the user completes the reCAPTCHA
+    if (token) {
+      form.captchaToken = token
+    }
   }
 
   return (
@@ -129,6 +148,13 @@ const ContactFrom = () => {
           >
             {loading ? 'Invio...' : 'Invia'}
           </button>
+
+          <ReCAPTCHA
+            size="normal"
+            sitekey={RECAPTCHA_SITE_KEY}
+            onChange={onCaptchaChange}
+            ref={recaptcha}
+          />
         </form>
       )}
     </div>
