@@ -1,5 +1,6 @@
 'use server'
 import { contactFormSchema } from '@/app/server/schemas'
+import { varifyCaptcha } from '@/services/recaptcha'
 import sgMail from '@sendgrid/mail'
 import { NextResponse } from 'next/server'
 
@@ -9,10 +10,9 @@ const from = process.env.SENDGRID_FROM_EMAIL ?? ''
 
 sgMail.setApiKey(SENDGRID_API_KEY)
 
-export async function POST(request: Request, response: Response) {
+export async function POST(request: Request) {
   const data = contactFormSchema.parse(await request.json())
   const { name, replyTo, message, captchaToken } = data
-
   const captchaResult = await varifyCaptcha(captchaToken)
 
   if (captchaResult !== 'success') {
@@ -40,14 +40,4 @@ export async function POST(request: Request, response: Response) {
     })
 
   return NextResponse.json({ response: data })
-}
-
-export const varifyCaptcha = async (token: string) => {
-  const secret = process.env.RECAPTCHA_SECRET_KEY ?? ''
-  const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`
-  const res = await fetch(url, { method: 'POST' })
-  if (res.ok) {
-    console.log('Captcha verification success')
-    return 'success'
-  } else throw new Error('Captcha verification failed')
 }
