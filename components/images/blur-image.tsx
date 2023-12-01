@@ -29,8 +29,6 @@ export default function BlurImage({ image }: Props) {
         )}
         // onLoad={() => setLoading(false)}
       />
-      {/* <h3 className="mt-4 text-sm text-gray-700">{image.name}</h3> */}
-      {/* <p className="mt-1 text-lg font-medium text-gray-900">{image.username}</p> */}
     </Link>
   )
 }

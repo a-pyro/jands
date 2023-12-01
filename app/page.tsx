@@ -1,5 +1,4 @@
 import Gallery from '@/components/images/gallery'
-// import { getAllCreations } from '../services/creations'
 
 import getResults from '@/utils/cached-images'
 
