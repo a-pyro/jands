@@ -7,7 +7,7 @@ interface Props {
   height?: number
 }
 
-const Logo = ({ className = '', width = 100, height = 100 }: Props) => {
+const Logo = ({ className = '', width = 50, height = 50 }: Props) => {
   return (
     <Image
       src={logo}

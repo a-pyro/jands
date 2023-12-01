@@ -1,7 +1,14 @@
 import { type CreationType } from '@/supabase/types'
 import cloudinary, { type CloudinaryResults } from './cloudinary'
 
-let cachedResults: CloudinaryResults
+const cachedResults: { [K in CreationType]?: CloudinaryResults } = {
+  about: undefined,
+  customizations: undefined,
+  earings: undefined,
+  necklaces: undefined,
+  rings: undefined,
+  everythingelse: undefined,
+}
 
 export default async function getResults({
   folderName,
@@ -9,18 +16,24 @@ export default async function getResults({
   folderName: CreationType
 }) {
   try {
-    if (!cachedResults) {
+    if (!cachedResults[folderName]) {
       const fetchedResults = (await cloudinary.v2.search
         .expression(`folder:jands/${folderName}/*`)
         .sort_by('public_id', 'desc')
         .execute()) as CloudinaryResults
 
-      console.log('fetchedResults:', fetchedResults)
+      console.log(`
+        Fetched ${folderName} from Cloudinary
+        Rate limit remaining: ${fetchedResults.rate_limit_remaining}
+        Rate limit allowed: ${fetchedResults.rate_limit_allowed}
+        Rate limit reset at: ${fetchedResults.rate_limit_reset_at}
+        Total count: ${fetchedResults.total_count}
+      `)
 
-      cachedResults = fetchedResults
+      cachedResults[folderName] = fetchedResults
     }
 
-    return cachedResults
+    return cachedResults[folderName]
   } catch (error) {
     console.log('Error:', error)
     throw error
