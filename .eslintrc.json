@@ -2,12 +2,15 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": true
+    // "sourceType": "module"
   },
   "plugins": ["@typescript-eslint"],
   "extends": [
     "plugin:@next/next/recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked"
+    // "simple-import-sort",
+    // "sort-keys"
   ],
   "rules": {
     // These opinionated rules are enabled in stylistic-type-checked above.
@@ -22,6 +25,7 @@
         "fixStyle": "inline-type-imports"
       }
     ],
+
     "@typescript-eslint/no-unused-vars": [
       "warn",
       { "argsIgnorePattern": "^_" }
@@ -34,7 +38,8 @@
       }
     ]
     // "simple-import-sort/imports": "error",
-    // "simple-import-sort/exports": "error"
-    // https://engineering.udacity.com/sorting-imports-on-save-in-react-projects-with-eslint-6fd419b994c3
+    // "simple-import-sort/exports": "error",,
+    // "sort-keys": 0, // disable default eslint sort-keys
+    // "sort-keys/sort-keys-fix": 1
   }
 }
