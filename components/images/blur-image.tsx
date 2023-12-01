@@ -1,22 +1,23 @@
 'use client'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
-import { type ApiCreation } from '@/supabase/types'
 import Link from 'next/link'
+import { type CloudinaryImage } from '@/utils/cloudinary'
 
-interface Props {
-  creation: ApiCreation
-  onClick?: () => void
+type Props = {
+  image: CloudinaryImage
+  // onClick: () => void
 }
-export default function BlurImage({ creation, onClick }: Props) {
+
+export default function BlurImage({ image }: Props) {
   // const [isLoading, setLoading] = useState(true)
 
   return (
     <Link href={'#'} className="group">
       <Image
-        onClick={onClick}
-        alt={`${creation.id} picture`}
-        src={creation.src}
+        // onClick={onClick}
+        alt={`${image.public_id} picture`}
+        src={image.secure_url}
         priority={true}
         width={600}
         height={600}

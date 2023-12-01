@@ -1,8 +1,14 @@
-// import Gallery from '@/components/images/gallery'
+import Gallery from '@/components/images/gallery'
 // import { getAllCreations } from '../services/creations'
 
-export default async function Home() {
-  // const data = await getAllCreations()
+import getResults from '@/utils/cached-images'
 
-  return <div className="pt-10">{/* <Gallery creations={data ?? []} /> */}</div>
+export default async function Home() {
+  const { resources } = await getResults({ folderName: 'about' })
+
+  return (
+    <div className="pt-10">
+      <Gallery images={resources ?? []} />
+    </div>
+  )
 }

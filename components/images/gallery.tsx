@@ -1,13 +1,16 @@
 'use client'
-import { type ApiCreation } from '@/supabase/types'
 import BlurImage from './blur-image'
+import { type CloudinaryImage } from '@/utils/cloudinary'
 // import { NextjsLightbox } from './nextjs-lightbox'
 
-export default function Gallery({ creations }: { creations: ApiCreation[] }) {
+interface Props {
+  images: CloudinaryImage[]
+}
+export default function Gallery({ images }: Props) {
   return (
     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-      {creations.map((creation) => (
-        <BlurImage key={creation.id} creation={creation} />
+      {images.map((image) => (
+        <BlurImage key={image.public_id} image={image} />
       ))}
     </div>
   )
