@@ -12,16 +12,14 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children, // children,
+  children,
 }: {
   children: React.ReactNode
 }) {
   return (
     <html lang="it">
       <body className={`${inter.className}`}>
-        <h2 className="mb-8 mt-4 text-center text-2xl font-bold">
-          'down for now - back soon'
-        </h2>
+        <h2 className="mb-8 mt-4 text-center text-2xl font-bold"></h2>
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="container overflow-hidden px-3">{children}</main>
