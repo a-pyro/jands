@@ -77,8 +77,8 @@ const ContactFrom = () => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center">
-      <h1 className="mb-5 text-left text-2xl font-bold">Contattaci</h1>
+    <div className="flex min-h-screen flex-col items-start ">
+      <h1 className="mb-5 self-start text-3xl font-bold">Contattaci</h1>
 
       {error && <p className="text-danger">{error}</p>}
       {success ? (
@@ -86,20 +86,13 @@ const ContactFrom = () => {
           <p className="text-success">
             Il tuo messaggio è stato inviato con successo!
           </p>
-          <Link
-            href="/contact"
-            className="mt-6focus:shadow-outline  bg-blue-500 px-4 py-2
-            text-center font-bold text-white hover:bg-blue-700 focus:outline-secondary"
-          >
-            Invia un altro messaggio
-          </Link>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="w-full max-w-md">
           <div className="mb-4">
             <label
               htmlFor="name"
-              className="mb-2 block text-sm font-bold text-gray-700"
+              className="mb-2 block text-base font-bold text-gray-700"
             >
               Nome:
             </label>
@@ -114,7 +107,7 @@ const ContactFrom = () => {
           <div className="mb-4">
             <label
               htmlFor="replyTo"
-              className="mb-2 block text-sm font-bold text-gray-700"
+              className="mb-2 block text-base font-bold text-gray-700"
             >
               Email:
             </label>
@@ -129,7 +122,7 @@ const ContactFrom = () => {
           <div className="mb-6">
             <label
               htmlFor="message"
-              className="mb-2 block text-sm font-bold text-gray-700"
+              className="mb-2 block text-base font-bold text-gray-700"
             >
               Messaggio:
             </label>
