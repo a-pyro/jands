@@ -10,9 +10,9 @@ export default async function CreationPage({
   const result = await getResults({ folderName: creationType })
 
   return (
-    <>
-      <h1 className="mb-5">{creationType}</h1>
+    <div className="flex flex-col">
+      <h1>{creationType}</h1>
       <Gallery images={result?.resources ?? []} />
-    </>
+    </div>
   )
 }

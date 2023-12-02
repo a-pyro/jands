@@ -1,7 +1,7 @@
-import { twMerge } from 'tailwind-merge'
+import SharedLayout from '../_shared/shared-layout'
 
-const CreationsLayout = ({ children }: { children: React.ReactNode }) => {
-  return <div className={twMerge('mt-10 flex flex-col')}>{children}</div>
-}
+const CreationsLayout = ({ children }: { children: React.ReactNode }) => (
+  <SharedLayout>{children}</SharedLayout>
+)
 
 export default CreationsLayout
