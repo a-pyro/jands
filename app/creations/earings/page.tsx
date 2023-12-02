@@ -1,4 +1,4 @@
-import CreationPage from '../creation-page'
+import CreationPage from '../../_shared/shared-page'
 
 export default function Page() {
   return <CreationPage creationType="earings" />

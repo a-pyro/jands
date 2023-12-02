@@ -1,15 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    typedRoutes: true,
+  },
   images: {
     remotePatterns: [
       {
         hostname: 'uvogrrsrsvbxweesxnho.supabase.co',
         protocol: 'https',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/a-pyro/**',
+      },
     ],
   },
+  productionBrowserSourceMaps: false,
 }
 
 module.exports = nextConfig
-// https://uvogrrsrsvbxweesxnho.supabase.co/storage/v1/object/public/allpic/1000024474.jpg

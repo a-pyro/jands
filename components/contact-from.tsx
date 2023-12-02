@@ -1,8 +1,8 @@
 'use client'
 
+import ReCAPTCHA from 'react-google-recaptcha'
 import Link from 'next/link'
 import { type RefObject, useRef, useState } from 'react'
-import ReCAPTCHA from 'react-google-recaptcha'
 
 export type ContactForm = {
   name: string
