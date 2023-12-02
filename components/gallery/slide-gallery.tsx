@@ -33,14 +33,19 @@ const SlideGallery = ({
       >
         {images.map((image, index) => (
           <div key={index} className="w-56 flex-none md:w-1/4">
-            <Image
+            <Link
               draggable={false}
-              src={image.secure_url}
-              alt={image.public_id}
-              className="h-full w-full overflow-hidden object-cover transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer"
-              width={500}
-              height={500}
-            />
+              href={`/creations/${encodeURIComponent(image.secure_url)}`}
+            >
+              <Image
+                draggable={false}
+                src={image.secure_url}
+                alt={image.public_id}
+                className="h-full w-full overflow-hidden object-cover transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer"
+                width={500}
+                height={500}
+              />
+            </Link>
           </div>
         ))}
       </div>
