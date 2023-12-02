@@ -1,9 +1,8 @@
 'use client'
-
 import ReCAPTCHA from 'react-google-recaptcha'
-import Link from 'next/link'
 import { type RefObject, useRef, useState } from 'react'
 import Button from './buttons/button'
+import { twMerge, type ClassNameValue } from 'tailwind-merge'
 
 export type ContactForm = {
   name: string
@@ -21,7 +20,7 @@ const initForm: ContactForm = {
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''
 
-const ContactFrom = () => {
+const ContactForm = ({ className = '' }: { className?: ClassNameValue }) => {
   const [form, setForm] = useState<ContactForm>({ ...initForm })
   const recaptcha: RefObject<ReCAPTCHA> = useRef(null)
   const [error, setError] = useState('')
@@ -77,8 +76,8 @@ const ContactFrom = () => {
   }
 
   return (
-    <div className="flex min-h-screen  justify-center">
-      <div className="w-full max-w-md">
+    <div className={twMerge('flex min-h-screen justify-center', className)}>
+      <div className="w-full max-w-lg">
         <h1 className="mb-5 text-3xl font-bold">Contattaci</h1>
 
         {error && <p className="text-danger">{error}</p>}
@@ -156,4 +155,4 @@ const ContactFrom = () => {
   )
 }
 
-export default ContactFrom
+export default ContactForm
