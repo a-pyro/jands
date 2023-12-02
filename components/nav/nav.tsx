@@ -1,61 +1,46 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import { twMerge } from 'tailwind-merge'
 import NavItem from './navitem'
-import NavIcon from '../icons/nav-icon'
 import { type Route } from 'next'
 
 interface Props {
   className?: string
+  isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
 }
 
-export default function Nav({ className = '' }: Props) {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggleMenu = () => {
-    document.body.classList.toggle('overflow-hidden')
-    setIsOpen(!isOpen)
-  }
-
+export default function Nav({ className = '', isOpen, setIsOpen }: Props) {
   return (
     <nav
       className={twMerge(
-        'flex flex-row items-center justify-between',
+        'fixed inset-0 z-10 flex h-[100dvh] w-screen transform flex-col items-center justify-center gap-20 overflow-hidden bg-secondary bg-opacity-50 transition-all duration-300 ease-in-out',
+        isOpen
+          ? 'pointer-events-auto translate-y-0'
+          : 'pointer-events-none -translate-y-full',
         className,
       )}
     >
-      <button onClick={toggleMenu} className="fixed right-5 top-5 z-20">
-        <NavIcon isOpen={isOpen} />
-      </button>
-      <div
-        className={twMerge(
-          'fixed inset-0 z-10 flex h-[100dvh] w-screen transform flex-col items-center justify-center gap-20 overflow-hidden bg-secondary bg-opacity-50 transition-all duration-300 ease-in-out',
-          isOpen
-            ? 'pointer-events-auto translate-y-0'
-            : 'pointer-events-none -translate-y-full',
-        )}
-      >
-        <div className="flex flex-col items-center justify-center gap-1">
-          {MAIN_NAV_ITEMS.map((item) => (
-            <NavItem
-              key={item.route}
-              {...item}
-              className="text-2xl  md:text-3xl lg:text-5xl"
-              onClick={() => setIsOpen(false)}
-            />
-          ))}
-        </div>
+      <div className="flex flex-col items-center justify-center gap-1 pt-20">
+        {MAIN_NAV_ITEMS.map((item) => (
+          <NavItem
+            key={item.route}
+            {...item}
+            className="text-2xl  md:text-3xl lg:text-5xl"
+            onClick={() => setIsOpen(false)}
+          />
+        ))}
+      </div>
 
-        <div className="flex flex-col items-center justify-center ">
-          {EXTRA_NAV_ITEMS.map((item) => (
-            <NavItem
-              key={item.route}
-              {...item}
-              className="text-lg transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
-              onClick={() => setIsOpen(false)}
-            />
-          ))}
-        </div>
+      <div className="flex flex-col items-center justify-center ">
+        {EXTRA_NAV_ITEMS.map((item) => (
+          <NavItem
+            key={item.route}
+            {...item}
+            className="text-lg transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
+            onClick={() => setIsOpen(false)}
+          />
+        ))}
       </div>
     </nav>
   )
