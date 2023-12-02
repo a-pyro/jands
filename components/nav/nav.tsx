@@ -26,7 +26,7 @@ export default function Nav({ className = '' }: Props) {
       </button>
       <div
         className={twMerge(
-          'fixed inset-0 z-10 flex transform items-center justify-center bg-black bg-opacity-50 transition-all duration-1000 ease-in-out',
+          'fixed inset-0 z-10 flex transform flex-col items-center justify-center gap-4 bg-secondary bg-opacity-50 transition-all duration-1000 ease-in-out',
           isOpen
             ? 'pointer-events-auto translate-y-0'
             : 'pointer-events-none -translate-y-full',
@@ -42,8 +42,25 @@ export default function Nav({ className = '' }: Props) {
 
 export const MAIN_NAV_ITEMS: NavItemProps<string>[] = [
   {
-    route: '/creations',
-    name: 'Creazioni',
+    route: '/creations/earings',
+    name: 'Orecchini',
+  },
+
+  {
+    route: '/creations/necklaces',
+    name: 'Collane',
+  },
+  {
+    route: '/creations/rings',
+    name: 'Anelli',
+  },
+  {
+    route: '/creations/customizations',
+    name: 'Personalizzazioni',
+  },
+  {
+    route: '/creations/everythingelse',
+    name: 'Altro',
   },
   {
     route: '/about',
@@ -55,25 +72,4 @@ export const MAIN_NAV_ITEMS: NavItemProps<string>[] = [
   },
 ]
 
-export const CREATIONS_NAV_ITEMS: NavItemProps<string>[] = [
-  {
-    route: '/creations/customizations',
-    name: 'Personalizzazioni',
-  },
-  {
-    route: '/creations/earings',
-    name: 'Orecchini',
-  },
-  {
-    route: '/creations/everythingelse',
-    name: 'Altro',
-  },
-  {
-    route: '/creations/necklaces',
-    name: 'Collane',
-  },
-  {
-    route: '/creations/rings',
-    name: 'Anelli',
-  },
-]
+export const CREATIONS_NAV_ITEMS: NavItemProps<string>[] = []
