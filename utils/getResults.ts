@@ -1,7 +1,7 @@
 import { type CreationType } from '@/supabase/types'
 import cloudinary, { type CloudinaryResults } from './cloudinary'
 
-const cachedResults: { [K in CreationType]?: CloudinaryResults } = {
+const cachedResults: { [K in CreationType | 'about']?: CloudinaryResults } = {
   about: undefined,
   customizations: undefined,
   earings: undefined,
@@ -35,7 +35,6 @@ export default async function getResults({
 
       cachedResults[folderName] = fetchedResults
     }
-
     return cachedResults[folderName]
   } catch (error) {
     console.log('Error:', error)

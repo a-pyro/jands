@@ -1,5 +1,5 @@
-import ContactFrom from '@/components/contact-from'
+import ContactForm from '@/components/contact-form'
 
 export default function Contact() {
-  return <ContactFrom />
+  return <ContactForm />
 }

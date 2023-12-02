@@ -10,8 +10,8 @@ type Props = {
 export default function BlurImage({ image }: Props) {
   return (
     <Link
+      className="overflow-hidden"
       href={`/creations/${encodeURIComponent(image.secure_url)}`}
-      className="group"
     >
       <Image
         alt={`${image.public_id} picture`}
@@ -19,7 +19,7 @@ export default function BlurImage({ image }: Props) {
         width={600}
         height={600}
         className={twMerge(
-          'image-view-transition rounded-lg duration-700 ease-in-out group-hover:opacity-75',
+          'image-view-transition  duration-300 ease-in-out hover:scale-105 hover:cursor-pointer ',
         )}
       />
     </Link>

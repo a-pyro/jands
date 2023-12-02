@@ -5,20 +5,22 @@ import { ALL_CREATIONS_TYPES } from '@/supabase/types'
 import getResults from '@/utils/getResults'
 
 export default async function Home() {
-  const promises = ALL_CREATIONS_TYPES.map((type) =>
-    getResults({ folderName: type, limit: 5 }),
+  const results = await Promise.all(
+    ALL_CREATIONS_TYPES.map((folder) =>
+      getResults({ folderName: folder, limit: 4 }),
+    ),
   )
-  const results = await Promise.all(promises)
 
   return (
     <ScrollAdaptiveWrapper className="flex flex-col gap-20">
       {results.map((result, index) => (
         <SlideGallery
-          key={result?.resources[index]?.public_id}
+          key={ALL_CREATIONS_TYPES[index]}
           images={result?.resources ?? []}
-          name={'Banane'}
-          route="/"
-          title="Banane"
+          name={ALL_CREATIONS_TYPES[index]}
+          route={`/creations/${ALL_CREATIONS_TYPES[index]}`}
+          title={ALL_CREATIONS_TYPES[index]}
+          totalCount={result?.total_count ?? 0}
         />
       ))}
     </ScrollAdaptiveWrapper>

@@ -136,12 +136,11 @@ export interface Database {
 export type ApiCreation = Database['public']['Tables']['about']['Row']
 
 export const ALL_CREATIONS_TYPES = [
-  'about',
-  'customizations',
-  'earings',
-  'everythingelse',
   'necklaces',
   'rings',
+  'earings',
+  'customizations',
+  'everythingelse',
 ] as const
 
 export type CreationType = (typeof ALL_CREATIONS_TYPES)[number]
