@@ -16,7 +16,7 @@
   --color-dark: rgb(25, 28, 38);
   --color-light: rgb(226, 222, 231);
   --color-info: rgb(25, 28, 38);
-  --logo-color: rgb(225, 222, 230);
+  --color-logo: rgb(225, 222, 230);
 }
 /* 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +29,7 @@
 
 body {
   color: var(--color-dark);
-  background: var(--logo-color);
+  background: var(--color-logo);
   /* background: linear-gradient(
       to bottom,
       transparent,

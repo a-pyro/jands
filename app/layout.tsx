@@ -19,8 +19,7 @@ export default function RootLayout({
   return (
     <html lang="it">
       <body className={`${inter.className}`}>
-        <h2 className="mb-8 mt-4 text-center text-2xl font-bold"></h2>
-        <div className="flex min-h-screen flex-col">
+        <div className="flex min-h-[100dvh] flex-col">
           <Header />
           <main className="container overflow-hidden px-3">{children}</main>
         </div>

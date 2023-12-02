@@ -1,5 +1,5 @@
 import { CREATIONS_NAV_ITEMS } from '@/utils/navbar'
-import Navbar from '@/components/navbar/navbar'
+import Navbar from '@/components/nav/nav'
 import { twMerge } from 'tailwind-merge'
 
 const CreationsLayout = ({ children }: { children: React.ReactNode }) => {

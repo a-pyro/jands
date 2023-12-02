@@ -1,4 +1,4 @@
-import { type NavItemProps } from '@/components/navbar/navitem'
+import { type NavItemProps } from '@/components/nav/navitem'
 
 export const MAIN_NAV_ITEMS: NavItemProps<string>[] = [
   {
