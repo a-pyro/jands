@@ -1,4 +1,4 @@
-import Gallery from '@/components/images/gallery'
+import Gallery from '@/components/gallery/gallery'
 import ScrollAdaptiveWrapper from '@/components/scroll-adaptive-wrapper'
 
 import getResults from '@/utils/getResults'
