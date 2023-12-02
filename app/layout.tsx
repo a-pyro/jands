@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="it">
       <body className={`${prata.className}`}>
-        <div className="flex min-h-[100dvh] flex-col">
+        <div className="flex min-h-[100dvh] flex-col overflow-hidden">
           <Header />
           <main>{children}</main>
         </div>

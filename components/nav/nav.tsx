@@ -13,6 +13,7 @@ export default function Nav({ className = '' }: Props) {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
+    document.body.classList.toggle('overflow-hidden')
     setIsOpen(!isOpen)
   }
 
@@ -49,7 +50,7 @@ export default function Nav({ className = '' }: Props) {
             <NavItem
               key={item.route}
               {...item}
-              className="text-xl transition-colors hover:skew-x-[-10deg] hover:text-logo"
+              className="text-lg transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
               onClick={() => setIsOpen(false)}
             />
           ))}

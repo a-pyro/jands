@@ -10,7 +10,7 @@ const NavIcon = ({ isOpen }: { isOpen: boolean }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={`h-14 w-14 font-thin ${
+          className={`h-10 w-10 font-thin ${
             isOpen ? 'text-primary' : 'text-black'
           }`}
         >
@@ -27,7 +27,7 @@ const NavIcon = ({ isOpen }: { isOpen: boolean }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={`h-14 w-14 cursor-pointer font-thin ${
+          className={`h-10 w-10 cursor-pointer font-thin ${
             isOpen ? 'text-primary' : 'text-black'
           }`}
         >

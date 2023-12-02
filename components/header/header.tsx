@@ -14,10 +14,10 @@ export default function Header() {
         'fixed top-0 z-50 mx-auto flex w-full items-center justify-center bg-logo py-6',
       )}
     >
-      <Nav className="fixed left-5 top-5" />
       <Link href="/">
         <Logo width={logoSize} height={logoSize} />
       </Link>
+      <Nav className="fixed right-5 top-5" />
     </header>
   )
 }
