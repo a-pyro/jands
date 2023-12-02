@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import infinity from '../../public/infinity-spinner.svg'
 import { type StaticImport } from 'next/dist/shared/lib/get-img-props'
-export const LoadingSpinner = () => {
+export const LoadingScreen = () => {
   return (
     <div className="flex h-screen items-center justify-center">
       <Image
