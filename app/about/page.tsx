@@ -1,3 +1,5 @@
+import CreationPage from '../_shared/shared-page'
+
 export default function About() {
-  return <div>about</div>
-} // Path: app/about/page.tsx
+  return <CreationPage creationType="about" />
+}

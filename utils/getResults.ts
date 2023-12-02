@@ -14,7 +14,7 @@ export default async function getResults({
   folderName,
   limit = 4,
 }: {
-  folderName: CreationType
+  folderName: CreationType | 'about'
   limit?: number
 }) {
   try {

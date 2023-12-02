@@ -5,7 +5,7 @@ import getResults from '@/utils/getResults'
 export default async function CreationPage({
   creationType,
 }: {
-  creationType: CreationType
+  creationType: CreationType | 'about'
 }) {
   const result = await getResults({ folderName: creationType })
 
