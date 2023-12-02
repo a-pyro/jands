@@ -10,7 +10,7 @@ export default function Page({ params: { url } }: { params: { url: string } }) {
       priority={true}
       width={1200}
       height={1200}
-      className={twMerge('image-view-transition rounded-lg duration-700')}
+      className={twMerge('image-view-transition mt-10 rounded-lg')}
     />
   )
 }
