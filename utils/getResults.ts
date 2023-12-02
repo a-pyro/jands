@@ -12,12 +12,15 @@ const cachedResults: { [K in CreationType]?: CloudinaryResults } = {
 
 export default async function getResults({
   folderName,
+  limit = 4,
 }: {
   folderName: CreationType
+  limit?: number
 }) {
   try {
     if (!cachedResults[folderName]) {
       const fetchedResults = (await cloudinary.v2.search
+        .max_results(limit)
         .expression(`folder:jands/${folderName}/*`)
         .sort_by('public_id', 'desc')
         .execute()) as CloudinaryResults
