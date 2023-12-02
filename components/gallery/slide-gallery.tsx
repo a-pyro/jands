@@ -41,7 +41,7 @@ const SlideGallery = ({
               draggable={false}
               src={image.secure_url}
               alt={image.public_id}
-              className="h-full w-full overflow-hidden object-cover transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-grab"
+              className="h-full w-full overflow-hidden object-cover transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer"
               width={500}
               height={500}
             />
