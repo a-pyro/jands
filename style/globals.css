@@ -14,7 +14,7 @@
   --color-danger: rgb(180, 25, 14);
   --color-success: rgb(77, 137, 101);
   --color-dark: rgb(25, 28, 38);
-  --color-light: rgb(226, 222, 231);
+  --color-light: rgb(245, 245, 245);
   --color-info: rgb(25, 28, 38);
   --color-logo: rgb(225, 222, 230);
 }
@@ -29,7 +29,7 @@
 
 body {
   color: var(--color-dark);
-  background: var(--color-logo);
+  background: var(--color-light);
   /* background: linear-gradient(
       to bottom,
       transparent,

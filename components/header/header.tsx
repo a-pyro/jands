@@ -11,13 +11,13 @@ export default function Header() {
   return (
     <header
       className={twMerge(
-        'fixed top-0 z-50 mx-auto flex w-full items-center justify-center bg-logo py-6',
+        'fixed top-0 z-10 mx-auto flex w-full items-center justify-center py-6',
       )}
     >
-      <Nav className="fixed left-5 top-5" />
-      <Link href="/">
+      <Link className="z-50" href="/">
         <Logo width={logoSize} height={logoSize} />
       </Link>
+      <Nav />
     </header>
   )
 }

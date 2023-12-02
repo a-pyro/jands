@@ -11,15 +11,16 @@ interface Props extends GalleryProps, NavItemConfig {
 }
 
 const SlideGallery = ({ images, name, route, title, className }: Props) => {
-  console.log('🚀 ~ SlideGallery ~ name:', name)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
+  const [startY, setStartY] = useState(0)
   const [scrollLeft, setScrollLeft] = useState(0)
   const sliderRef = useRef<HTMLDivElement>(null)
 
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     setIsDragging(true)
     setStartX(e.pageX - (sliderRef.current?.offsetLeft ?? 0))
+    setStartY(e.pageY)
     setScrollLeft(sliderRef.current?.scrollLeft ?? 0)
   }
 
@@ -27,7 +28,17 @@ const SlideGallery = ({ images, name, route, title, className }: Props) => {
     if (!isDragging) return
     e.preventDefault()
     const x = e.pageX - (sliderRef.current?.offsetLeft ?? 0)
-    const walk = (x - startX) * 3 // scroll-fast
+    const y = e.pageY
+
+    // Calcola la differenza tra la posizione Y iniziale e la posizione Y attuale
+    const diffY = Math.abs(y - startY)
+
+    // Se la differenza è maggiore di un certo valore, l'utente sta probabilmente cercando di scorrere la pagina, quindi interrompi l'esecuzione della funzione
+    if (diffY > 10) {
+      return
+    }
+
+    const walk = (x - startX) * 1 // scroll-fast
     sliderRef.current!.scrollLeft = scrollLeft - walk
   }
 
@@ -44,12 +55,13 @@ const SlideGallery = ({ images, name, route, title, className }: Props) => {
         </button>
       </div>
       <div
-        className="scrollbar-hide flex gap-3 overflow-x-auto"
+        className="scrollbar-hide flex gap-3 overflow-x-auto overflow-y-hidden"
         ref={sliderRef}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerLeave={handlePointerUp}
+        draggable={false}
       >
         {images.map((image, index) => (
           <div key={index} className="w-56 flex-none">

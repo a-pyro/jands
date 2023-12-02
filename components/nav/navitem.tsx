@@ -17,7 +17,7 @@ export default function NavItem({
     <Link
       href={route}
       className={twMerge(
-        'transform text-5xl text-primary transition-transform hover:skew-x-12',
+        'transform text-primary transition-transform hover:skew-x-12',
         className,
       )}
       target={route.startsWith('http') ? '_blank' : undefined}
