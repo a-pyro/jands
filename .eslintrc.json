@@ -40,6 +40,9 @@
     // "simple-import-sort/imports": "error",
     // "simple-import-sort/exports": "error",,
     // "sort-keys": 0, // disable default eslint sort-keys
-    // "sort-keys/sort-keys-fix": 1
+    // "sort-keys/sort-keys-fix": 1,
+    // ...
+    // "ignorePatterns": ["next.config.js"]
+    // ...
   }
 }

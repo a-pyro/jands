@@ -40,7 +40,7 @@ export default function BlurImage({ image }: Props) {
         width={600}
         height={600}
         className={twMerge(
-          'blur-img rounded-lg duration-700 ease-in-out group-hover:opacity-75',
+          'image-view-transition rounded-lg duration-700 ease-in-out group-hover:opacity-75',
           // isLoading
           //   ? 'scale-110 blur-2xl grayscale'
           //   : 'scale-100 blur-0 grayscale-0',

@@ -14,7 +14,7 @@ export default function Page({ params: { url } }: { params: { url: string } }) {
       width={1200}
       height={1200}
       className={twMerge(
-        'blur-img rounded-lg duration-700 ease-in-out group-hover:opacity-75',
+        'image-view-transition rounded-lg duration-700 ease-in-out group-hover:opacity-75',
         // isLoading
         //   ? 'scale-110 blur-2xl grayscale'
         //   : 'scale-100 blur-0 grayscale-0',

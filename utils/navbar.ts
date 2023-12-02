@@ -2,42 +2,42 @@ import { type NavItemProps } from '@/components/navbar/navitem'
 
 export const MAIN_NAV_ITEMS: NavItemProps[] = [
   {
-    href: '/',
+    route: '/creations',
     name: 'Home',
   },
   {
-    href: '/creations',
+    route: '/creations',
     name: 'Creazioni',
   },
   {
-    href: '/about',
+    route: '/about',
     name: 'About',
   },
   {
-    href: '/contact',
+    route: '/contact',
     name: 'Contatti',
   },
 ]
 
 export const CREATIONS_NAV_ITEMS: NavItemProps[] = [
   {
-    href: '/creations/customizations',
+    route: '/creations/customizations',
     name: 'Personalizzazioni',
   },
   {
-    href: '/creations/earings',
+    route: '/creations/earings',
     name: 'Orecchini',
   },
   {
-    href: '/creations/everythingelse',
+    route: '/creations/everythingelse',
     name: 'Altro',
   },
   {
-    href: '/creations/necklaces',
+    route: '/creations/necklaces',
     name: 'Collane',
   },
   {
-    href: '/creations/rings',
+    route: '/creations/rings',
     name: 'Anelli',
   },
 ]
