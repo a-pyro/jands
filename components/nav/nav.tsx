@@ -4,7 +4,6 @@ import { twMerge } from 'tailwind-merge'
 import NavItem from './navitem'
 import NavIcon from '../icons/nav-icon'
 import { type Route } from 'next'
-import Logo from '../logo'
 
 interface Props {
   className?: string
@@ -30,14 +29,12 @@ export default function Nav({ className = '' }: Props) {
       </button>
       <div
         className={twMerge(
-          'fixed inset-0 z-10 flex transform flex-col items-center justify-center gap-20 bg-secondary bg-opacity-50 transition-all duration-300 ease-in-out',
+          'fixed inset-0 z-10 flex h-[100dvh] w-screen transform flex-col items-center justify-center gap-20 overflow-hidden bg-secondary bg-opacity-50 transition-all duration-300 ease-in-out',
           isOpen
             ? 'pointer-events-auto translate-y-0'
             : 'pointer-events-none -translate-y-full',
         )}
       >
-        <Logo width={150} height={150} />
-
         <div className="flex flex-col items-center justify-center gap-1">
           {MAIN_NAV_ITEMS.map((item) => (
             <NavItem
