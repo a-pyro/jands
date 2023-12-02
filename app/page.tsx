@@ -1,6 +1,6 @@
 import Gallery from '@/components/images/gallery'
 
-import getResults from '@/utils/cached-images'
+import getResults from '@/utils/getResults'
 
 export default async function Home() {
   const result = await getResults({ folderName: 'about' })

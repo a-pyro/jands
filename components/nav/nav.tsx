@@ -1,7 +1,9 @@
+'use client'
 import React, { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
-import NavItem, { type NavItemProps } from './navitem'
+import NavItem from './navitem'
 import NavIcon from '../icons/nav-icon'
+import { type Route } from 'next'
 
 interface Props {
   className?: string
@@ -33,14 +35,22 @@ export default function Nav({ className = '' }: Props) {
         )}
       >
         {MAIN_NAV_ITEMS.map((item) => (
-          <NavItem key={item.route} {...item} />
+          <NavItem
+            key={item.route}
+            {...item}
+            onClick={() => setIsOpen(false)}
+          />
         ))}
       </div>
     </nav>
   )
 }
 
-export const MAIN_NAV_ITEMS: NavItemProps<string>[] = [
+export type NavItemConfig = {
+  name: string
+  route: Route
+}
+export const MAIN_NAV_ITEMS: NavItemConfig[] = [
   {
     route: '/creations/earings',
     name: 'Orecchini',
@@ -71,5 +81,3 @@ export const MAIN_NAV_ITEMS: NavItemProps<string>[] = [
     name: 'Contatti',
   },
 ]
-
-export const CREATIONS_NAV_ITEMS: NavItemProps<string>[] = []
