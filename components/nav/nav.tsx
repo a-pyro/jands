@@ -21,14 +21,16 @@ export default function Nav({ className = '' }: Props) {
         className,
       )}
     >
-      <button onClick={toggleMenu}>
+      <button onClick={toggleMenu} className="z-30">
         <NavIcon isOpen={isOpen} />
       </button>
-      <div className={isOpen ? 'block' : 'hidden'}>
-        {MAIN_NAV_ITEMS.map((item) => (
-          <NavItem key={item.route} {...item} />
-        ))}
-      </div>
+      {isOpen && (
+        <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
+          {MAIN_NAV_ITEMS.map((item) => (
+            <NavItem key={item.route} {...item} />
+          ))}
+        </div>
+      )}
     </nav>
   )
 }
