@@ -22,19 +22,21 @@ const SlideGallery = ({
   console.log('🚀 ~ totalCount:', totalCount)
   console.log('🚀 ~ SlideGallery ~ name:', name)
   return (
-    <div className={twMerge('flex flex-col gap-3 p-3', className)}>
-      <div className="flex items-center justify-between">
+    <div
+      className={twMerge('flex flex-col gap-3 p-3 md:items-center', className)}
+    >
+      <div className="flex w-full items-center justify-between">
         <h2 className="text-3xl font-bold md:text-5xl">{title}</h2>
         <button className="border-2 border-dark px-6 py-1.5 text-xl font-bold  hover:bg-dark hover:text-logo">
           <Link href={route}>Tutte {totalCount}</Link>
         </button>
       </div>
       <div
-        className="scrollbar-hide  flex gap-3 overflow-x-auto overflow-y-hidden"
+        className="scrollbar-hide flex gap-3 overflow-x-auto overflow-y-hidden md:w-auto md:flex-row md:justify-center"
         draggable={false}
       >
         {images.map((image, index) => (
-          <div key={index} className="w-56 flex-none">
+          <div key={index} className="w-56 flex-none md:w-1/4">
             <Image
               draggable={false}
               src={image.secure_url}
