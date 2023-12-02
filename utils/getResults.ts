@@ -1,7 +1,7 @@
 import { type CreationType } from '@/supabase/types'
 import cloudinary, { type CloudinaryResults } from './cloudinary'
 
-const cachedResults: { [K in CreationType]?: CloudinaryResults } = {
+const cachedResults: { [K in CreationType | 'about']?: CloudinaryResults } = {
   about: undefined,
   customizations: undefined,
   earings: undefined,
