@@ -3,6 +3,7 @@
 import ReCAPTCHA from 'react-google-recaptcha'
 import Link from 'next/link'
 import { type RefObject, useRef, useState } from 'react'
+import Button from './buttons/button'
 
 export type ContactForm = {
   name: string
@@ -76,19 +77,19 @@ const ContactFrom = () => {
   }
 
   return (
-    <div className="justify- flex min-h-screen flex-col items-center">
-      <h1 className="mb-5 text-2xl font-bold">Contattaci</h1>
+    <div className="flex min-h-screen flex-col items-center">
+      <h1 className="mb-5 text-left text-2xl font-bold">Contattaci</h1>
 
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <p className="text-danger">{error}</p>}
       {success ? (
         <div className="flex flex-col gap-6">
-          <p className="text-green-500">
+          <p className="text-success">
             Il tuo messaggio è stato inviato con successo!
           </p>
           <Link
             href="/contact"
-            className="mt-6focus:shadow-outline rounded bg-blue-500 px-4 py-2
-            text-center font-bold text-white hover:bg-blue-700 focus:outline-purple-500"
+            className="mt-6focus:shadow-outline  bg-blue-500 px-4 py-2
+            text-center font-bold text-white hover:bg-blue-700 focus:outline-secondary"
           >
             Invia un altro messaggio
           </Link>
@@ -107,7 +108,7 @@ const ContactFrom = () => {
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-purple-500"
+              className="focus:shadow-outline w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
             />
           </div>
           <div className="mb-4">
@@ -122,7 +123,7 @@ const ContactFrom = () => {
               name="replyTo"
               value={form.replyTo}
               onChange={handleChange}
-              className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-purple-500"
+              className="focus:shadow-outline w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
             />
           </div>
           <div className="mb-6">
@@ -136,23 +137,22 @@ const ContactFrom = () => {
               name="message"
               value={form.message}
               onChange={handleChange}
-              className="focus:shadow-outline h-20 w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-purple-500"
+              className="focus:shadow-outline h-20 w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
             ></textarea>
           </div>
-          <button
+          <Button
             type="submit"
             disabled={loading}
-            className={`focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-purple-500 ${
-              loading ? 'cursor-not-allowed opacity-50' : ''
-            }`}
+            className={`${loading ? 'cursor-not-allowed opacity-50' : ''}`}
           >
             {loading ? 'Invio...' : 'Invia'}
-          </button>
+          </Button>
 
           <ReCAPTCHA
             size="normal"
             sitekey={RECAPTCHA_SITE_KEY}
             onChange={onCaptchaChange}
+            className="mt-6"
             ref={recaptcha}
           />
         </form>

@@ -5,6 +5,7 @@ import { type NavItemConfig } from '../nav/nav'
 import Image from 'next/image'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
+import Button from '../buttons/button'
 interface Props extends GalleryProps, NavItemConfig {
   className?: string
   title?: string
@@ -22,9 +23,9 @@ const SlideGallery = ({
     <div className={twMerge('flex flex-col gap-3 p-3 md:container', className)}>
       <div className="flex w-full items-center justify-between">
         <h2 className="text-3xl font-bold capitalize md:text-5xl">{title}</h2>
-        <button className="border-2 border-dark px-6 py-1.5 text-xl font-bold  hover:bg-dark hover:text-logo">
+        <Button>
           <Link href={route}>Tutte {totalCount}</Link>
-        </button>
+        </Button>
       </div>
       <div
         className="scrollbar-hide flex gap-3 overflow-x-auto overflow-y-hidden md:w-auto md:flex-row md:justify-center"
