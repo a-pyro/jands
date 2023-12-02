@@ -12,7 +12,6 @@ export const getCreations = cache(async (name: CreationType) => {
 })
 
 export const getAllCreations = cache(async () => {
-  const aboutPromise = getCreations('about')
   const customizationsPromise = getCreations('customizations')
   const earingsPromise = getCreations('earings')
   const everythingelsePromise = getCreations('everythingelse')
@@ -20,9 +19,8 @@ export const getAllCreations = cache(async () => {
   const ringsPromise = getCreations('rings')
 
   try {
-    const [about, customizations, earings, everythingelse, necklaces, rings] =
+    const [customizations, earings, everythingelse, necklaces, rings] =
       await Promise.all([
-        aboutPromise,
         customizationsPromise,
         earingsPromise,
         everythingelsePromise,
@@ -31,7 +29,6 @@ export const getAllCreations = cache(async () => {
       ])
     return [
       ...rings,
-      ...about,
       ...customizations,
       ...earings,
       ...everythingelse,
