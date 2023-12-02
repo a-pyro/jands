@@ -6,7 +6,7 @@ import getResults from '@/utils/getResults'
 
 export default async function Home() {
   const promises = ALL_CREATIONS_TYPES.map((type) =>
-    getResults({ folderName: type, limit: 5 }),
+    getResults({ folderName: type, limit: 4 }),
   )
   const results = await Promise.all(promises)
 
