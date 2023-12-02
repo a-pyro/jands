@@ -26,10 +26,10 @@ export default function Nav({ className = '' }: Props) {
       </button>
       <div
         className={twMerge(
-          'fixed inset-0 z-10 flex transform items-center justify-center bg-black bg-opacity-50 transition-transform duration-1000 ease-in-out',
+          'fixed inset-0 z-10 flex transform items-center justify-center bg-black bg-opacity-50 transition-all duration-1000 ease-in-out',
           isOpen
-            ? 'pointer-events-auto translate-y-0 opacity-100'
-            : 'pointer-events-none translate-y-full opacity-0',
+            ? 'pointer-events-auto translate-y-0'
+            : 'pointer-events-none -translate-y-full',
         )}
       >
         {MAIN_NAV_ITEMS.map((item) => (
