@@ -11,6 +11,7 @@ interface Props extends GalleryProps, NavItemConfig {
 }
 
 const SlideGallery = ({ images, name, route, title, className }: Props) => {
+  console.log('🚀 ~ SlideGallery ~ name:', name)
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
   const [startY, setStartY] = useState(0)
