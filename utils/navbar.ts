@@ -1,6 +1,6 @@
 import { type NavItemProps } from '@/components/navbar/navitem'
 
-export const MAIN_NAV_ITEMS: NavItemProps[] = [
+export const MAIN_NAV_ITEMS: NavItemProps<string>[] = [
   {
     route: '/creations',
     name: 'Home',
@@ -19,7 +19,7 @@ export const MAIN_NAV_ITEMS: NavItemProps[] = [
   },
 ]
 
-export const CREATIONS_NAV_ITEMS: NavItemProps[] = [
+export const CREATIONS_NAV_ITEMS: NavItemProps<string>[] = [
   {
     route: '/creations/customizations',
     name: 'Personalizzazioni',
