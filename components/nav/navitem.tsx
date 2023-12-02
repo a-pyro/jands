@@ -15,7 +15,7 @@ export default function NavItem<T extends string>({
     <Link
       href={route}
       className={twMerge(
-        'transform text-lg font-bold  text-primary transition-transform hover:skew-x-12',
+        'transform text-5xl font-bold  text-primary transition-transform hover:skew-x-12',
       )}
     >
       {name}
