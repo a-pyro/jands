@@ -35,7 +35,6 @@ export default async function getResults({
 
       cachedResults[folderName] = fetchedResults
     }
-
     return cachedResults[folderName]
   } catch (error) {
     console.log('Error:', error)

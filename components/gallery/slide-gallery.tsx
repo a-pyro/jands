@@ -8,16 +8,25 @@ import { twMerge } from 'tailwind-merge'
 interface Props extends GalleryProps, NavItemConfig {
   className?: string
   title?: string
+  totalCount: number
 }
 
-const SlideGallery = ({ images, name, route, title, className }: Props) => {
+const SlideGallery = ({
+  images,
+  name,
+  route,
+  title,
+  className,
+  totalCount,
+}: Props) => {
+  console.log('🚀 ~ totalCount:', totalCount)
   console.log('🚀 ~ SlideGallery ~ name:', name)
   return (
     <div className={twMerge('flex flex-col gap-3 p-3', className)}>
       <div className="flex items-center justify-between">
-        <h2 className=" text-4xl font-bold">{title}</h2>
+        <h2 className="text-3xl font-bold md:text-5xl">{title}</h2>
         <button className="border-2 border-dark px-6 py-1.5 text-xl font-bold  hover:bg-dark hover:text-logo">
-          <Link href={route}>Tutte</Link>
+          <Link href={route}>Tutte {totalCount}</Link>
         </button>
       </div>
       <div

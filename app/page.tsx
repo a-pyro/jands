@@ -16,9 +16,10 @@ export default async function Home() {
         <SlideGallery
           key={result?.resources[index]?.public_id}
           images={result?.resources ?? []}
-          name={'Banane'}
+          name={result?.resources[index]?.folder ?? ''}
           route="/"
           title="Banane"
+          totalCount={result?.total_count ?? 0}
         />
       ))}
     </ScrollAdaptiveWrapper>
