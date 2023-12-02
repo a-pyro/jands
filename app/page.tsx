@@ -7,7 +7,12 @@ export default async function Home() {
   const result = await getResults({ folderName: 'about' })
   return (
     <ScrollAdaptiveWrapper>
-      <SlideGallery images={result?.resources ?? []} name="asd" route="/" />
+      <SlideGallery
+        images={result?.resources ?? []}
+        name="BANENE"
+        route="/"
+        title="Banane"
+      />
     </ScrollAdaptiveWrapper>
   )
 }
