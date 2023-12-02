@@ -4,6 +4,7 @@ import { twMerge } from 'tailwind-merge'
 import NavItem from './navitem'
 import NavIcon from '../icons/nav-icon'
 import { type Route } from 'next'
+import Logo from '../logo'
 
 interface Props {
   className?: string
@@ -24,7 +25,7 @@ export default function Nav({ className = '' }: Props) {
         className,
       )}
     >
-      <button onClick={toggleMenu} className="z-30">
+      <button onClick={toggleMenu} className="fixed right-5 top-5 z-20">
         <NavIcon isOpen={isOpen} />
       </button>
       <div
@@ -35,11 +36,14 @@ export default function Nav({ className = '' }: Props) {
             : 'pointer-events-none -translate-y-full',
         )}
       >
-        <div className="flex flex-col items-center justify-center gap-4">
+        <Logo width={150} height={150} />
+
+        <div className="flex flex-col items-center justify-center gap-1">
           {MAIN_NAV_ITEMS.map((item) => (
             <NavItem
               key={item.route}
               {...item}
+              className="text-2xl  md:text-3xl lg:text-5xl"
               onClick={() => setIsOpen(false)}
             />
           ))}
