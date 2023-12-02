@@ -10,7 +10,9 @@ const NavIcon = ({ isOpen }: { isOpen: boolean }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={`h-6 w-6 ${isOpen ? 'text-primary' : 'text-black'}`}
+          className={`h-14 w-14 font-thin ${
+            isOpen ? 'text-primary' : 'text-black'
+          }`}
         >
           <path
             strokeLinecap="round"
@@ -25,7 +27,7 @@ const NavIcon = ({ isOpen }: { isOpen: boolean }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={`h-6 w-6 cursor-pointer ${
+          className={`h-14 w-14 cursor-pointer font-thin ${
             isOpen ? 'text-primary' : 'text-black'
           }`}
         >

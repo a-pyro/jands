@@ -16,7 +16,6 @@ export default function BlurImage({ image }: Props) {
       <Image
         alt={`${image.public_id} picture`}
         src={image.secure_url}
-        priority={true}
         width={600}
         height={600}
         className={twMerge(
