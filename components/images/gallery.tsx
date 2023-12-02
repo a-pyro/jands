@@ -1,8 +1,3 @@
-'use client'
-import {
-  useScollResize,
-  HEADER_SCOLL_SIZE_INIT,
-} from '../header/use-scroll-resize'
 import BlurImage from './blur-image'
 import { type CloudinaryImage } from '@/utils/cloudinary'
 
@@ -15,19 +10,6 @@ export default function Gallery({ images }: Props) {
       {images.map((image) => (
         <BlurImage key={image.public_id} image={image} />
       ))}
-    </div>
-  )
-}
-
-export const GalleryWrapper = ({ images }: Props) => {
-  const headerSize = useScollResize(HEADER_SCOLL_SIZE_INIT)
-  return (
-    <div
-      style={{
-        marginTop: `${headerSize + 100}px`,
-      }}
-    >
-      <Gallery images={images} />
     </div>
   )
 }
