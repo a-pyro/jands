@@ -1,32 +1,39 @@
-'use client'
+import React, { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import NavItem, { type NavItemProps } from './navitem'
-import React from 'react'
+import NavIcon from '../icons/nav-icon'
 
 interface Props {
   className?: string
 }
 
 export default function Nav({ className = '' }: Props) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <nav
       className={twMerge(
-        'flex w-full flex-row items-center justify-between',
+        'flex flex-row items-center justify-between',
         className,
       )}
     >
-      {MAIN_NAV_ITEMS.map((item) => (
-        <NavItem key={item.route} {...item} />
-      ))}
+      <button onClick={toggleMenu}>
+        <NavIcon isOpen={isOpen} />
+      </button>
+      <div className={isOpen ? 'block' : 'hidden'}>
+        {MAIN_NAV_ITEMS.map((item) => (
+          <NavItem key={item.route} {...item} />
+        ))}
+      </div>
     </nav>
   )
 }
 
 export const MAIN_NAV_ITEMS: NavItemProps<string>[] = [
-  {
-    route: '/creations',
-    name: 'Home',
-  },
   {
     route: '/creations',
     name: 'Creazioni',
