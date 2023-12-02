@@ -77,79 +77,81 @@ const ContactFrom = () => {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-start ">
-      <h1 className="mb-5 self-start text-3xl font-bold">Contattaci</h1>
+    <div className="flex min-h-screen  justify-center">
+      <div className="w-full max-w-md">
+        <h1 className="mb-5 text-3xl font-bold">Contattaci</h1>
 
-      {error && <p className="text-danger">{error}</p>}
-      {success ? (
-        <div className="flex flex-col gap-6">
-          <p className="text-success">
-            Il tuo messaggio è stato inviato con successo!
-          </p>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="w-full max-w-md">
-          <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="mb-2 block text-base font-bold text-gray-700"
-            >
-              Nome:
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              className="focus:shadow-outline w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
-            />
+        {error && <p className="text-danger">{error}</p>}
+        {success ? (
+          <div className="flex flex-col gap-6">
+            <p className="text-success">
+              Il tuo messaggio è stato inviato con successo!
+            </p>
           </div>
-          <div className="mb-4">
-            <label
-              htmlFor="replyTo"
-              className="mb-2 block text-base font-bold text-gray-700"
+        ) : (
+          <form onSubmit={handleSubmit} className="w-full">
+            <div className="mb-4">
+              <label
+                htmlFor="name"
+                className="mb-2 block text-base font-bold text-gray-700"
+              >
+                Nome:
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                className="focus:shadow-outline w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="replyTo"
+                className="mb-2 block text-base font-bold text-gray-700"
+              >
+                Email:
+              </label>
+              <input
+                type="email"
+                name="replyTo"
+                value={form.replyTo}
+                onChange={handleChange}
+                className="focus:shadow-outline w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="message"
+                className="mb-2 block text-base font-bold text-gray-700"
+              >
+                Messaggio:
+              </label>
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                className="focus:shadow-outline h-20 w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
+              ></textarea>
+            </div>
+            <Button
+              type="submit"
+              disabled={loading}
+              className={`${loading ? 'cursor-not-allowed opacity-50' : ''}`}
             >
-              Email:
-            </label>
-            <input
-              type="email"
-              name="replyTo"
-              value={form.replyTo}
-              onChange={handleChange}
-              className="focus:shadow-outline w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
-            />
-          </div>
-          <div className="mb-6">
-            <label
-              htmlFor="message"
-              className="mb-2 block text-base font-bold text-gray-700"
-            >
-              Messaggio:
-            </label>
-            <textarea
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              className="focus:shadow-outline h-20 w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
-            ></textarea>
-          </div>
-          <Button
-            type="submit"
-            disabled={loading}
-            className={`${loading ? 'cursor-not-allowed opacity-50' : ''}`}
-          >
-            {loading ? 'Invio...' : 'Invia'}
-          </Button>
+              {loading ? 'Invio...' : 'Invia'}
+            </Button>
 
-          <ReCAPTCHA
-            size="normal"
-            sitekey={RECAPTCHA_SITE_KEY}
-            onChange={onCaptchaChange}
-            className="mt-6"
-            ref={recaptcha}
-          />
-        </form>
-      )}
+            <ReCAPTCHA
+              size="normal"
+              sitekey={RECAPTCHA_SITE_KEY}
+              onChange={onCaptchaChange}
+              className="mt-6"
+              ref={recaptcha}
+            />
+          </form>
+        )}
+      </div>
     </div>
   )
 }
