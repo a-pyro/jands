@@ -24,13 +24,18 @@ export default function Nav({ className = '' }: Props) {
       <button onClick={toggleMenu} className="z-30">
         <NavIcon isOpen={isOpen} />
       </button>
-      {isOpen && (
-        <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
-          {MAIN_NAV_ITEMS.map((item) => (
-            <NavItem key={item.route} {...item} />
-          ))}
-        </div>
-      )}
+      <div
+        className={twMerge(
+          'fixed inset-0 z-10 flex transform items-center justify-center bg-black bg-opacity-50 transition-transform duration-1000 ease-in-out',
+          isOpen
+            ? 'pointer-events-auto translate-y-0 opacity-100'
+            : 'pointer-events-none translate-y-full opacity-0',
+        )}
+      >
+        {MAIN_NAV_ITEMS.map((item) => (
+          <NavItem key={item.route} {...item} />
+        ))}
+      </div>
     </nav>
   )
 }
