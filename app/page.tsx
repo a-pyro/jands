@@ -16,7 +16,7 @@ export default async function Home() {
         <SlideGallery
           key={result?.resources[index]?.public_id}
           images={result?.resources ?? []}
-          name={result?.folderName ?? ''}
+          name={'Banane'}
           route="/"
           title="Banane"
         />
