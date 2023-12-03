@@ -52,7 +52,7 @@ export type NavItemConfig<T extends string = string> = {
 }
 export const MAIN_NAV_ITEMS: NavItemConfig[] = [
   {
-    route: '/creations/earings',
+    route: '/creations/earrings',
     name: 'Orecchini',
   },
 

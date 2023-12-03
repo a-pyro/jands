@@ -45,7 +45,7 @@ export interface Database {
         }
         Relationships: []
       }
-      earings: {
+      earrings: {
         Row: {
           created_at: string
           id: number
@@ -138,7 +138,7 @@ export type ApiCreation = Database['public']['Tables']['about']['Row']
 export const ALL_CREATIONS_TYPES = [
   'necklaces',
   'rings',
-  'earings',
+  'earrings',
   'customizations',
   'everythingelse',
 ] as const

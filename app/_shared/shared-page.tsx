@@ -1,5 +1,5 @@
 import Gallery from '@/components/gallery/grid-gallery'
-import { type CreationType } from '../../supabase/types'
+import { type CreationType } from '../../services/types'
 import getResults from '@/services/getResults'
 
 export default async function CreationPage({

@@ -1,5 +1,5 @@
 import CreationPage from '../../_shared/shared-page'
 
 export default function Page() {
-  return <CreationPage creationType="earings" />
+  return <CreationPage creationType="earrings" />
 }
