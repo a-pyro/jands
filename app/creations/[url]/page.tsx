@@ -14,7 +14,7 @@ export default function Page({ params: { url } }: { params: { url: string } }) {
         height={600}
         className={twMerge('max-h-[100vh] object-cover object-center')}
       />
-      <ContactForm className="place-self-start" />
+      <ContactForm className="place-self-start" imageUrl={decoded_url} />
     </div>
   )
 }

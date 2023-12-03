@@ -13,7 +13,9 @@ sgMail.setApiKey(SENDGRID_API_KEY)
 export async function POST(request: Request) {
   try {
     const data = contactFormSchema.parse(await request.json())
-    const { name, replyTo, message, captchaToken } = data
+    const { name, replyTo, message, captchaToken, imageUrl } = data
+
+    const text = `${message}` + imageUrl ? `\nImmagine: ${imageUrl}` : ''
 
     await varifyCaptcha(captchaToken)
 
@@ -22,7 +24,7 @@ export async function POST(request: Request) {
       from,
       replyTo,
       subject: `Nuovo messaggio da ${name}`,
-      text: message,
+      text,
       //  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
     }
     await sgMail.send(msg)

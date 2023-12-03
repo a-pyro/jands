@@ -8,6 +8,7 @@ export type ContactForm = {
   name: string
   replyTo: string
   message: string
+  imageUrl?: string
   captchaToken: string
 }
 
@@ -20,7 +21,13 @@ const initForm: ContactForm = {
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''
 
-const ContactForm = ({ className = '' }: { className?: ClassNameValue }) => {
+const ContactForm = ({
+  className = '',
+  imageUrl,
+}: {
+  className?: ClassNameValue
+  imageUrl?: string
+}) => {
   const [form, setForm] = useState<ContactForm>({ ...initForm })
   const recaptcha: RefObject<ReCAPTCHA> = useRef(null)
   const [error, setError] = useState('')
@@ -37,12 +44,17 @@ const ContactForm = ({ className = '' }: { className?: ClassNameValue }) => {
       return
     }
 
+    const body = JSON.stringify({
+      ...form,
+      imageUrl,
+    })
+
     const response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(form),
+      body,
     })
 
     if (response.ok) {
