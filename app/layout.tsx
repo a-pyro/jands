@@ -7,8 +7,8 @@ import Footer from '@/components/footer'
 const prata = Prata({ subsets: ['latin'], weight: ['400'] })
 
 export const metadata: Metadata = {
-  title: 'J and S - Home',
-  description: 'J and S - Handmade resin creations',
+  title: 'JandS - Home',
+  description: 'Handmade resin creations',
 }
 
 export default function RootLayout({
