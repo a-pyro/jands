@@ -22,7 +22,7 @@ export default function Header() {
         'fixed top-0 z-10 mx-auto flex w-full items-center justify-center py-6',
       )}
     >
-      <Link className="z-50" href="/">
+      <Link className="z-50" href="/" onClick={toggleMenu}>
         <Logo width={logoSize} height={logoSize} />
       </Link>
       <button onClick={toggleMenu} className="fixed right-5 top-5 z-20">
