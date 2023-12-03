@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex items-center justify-center gap-2 py-4">
         {FOOTER_NAV_ITEMS.map((item) => (
           <NavItem
-            key={item.route}
+            key={item.name}
             {...item}
             className="text-lg text-secondary transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
           />

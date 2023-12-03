@@ -36,7 +36,7 @@ export default function Nav({ className = '', isOpen, setIsOpen }: Props) {
       <div className="flex flex-col items-center justify-center ">
         {FOOTER_NAV_ITEMS.map((item) => (
           <NavItem
-            key={item.route}
+            key={item.name}
             {...item}
             className="text-lg transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
             onClick={() => setIsOpen(false)}
