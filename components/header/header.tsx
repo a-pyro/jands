@@ -28,7 +28,7 @@ export default function Header() {
       <button onClick={toggleMenu} className="fixed right-5 top-5 z-20">
         <NavIcon isOpen={isOpen} />
       </button>
-      <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Nav isOpen={isOpen} setIsOpen={toggleMenu} />
     </header>
   )
 }
