@@ -40,7 +40,7 @@ export default function Loading() {
       src={getRandomImage()}
       alt="Loading..."
       fill
-      className="object-contain object-center"
+      className="object-cover object-center"
     />
   )
 }

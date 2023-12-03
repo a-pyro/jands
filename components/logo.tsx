@@ -6,16 +6,23 @@ interface Props {
   className?: ClassNameValue
   width?: number
   height?: number
+  onClick?: () => void
 }
 
-const Logo = ({ className = '', width = 300, height = 300 }: Props) => {
+const Logo = ({
+  className = '',
+  width = 300,
+  height = 300,
+  onClick,
+}: Props) => {
   return (
     <Image
       src={logo}
       alt="J and S logo"
       width={width}
       height={height}
-      className={twMerge(className)}
+      className={twMerge('cursor-pointer', className)}
+      onClick={onClick}
     />
   )
 }
