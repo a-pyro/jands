@@ -22,26 +22,28 @@ export default function Nav({ className = '', isOpen, setIsOpen }: Props) {
         className,
       )}
     >
-      <div className="flex flex-col items-center justify-center gap-1 pt-20">
-        {MAIN_NAV_ITEMS.map((item) => (
-          <NavItem
-            key={item.route}
-            {...item}
-            className="text-2xl  md:text-3xl lg:text-5xl"
-            onClick={() => setIsOpen(false)}
-          />
-        ))}
-      </div>
+      <div className="flex flex-col gap-20 pt-20 md:pt-0">
+        <div className="flex flex-col items-center justify-center gap-1 pt-20">
+          {MAIN_NAV_ITEMS.map((item) => (
+            <NavItem
+              key={item.route}
+              {...item}
+              className="text-2xl  md:text-3xl lg:text-5xl"
+              onClick={() => setIsOpen(false)}
+            />
+          ))}
+        </div>
 
-      <div className="flex flex-col items-center justify-center ">
-        {FOOTER_NAV_ITEMS.map((item) => (
-          <NavItem
-            key={item.name}
-            {...item}
-            className="text-lg transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
-            onClick={() => setIsOpen(false)}
-          />
-        ))}
+        <div className="flex flex-col items-center justify-center ">
+          {FOOTER_NAV_ITEMS.map((item) => (
+            <NavItem
+              key={item.name}
+              {...item}
+              className="text-lg transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
+              onClick={() => setIsOpen(false)}
+            />
+          ))}
+        </div>
       </div>
     </nav>
   )
