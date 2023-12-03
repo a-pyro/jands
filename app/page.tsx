@@ -2,7 +2,7 @@ import SlideGallery from '@/components/gallery/slide-gallery'
 import ScrollAdaptiveWrapper from '@/components/scroll-adaptive-wrapper'
 import { ALL_CREATIONS_TYPES } from '@/supabase/types'
 
-import getResults from '@/utils/getResults'
+import getResults from '@/services/getResults'
 
 export default async function Home() {
   const results = await Promise.all(

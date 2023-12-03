@@ -1,13 +1,13 @@
 import Gallery from '@/components/gallery/gallery'
 import { type CreationType } from '../../supabase/types'
-import getResults from '@/utils/getResults'
+import getResults from '@/services/getResults'
 
 export default async function CreationPage({
   creationType,
 }: {
   creationType: CreationType | 'about'
 }) {
-  const result = await getResults({ folderName: creationType })
+  const result = await getResults({ folderName: creationType, limit: 100 })
 
   return (
     <div className="flex flex-col">
