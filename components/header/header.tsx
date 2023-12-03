@@ -27,7 +27,7 @@ export default function Header() {
 
   return (
     <header
-      className={twMerge('fixed left-0 right-0 top-0 flex justify-center ')}
+      className={twMerge('fixed left-0 right-0 top-0 z-10 flex justify-center')}
     >
       <Logo
         width={logoSize}
