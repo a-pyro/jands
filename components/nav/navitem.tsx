@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge'
 import { type NavItemConfig } from './nav'
 
 interface Props extends NavItemConfig {
-  onClick: () => void
+  onClick?: () => void
   className?: string
 }
 export default function NavItem({

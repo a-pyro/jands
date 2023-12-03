@@ -3,6 +3,7 @@ import React from 'react'
 import { twMerge } from 'tailwind-merge'
 import NavItem from './navitem'
 import { type Route } from 'next'
+import { FOOTER_NAV_ITEMS } from '../footer'
 
 interface Props {
   className?: string
@@ -33,7 +34,7 @@ export default function Nav({ className = '', isOpen, setIsOpen }: Props) {
       </div>
 
       <div className="flex flex-col items-center justify-center ">
-        {EXTRA_NAV_ITEMS.map((item) => (
+        {FOOTER_NAV_ITEMS.map((item) => (
           <NavItem
             key={item.route}
             {...item}
@@ -71,25 +72,5 @@ export const MAIN_NAV_ITEMS: NavItemConfig[] = [
   {
     route: '/creations/everythingelse',
     name: 'Altro',
-  },
-]
-
-const EXTRA_NAV_ITEMS: NavItemConfig[] = [
-  {
-    route: '/about',
-    name: 'Chi siamo',
-  },
-  {
-    route: 'https://www.instagram.com/jands.handmade',
-    name: 'Instagram',
-  },
-  {
-    route: 'https://www.instagram.com/jands.handmade/t',
-    name: 'Facebook',
-  },
-
-  {
-    route: '/contact',
-    name: 'Contatti',
   },
 ]
