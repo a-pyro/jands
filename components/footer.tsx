@@ -4,7 +4,7 @@ import NavItem from './nav/navitem'
 export default function Footer() {
   return (
     <footer>
-      <div className="flex items-center justify-center gap-2 py-4">
+      <div className="flex flex-wrap items-center justify-center gap-2 py-4">
         {FOOTER_NAV_ITEMS.map((item) => (
           <NavItem
             key={item.name}

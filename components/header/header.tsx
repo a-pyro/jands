@@ -27,14 +27,12 @@ export default function Header() {
 
   return (
     <header
-      className={twMerge(
-        'fixed top-0 z-10 mx-auto flex w-full items-center justify-center py-6',
-      )}
+      className={twMerge('fixed left-0 right-0 top-0 flex justify-center ')}
     >
       <Logo
         width={logoSize}
         height={logoSize}
-        className="z-20"
+        className="z-20 mt-3"
         onClick={onLogoClick}
       />
       <button onClick={toggleMenu} className="fixed right-5 top-5 z-20">

@@ -132,12 +132,8 @@ const ContactForm = ({ className = '' }: { className?: ClassNameValue }) => {
               className="focus:shadow-outline h-20 w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
             ></textarea>
           </div>
-          <Button
-            type="submit"
-            disabled={loading}
-            className={`${loading ? 'cursor-not-allowed opacity-50' : ''}`}
-          >
-            {loading ? 'Invio...' : 'Invia'}
+          <Button type="submit" loading={loading}>
+            Invia
           </Button>
 
           <ReCAPTCHA
