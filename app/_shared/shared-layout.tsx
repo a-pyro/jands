@@ -1,10 +1,10 @@
-import { twMerge } from 'tailwind-merge'
+import ScrollAdaptiveWrapper from '@/components/scroll-adaptive-wrapper'
 
 const SharedLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className={twMerge('container mt-28 flex flex-col px-3')}>
+    <ScrollAdaptiveWrapper className="container flex flex-col px-3">
       {children}
-    </div>
+    </ScrollAdaptiveWrapper>
   )
 }
 

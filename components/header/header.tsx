@@ -8,20 +8,21 @@ import NavIcon from '../icons/nav-icon'
 import { usePathname, useRouter } from 'next/navigation'
 
 export default function Header() {
-  const logoSize = useScollResize(HEADER_SCOLL_SIZE_INIT)
+  const { logoSize, setLogoSize } = useScollResize(HEADER_SCOLL_SIZE_INIT)
   const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
 
   const toggleMenu = () => {
+    setLogoSize(HEADER_SCOLL_SIZE_INIT.initialSize)
     document.body.classList.toggle('overflow-hidden')
     setIsOpen(!isOpen)
   }
 
   const onLogoClick = () => {
+    router.push('/')
     if (pathname === '/') window.scrollTo(0, 0)
     if (isOpen) toggleMenu()
-    router.push('/')
   }
 
   return (
@@ -33,7 +34,7 @@ export default function Header() {
       <Logo
         width={logoSize}
         height={logoSize}
-        className="z-50"
+        className="z-20"
         onClick={onLogoClick}
       />
       <button onClick={toggleMenu} className="fixed right-5 top-5 z-20">

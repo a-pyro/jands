@@ -30,22 +30,15 @@ export function useScollResize({
       )
     }
 
-    if (pathname === '/') {
-      setLogoSize(maxSize)
-      window.addEventListener('scroll', handleScroll)
-    }
-
-    if (pathname !== '/') {
-      setLogoSize(minSize)
-      window.removeEventListener('scroll', handleScroll)
-    }
+    setLogoSize(maxSize)
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [pathname, minSize, maxSize, scrollRange])
 
-  return logoSize
+  return { logoSize, setLogoSize }
 }
 
 const interpolateLogoSize = ({

@@ -12,11 +12,11 @@ export const ScrollAdaptiveWrapper = ({
   children: React.ReactNode
   className?: string
 }) => {
-  const headerSize = useScollResize(HEADER_SCOLL_SIZE_INIT)
+  const { logoSize } = useScollResize(HEADER_SCOLL_SIZE_INIT)
   return (
     <div
       style={{
-        marginTop: `${headerSize + 100}px`,
+        marginTop: `${logoSize}px`,
       }}
       className={twMerge(className)}
     >

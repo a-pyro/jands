@@ -19,6 +19,7 @@ export default function BlurImage({ image, className = '' }: Props) {
         src={image.secure_url}
         width={600}
         height={600}
+        draggable={false}
         className={twMerge(
           'duration-300 ease-in-out hover:scale-105 hover:cursor-pointer',
           className,
