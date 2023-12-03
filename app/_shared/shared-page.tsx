@@ -1,6 +1,7 @@
 import Gallery from '@/components/gallery/grid-gallery'
 import { type CreationType } from '../../services/types'
 import getResults from '@/services/getResults'
+import { dictionary } from '@/lang/dictionary'
 
 export default async function CreationPage({
   creationType,
@@ -11,7 +12,7 @@ export default async function CreationPage({
 
   return (
     <div className="flex flex-col">
-      <h1 className="mb-5 font-medium">{creationType}</h1>
+      <h1 className="mb-5 font-medium">{dictionary[creationType]}</h1>
       <Gallery images={result?.resources ?? []} />
     </div>
   )
