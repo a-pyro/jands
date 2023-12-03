@@ -22,7 +22,7 @@ const SlideGallery = ({
   return (
     <div className={twMerge('flex flex-col gap-3 p-3 md:container', className)}>
       <div className="flex w-full items-center justify-between">
-        <h2 className="text-3xl font-bold capitalize md:text-5xl">{title}</h2>
+        <h2 className="text-3xl capitalize md:text-5xl">{title}</h2>
         <Button>
           <Link href={route}>Tutte {totalCount}</Link>
         </Button>
