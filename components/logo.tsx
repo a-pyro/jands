@@ -1,8 +1,9 @@
 import Image from 'next/image'
 import logo from '../public/jands-logo.png'
+import { type ClassNameValue, twMerge } from 'tailwind-merge'
 
 interface Props {
-  className?: string
+  className?: ClassNameValue
   width?: number
   height?: number
 }
@@ -14,7 +15,7 @@ const Logo = ({ className = '', width = 300, height = 300 }: Props) => {
       alt="J and S logo"
       width={width}
       height={height}
-      className={className}
+      className={twMerge(className)}
     />
   )
 }

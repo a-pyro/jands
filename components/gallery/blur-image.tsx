@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { ClassNameValue, twMerge } from 'tailwind-merge'
+import { type ClassNameValue, twMerge } from 'tailwind-merge'
 import Link from 'next/link'
 import { type CloudinaryImage } from '@/utils/cloudinary'
 
