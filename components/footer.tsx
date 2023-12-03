@@ -32,7 +32,7 @@ export const FOOTER_NAV_ITEMS: NavItemConfig[] = [
     name: 'Instagram',
   },
   {
-    route: 'https://www.instagram.com/jands.handmade/t',
+    route: 'https://www.instagram.com/jands.handmade',
     name: 'Facebook',
   },
 
