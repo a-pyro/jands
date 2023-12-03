@@ -5,14 +5,14 @@ import { twMerge } from 'tailwind-merge'
 export default function Page({ params: { url } }: { params: { url: string } }) {
   const decoded_url = decodeURIComponent(url)
   return (
-    <div className="flex flex-col gap-5">
+    <div className="mx-auto mt-5 flex flex-col items-center gap-5 lg:flex-row lg:gap-10">
       <Image
         alt={`picture`}
         src={decoded_url}
         priority={true}
-        width={1200}
-        height={1200}
-        className={twMerge('image-view-transition mt-10 w-full')}
+        width={600}
+        height={600}
+        className={twMerge('max-h-[100vh] object-cover object-center')}
       />
       <ContactForm className="place-self-start" />
     </div>

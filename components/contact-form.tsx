@@ -77,7 +77,7 @@ const ContactForm = ({ className = '' }: { className?: ClassNameValue }) => {
 
   return (
     <div className={twMerge('flex w-full flex-col md:max-w-lg', className)}>
-      <h1 className="mb-5 text-3xl font-bold">Contattaci</h1>
+      <h1 className="mb-5 text-3xl font-medium">Contattaci</h1>
 
       {error && <p className="text-danger">{error}</p>}
       {success ? (
@@ -91,7 +91,7 @@ const ContactForm = ({ className = '' }: { className?: ClassNameValue }) => {
           <div className="mb-4">
             <label
               htmlFor="name"
-              className="mb-2 block text-base font-bold text-gray-700"
+              className="mb-2 block text-base  text-gray-700"
             >
               Nome:
             </label>
@@ -106,7 +106,7 @@ const ContactForm = ({ className = '' }: { className?: ClassNameValue }) => {
           <div className="mb-4">
             <label
               htmlFor="replyTo"
-              className="mb-2 block text-base font-bold text-gray-700"
+              className="mb-2 block text-base  text-gray-700"
             >
               Email:
             </label>
@@ -121,7 +121,7 @@ const ContactForm = ({ className = '' }: { className?: ClassNameValue }) => {
           <div className="mb-6">
             <label
               htmlFor="message"
-              className="mb-2 block text-base font-bold text-gray-700"
+              className="mb-2 block text-base  text-gray-700"
             >
               Messaggio:
             </label>
