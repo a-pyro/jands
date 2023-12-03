@@ -1,4 +1,4 @@
-import Gallery from '@/components/gallery/gallery'
+import Gallery from '@/components/gallery/grid-gallery'
 import { type CreationType } from '../../supabase/types'
 import getResults from '@/services/getResults'
 

@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { type GalleryProps } from './gallery'
+import { type GalleryProps } from './grid-gallery'
 import { type NavItemConfig } from '../nav/nav'
 import Image from 'next/image'
 import Link from 'next/link'

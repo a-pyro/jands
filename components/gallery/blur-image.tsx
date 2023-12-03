@@ -1,13 +1,14 @@
 import Image from 'next/image'
-import { twMerge } from 'tailwind-merge'
+import { ClassNameValue, twMerge } from 'tailwind-merge'
 import Link from 'next/link'
 import { type CloudinaryImage } from '@/utils/cloudinary'
 
 type Props = {
   image: CloudinaryImage
+  className?: ClassNameValue
 }
 
-export default function BlurImage({ image }: Props) {
+export default function BlurImage({ image, className = '' }: Props) {
   return (
     <Link
       className="overflow-hidden"
@@ -19,7 +20,8 @@ export default function BlurImage({ image }: Props) {
         width={600}
         height={600}
         className={twMerge(
-          'image-view-transition  duration-300 ease-in-out hover:scale-105 hover:cursor-pointer ',
+          'duration-300 ease-in-out hover:scale-105 hover:cursor-pointer',
+          className,
         )}
       />
     </Link>
