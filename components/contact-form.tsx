@@ -76,9 +76,12 @@ const initForm: ContactForm = {
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type allKeys<T> = T extends any ? keyof T : never
+
 type FormState<T> = {
   data: T
-  errors?: Partial<Record<keyof T, string>>
+  errors?: { [P in allKeys<T>]?: string[] | undefined }
   loading: boolean
 }
 
@@ -92,32 +95,34 @@ const useForm = <T,>(init: T, schema: ZodSchema<T>) => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setForm({
-      ...form,
+    setForm((prevForm) => ({
+      ...prevForm,
       data: {
-        ...form.data,
+        ...prevForm.data,
         [e.target.name]: e.target.value,
       },
-    })
+    }))
   }
 
-  const handleSubmit = async (
-    submitFunction: (data: ContactForm) => Promise<void>,
-  ) => {
-    setForm({ ...form, loading: true })
+  const handleSubmit = async (submitFunction: (data: T) => Promise<void>) => {
+    setForm((prevForm) => ({ ...prevForm, loading: true }))
     try {
       const validatedData = schema.safeParse(form.data)
       if (validatedData.success) {
         await submitFunction(validatedData.data)
 
-        setForm({ ...form, errors: undefined, loading: false })
+        setForm((prevForm) => ({
+          ...prevForm,
+          errors: undefined,
+          loading: false,
+        }))
       } else {
-        const errors: Partial<Record<keyof ContactForm, string[]>> =
-          validatedData.error.formErrors.fieldErrors
-        setForm({ ...form, errors, loading: false })
+        const errors = validatedData.error.formErrors.fieldErrors
+        setForm((prevForm) => ({ ...prevForm, errors, loading: false }))
       }
     } catch (error) {
-      setForm({ ...form, loading: false })
+      console.error(error)
+      setForm((prevForm) => ({ ...prevForm, loading: false }))
     }
   }
 
