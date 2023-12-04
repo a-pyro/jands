@@ -1,8 +1,63 @@
 'use client'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { type RefObject, useRef, useState } from 'react'
+import {
+  type RefObject,
+  useRef,
+  useState,
+  type InputHTMLAttributes,
+} from 'react'
 import Button from './buttons/button'
 import { twMerge, type ClassNameValue } from 'tailwind-merge'
+import { z, type ZodSchema } from 'zod'
+
+interface InputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'className'> {
+  label?: string
+  className?: ClassNameValue
+}
+
+const Input = ({ label, name, className, ...props }: InputProps) => {
+  return (
+    <div>
+      <label htmlFor={name} className="mb-2 block text-base text-gray-700">
+        {label}:
+      </label>
+      <input
+        id={name}
+        name={name}
+        {...props}
+        className={twMerge(
+          'focus:shadow-outline w-full appearance-none border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary',
+          className,
+        )}
+      />
+    </div>
+  )
+}
+
+interface TextAreaProps
+  extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'className'> {
+  label?: string
+  className?: ClassNameValue
+}
+const TextArea = ({ label, name, className, ...props }: TextAreaProps) => {
+  return (
+    <div>
+      <label htmlFor={name} className="mb-2 block text-base text-gray-700">
+        {label}:
+      </label>
+      <textarea
+        id={name}
+        name={name}
+        {...props}
+        className={twMerge(
+          'focus:shadow-outline w-full appearance-none border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary',
+          className,
+        )}
+      />
+    </div>
+  )
+}
 
 export type ContactForm = {
   name: string
@@ -20,6 +75,54 @@ const initForm: ContactForm = {
 }
 
 const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ''
+
+type FormState<T> = {
+  data: T
+  errors?: Partial<Record<keyof T, string>>
+  loading: boolean
+}
+
+const useForm = <T,>(init: T, schema: ZodSchema<T>) => {
+  const [form, setForm] = useState<FormState<T>>({
+    data: init,
+    errors: undefined,
+    loading: false,
+  })
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setForm({
+      ...form,
+      data: {
+        ...form.data,
+        [e.target.name]: e.target.value,
+      },
+    })
+  }
+
+  const handleSubmit = async (
+    submitFunction: (data: ContactForm) => Promise<void>,
+  ) => {
+    setForm({ ...form, loading: true })
+    try {
+      const validatedData = schema.safeParse(form.data)
+      if (validatedData.success) {
+        await submitFunction(validatedData.data)
+
+        setForm({ ...form, errors: undefined, loading: false })
+      } else {
+        const errors: Partial<Record<keyof ContactForm, string[]>> =
+          validatedData.error.formErrors.fieldErrors
+        setForm({ ...form, errors, loading: false })
+      }
+    } catch (error) {
+      setForm({ ...form, loading: false })
+    }
+  }
+
+  return { form, handleChange, handleSubmit }
+}
 
 const ContactForm = ({
   className = '',
@@ -100,50 +203,24 @@ const ContactForm = ({
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="w-full">
-          <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="mb-2 block text-base  text-gray-700"
-            >
-              Nome:
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              className="focus:shadow-outline w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              htmlFor="replyTo"
-              className="mb-2 block text-base  text-gray-700"
-            >
-              Email:
-            </label>
-            <input
-              type="email"
-              name="replyTo"
-              value={form.replyTo}
-              onChange={handleChange}
-              className="focus:shadow-outline w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
-            />
-          </div>
-          <div className="mb-6">
-            <label
-              htmlFor="message"
-              className="mb-2 block text-base  text-gray-700"
-            >
-              Messaggio:
-            </label>
-            <textarea
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              className="focus:shadow-outline h-20 w-full appearance-none  border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary"
-            ></textarea>
-          </div>
+          <Input
+            label="Nome"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+          />
+          <Input
+            label="Email"
+            name="replyTo"
+            value={form.replyTo}
+            onChange={handleChange}
+          />
+          <TextArea
+            label="Messaggio"
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+          />
           <Button type="submit" loading={loading}>
             Invia
           </Button>
