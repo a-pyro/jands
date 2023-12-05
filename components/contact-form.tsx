@@ -85,7 +85,7 @@ type FormState<T> = {
   loading: boolean
 }
 
-const useForm = <T,>(init: T, schema: ZodSchema<T>) => {
+export const useForm = <T,>(init: T, schema: ZodSchema<T>) => {
   const [form, setForm] = useState<FormState<T>>({
     data: init,
     errors: undefined,
