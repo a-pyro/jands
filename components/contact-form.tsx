@@ -8,7 +8,7 @@ import {
 } from 'react'
 import Button from './buttons/button'
 import { twMerge, type ClassNameValue } from 'tailwind-merge'
-import { z, type ZodSchema } from 'zod'
+import { type ZodSchema } from 'zod'
 
 interface InputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'className'> {
