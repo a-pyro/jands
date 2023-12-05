@@ -1,3 +1,4 @@
+import { SignOutButton } from '@clerk/nextjs'
 import { type NavItemConfig } from './nav/nav'
 import NavItem from './nav/navitem'
 
@@ -5,6 +6,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="flex flex-wrap items-center justify-center gap-2 py-4">
+        <SignOutButton />
         {FOOTER_NAV_ITEMS.map((item) => (
           <NavItem
             key={item.name}
