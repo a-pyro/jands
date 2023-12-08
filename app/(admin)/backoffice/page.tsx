@@ -1,3 +1,3 @@
 export default function Page() {
-  return <div>bo layout</div>
+  return <div>BO PAGE</div>
 }
