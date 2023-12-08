@@ -193,9 +193,10 @@ export const ContactForm = ({
           value={form.message ?? ''}
           onChange={handleChange}
         />
-        <Button>
-          <Link href={mailtoLink}>Invia</Link>
-        </Button>
+
+        <Link href={mailtoLink}>
+          <Button>Invia</Button>
+        </Link>
       </form>
     </div>
   )
