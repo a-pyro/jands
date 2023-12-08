@@ -19,6 +19,7 @@ const Logo = ({
     <Image
       src={logo}
       alt="J and S logo"
+      priority
       width={width}
       height={height}
       className={twMerge('cursor-pointer', className)}
