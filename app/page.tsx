@@ -1,7 +1,6 @@
 import SlideGallery from '@/components/gallery/slide-gallery'
 import ScrollAdaptiveWrapper from '@/components/scroll-adaptive-wrapper'
 import { ALL_CREATIONS_TYPES } from '@/services/types'
-
 import getResults from '@/services/getResults'
 
 export default async function Home() {

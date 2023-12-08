@@ -1,4 +1,4 @@
-import ContactForm from '@/components/contact-form'
+import { ContactForm } from '@/components/form/contact-form'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
 

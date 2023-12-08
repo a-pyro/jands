@@ -1,10 +1,11 @@
 import SharedLayout from '@/app/_shared/shared-layout'
-import { SignOutButton } from '@clerk/nextjs'
+import { BackOfficeNav } from './components/backoffice-nav'
 
-export default function Layout() {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <SharedLayout>
-      <SignOutButton />
+    <SharedLayout className="flex flex-row gap-5">
+      <BackOfficeNav />
+      <div className="flex-1">{children}</div>
     </SharedLayout>
   )
 }

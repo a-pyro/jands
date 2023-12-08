@@ -7,19 +7,19 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const Button = ({
   className = '',
-  onClick,
   children,
   loading = false,
+  ...rest
 }: PropsWithChildren<Props>) => {
   return (
     <button
-      onClick={onClick}
       disabled={loading}
       className={twMerge(
         'border border-dark px-6 py-1.5 text-xl  hover:bg-dark hover:text-logo',
         loading ? 'animate-pulse cursor-wait' : '',
         className,
       )}
+      {...rest}
     >
       {loading ? 'Wait please...' : children}
     </button>
