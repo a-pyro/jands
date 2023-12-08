@@ -1,57 +1,9 @@
 'use client'
 import Link from 'next/link'
-import { type InputHTMLAttributes, useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { type ClassNameValue, twMerge } from 'tailwind-merge'
-import Button from './buttons/button'
-
-interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'className'> {
-  label?: string
-  className?: ClassNameValue
-}
-
-const Input = ({ label, name, className, ...props }: InputProps) => {
-  return (
-    <div>
-      <label htmlFor={name} className="mb-2 block text-base text-gray-700">
-        {label}:
-      </label>
-      <input
-        id={name}
-        name={name}
-        {...props}
-        className={twMerge(
-          'focus:shadow-outline w-full appearance-none border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary',
-          className,
-        )}
-      />
-    </div>
-  )
-}
-
-interface TextAreaProps
-  extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'className'> {
-  label?: string
-  className?: ClassNameValue
-}
-const TextArea = ({ label, name, className, ...props }: TextAreaProps) => {
-  return (
-    <div>
-      <label htmlFor={name} className="mb-2 block text-base text-gray-700">
-        {label}:
-      </label>
-      <textarea
-        id={name}
-        name={name}
-        {...props}
-        className={twMerge(
-          'focus:shadow-outline w-full appearance-none border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-secondary',
-          className,
-        )}
-      />
-    </div>
-  )
-}
+import Button from '../buttons/button'
+import { Input, TextArea } from '.'
 
 // export type ContactForm = {
 //   name?: string
