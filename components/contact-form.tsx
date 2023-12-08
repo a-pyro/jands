@@ -186,14 +186,14 @@ const TextArea = ({ label, name, className, ...props }: TextAreaProps) => {
 
 export type ContactForm = {
   name?: string
-  replyTo?: string
+  // replyTo?: string
   message?: string
   imageUrl?: string
 }
 
 const initForm: ContactForm = {
   name: '',
-  replyTo: '',
+  // replyTo: '',
   message: '',
 }
 export const ContactForm = ({
@@ -205,22 +205,10 @@ export const ContactForm = ({
 }) => {
   console.log('🚀 ~ imageUrl:', imageUrl)
   const [form, setForm] = useState<ContactForm>({ ...initForm })
-  const [error, setError] = useState<string | undefined>()
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (hasEmptyFields) {
-      setError('Compila tutti i campi')
-      return
-    }
-  }
-
-  const hasEmptyFields = Object.values(form).some((v) => v === '')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setError(undefined)
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -229,7 +217,7 @@ export const ContactForm = ({
 
   const mailtoLink = useMemo(
     () =>
-      `mailto:ardi.germenji@gmail.com?subject=Richiesta Info&body=Nome: ${form.name}%0D%0AEmail: ${form.replyTo}%0D%0AMessaggio: ${form.message}` as const,
+      `mailto:ardi.germenji@gmail.com?subject=Richiesta Info&body=Nome: ${form.name}%0D%0AMessaggio: ${form.message}` as const,
     [form],
   )
 
@@ -237,19 +225,14 @@ export const ContactForm = ({
     <div className={twMerge('flex w-full flex-col md:max-w-lg', className)}>
       <h1 className="mb-5 text-3xl font-medium">Contattaci</h1>
 
-      {error && <p className="text-danger">{error}</p>}
-
-      <form onSubmit={handleSubmit} className="w-full">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="flex w-full flex-col gap-2"
+      >
         <Input
           label="Nome"
           name="name"
           value={form.name ?? ''}
-          onChange={handleChange}
-        />
-        <Input
-          label="Email"
-          name="replyTo"
-          value={form.replyTo ?? ''}
           onChange={handleChange}
         />
         <TextArea
@@ -258,9 +241,8 @@ export const ContactForm = ({
           value={form.message ?? ''}
           onChange={handleChange}
         />
-        <Button type="submit">
-          {!hasEmptyFields && <Link href={mailtoLink}>Invia</Link>}
-          {hasEmptyFields && 'Compila tutti i campi'}
+        <Button>
+          <Link href={mailtoLink}>Invia</Link>
         </Button>
       </form>
     </div>
