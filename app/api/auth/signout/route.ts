@@ -16,6 +16,8 @@ export async function POST(req: NextRequest) {
   }
 
   const redirectUrl = new URL('/', req.url)
+  console.log('🚀 ~ POST ~ redirectUrl:', redirectUrl)
+
   return NextResponse.redirect(redirectUrl, {
     status: 302,
   })

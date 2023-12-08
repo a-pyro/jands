@@ -9,13 +9,12 @@ import { type Database } from '@/supabase/types'
 const redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/callback`
 
 export default function AuthForm() {
-  const supabase = createClientComponentClient<Database>()
-  console.log('🚀 ~ redirectTo:', redirectTo)
+  const supabase = createClientComponentClient<Database>({})
 
   return (
     <Auth
       supabaseClient={supabase}
-      view="magic_link"
+      view="sign_in"
       appearance={{ theme: ThemeSupa }}
       theme="dark"
       showLinks={false}

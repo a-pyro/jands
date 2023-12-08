@@ -1,4 +1,4 @@
-import { ContactForm } from '@/components/form/contact-form'
+import { ContactForm } from '@/components'
 
 export default function Contact() {
   return <ContactForm className="mx-auto" />
