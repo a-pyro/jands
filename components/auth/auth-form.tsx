@@ -4,14 +4,12 @@ import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { type Database } from '@/supabase/types'
 //supabase.com/docs/guides/api/rest/generating-types
+// https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs?database-method=dashboard&language=ts
 
 const redirectTo = `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/callback`
 
 export default function AuthForm() {
-  const supabase = createClientComponentClient<Database>({
-    supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
-    supabaseKey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-  })
+  const supabase = createClientComponentClient<Database>()
   console.log('🚀 ~ redirectTo:', redirectTo)
 
   return (
