@@ -3,6 +3,7 @@ import ScrollAdaptiveWrapper from '@/components/scroll-adaptive-wrapper'
 import { ALL_CREATIONS_TYPES } from '@/services/types'
 
 import getResults from '@/services/getResults'
+import AuthForm from '@/components/auth/auth-form'
 
 export default async function Home() {
   const results = await Promise.all(
@@ -23,6 +24,7 @@ export default async function Home() {
           totalCount={result?.total_count ?? 0}
         />
       ))}
+      <AuthForm />
     </ScrollAdaptiveWrapper>
   )
 }

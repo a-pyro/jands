@@ -1,5 +1,5 @@
 'use server'
-import { contactFormSchema } from '@/server/schemas'
+import { contactFormSchema } from '@/supabase/schemas'
 import { varifyCaptcha } from '@/services/recaptcha'
 import sgMail from '@sendgrid/mail'
 import { NextResponse } from 'next/server'

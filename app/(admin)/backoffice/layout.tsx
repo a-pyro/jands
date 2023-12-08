@@ -1,10 +1,5 @@
 import SharedLayout from '@/app/_shared/shared-layout'
-import { SignOutButton } from '@clerk/nextjs'
 
-export default function Layout() {
-  return (
-    <SharedLayout>
-      <SignOutButton />
-    </SharedLayout>
-  )
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return <SharedLayout>{children}</SharedLayout>
 }
