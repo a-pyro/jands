@@ -1,7 +1,7 @@
 import GridGallery from '@/components/gallery/grid-gallery'
 import { type CreationType } from '../../services/types'
 import getResults from '@/services/getResults'
-import { dictionary } from '@/lang/dictionary'
+import { dictionary } from '@/messages/dictionary'
 
 export default async function CreationPage({
   creationType,

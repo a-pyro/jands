@@ -23,7 +23,7 @@ export default async function RootLayout({
 }) {
   const { locale } = params
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-  const messages = (await import(`../../lang/${locale}.json`)).default
+  const messages = (await import(`../../messages/${locale}.json`)).default
   return (
     <html lang={locale}>
       <body className={`${prata.className}`}>
