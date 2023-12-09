@@ -18,7 +18,7 @@ export default async function Home() {
           images={result?.resources ?? []}
           name={ALL_CREATIONS_TYPES[index]}
           route={`/creations/${ALL_CREATIONS_TYPES[index]}`}
-          title={ALL_CREATIONS_TYPES[index]}
+          type={ALL_CREATIONS_TYPES[index]}
           totalCount={result?.total_count ?? 0}
         />
       ))}

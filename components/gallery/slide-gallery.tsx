@@ -1,24 +1,25 @@
-'use client'
 import React from 'react'
 import { type GalleryProps } from './grid-gallery'
 import { type NavItemConfig } from '../nav/nav'
 import { twMerge } from 'tailwind-merge'
 import Button from '../buttons/button'
-import { dictionary } from '@/messages/dictionary'
 import { type CreationType } from '@/services/types'
 import LinkImage from './link-image'
 import { Link } from '@/navigation'
+import { getTranslations } from 'next-intl/server'
 interface Props extends GalleryProps, NavItemConfig {
   className?: string
-  title: CreationType
+  type: CreationType
   totalCount: number
 }
 
-const SlideGallery = ({ images, route, title, className }: Props) => {
+const SlideGallery = async ({ images, route, type, className }: Props) => {
+  const t = await getTranslations('creations')
+  const title = t(`${type}.title`)
   return (
     <div className={twMerge('flex flex-col gap-3 p-3 md:container', className)}>
       <div className="flex w-full items-center justify-between">
-        <h2 className="text-3xl capitalize md:text-5xl">{dictionary[title]}</h2>
+        <h2 className="text-3xl capitalize md:text-5xl">{title}</h2>
         <Button className="px-2">
           <Link href={route}>
             <svg
