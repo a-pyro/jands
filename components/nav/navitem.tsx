@@ -1,7 +1,7 @@
 'use client'
 import { twMerge } from 'tailwind-merge'
 import { type NavItemConfig } from './nav'
-import { Link } from '@/navigation'
+import { Link } from '@/utils/navigation'
 import { useTranslations } from 'next-intl'
 
 interface Props extends NavItemConfig {

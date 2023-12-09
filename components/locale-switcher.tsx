@@ -1,5 +1,5 @@
 import { locales, type Locale } from '@/i18n'
-import { usePathname, useRouter } from '@/navigation'
+import { usePathname, useRouter } from '@/utils/navigation'
 import { useTranslations } from 'next-intl'
 import { type HTMLAttributes } from 'react'
 import { twMerge } from 'tailwind-merge'

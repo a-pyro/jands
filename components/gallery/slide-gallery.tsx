@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge'
 import Button from '../buttons/button'
 import { type CreationType } from '@/services/types'
 import LinkImage from './link-image'
-import { Link } from '@/navigation'
+import { Link } from '@/utils/navigation'
 import { getTranslations } from 'next-intl/server'
 interface Props extends GalleryProps, NavItemConfig {
   className?: string

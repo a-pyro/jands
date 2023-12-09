@@ -1,4 +1,4 @@
-import { Link } from '@/navigation'
+import { Link } from '@/utils/navigation'
 import { SignoutButton } from '../../signin/components/signout'
 import Button from '@/components/buttons/button'
 

@@ -1,6 +1,6 @@
 import { type ClassNameValue, twMerge } from 'tailwind-merge'
 import { type CloudinaryImage } from '@/utils/cloudinary'
-import { Link } from '@/navigation'
+import { Link } from '@/utils/navigation'
 
 type Props = {
   image: CloudinaryImage
