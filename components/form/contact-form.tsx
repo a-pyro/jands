@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import { type ClassNameValue, twMerge } from 'tailwind-merge'
 import Button from '../buttons/button'
 import { Input, TextArea } from '.'
+import { useTranslations } from 'next-intl'
 
 // export type ContactForm = {
 //   name?: string
@@ -157,7 +158,7 @@ export const ContactForm = ({
 }) => {
   console.log('🚀 ~ imageUrl:', imageUrl)
   const [form, setForm] = useState<ContactForm>({ ...initForm })
-
+  const t = useTranslations('contact')
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -175,26 +176,26 @@ export const ContactForm = ({
 
   return (
     <div className={twMerge('flex w-full flex-col md:max-w-lg', className)}>
-      <h1 className="mb-5 text-3xl font-medium">Contattaci</h1>
+      <h1 className="mb-5 text-3xl font-medium">{t('contact-us')}</h1>
 
       <form
         onSubmit={(e) => e.preventDefault()}
         className="flex w-full flex-col gap-2"
       >
         <Input
-          label="Nome"
+          label={t('name')}
           name="name"
           value={form.name ?? ''}
           onChange={handleChange}
         />
         <TextArea
-          label="Messaggio"
+          label={t('message')}
           name="message"
           value={form.message ?? ''}
           onChange={handleChange}
         />
         <Button>
-          <Link href={mailtoLink}>Invia</Link>
+          <Link href={mailtoLink}>{t('send')}</Link>
         </Button>
       </form>
     </div>

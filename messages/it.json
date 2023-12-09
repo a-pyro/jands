@@ -25,7 +25,8 @@
     "name": "Nome",
     "email": "Email",
     "message": "Messaggio",
-    "send": "Invia"
+    "send": "Invia",
+    "contact-us": "Scrivici"
   },
   "nav": {
     "home": "Home",
