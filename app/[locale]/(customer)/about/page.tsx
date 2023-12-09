@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { useTranslations } from 'next-intl'
+import { type ClassNameValue, twMerge } from 'tailwind-merge'
 
 const TextParagraph = ({ children }: { children: string }) => (
-  <p className="mb-4 text-xl md:w-1/2 md:text-2xl lg:text-3xl">{children}</p>
+  <p className="text-xl md:w-1/2 md:text-2xl lg:text-3xl">{children}</p>
 )
 
 const Image = ({ src, alt }: { src: string; alt: string }) => (
@@ -10,16 +11,32 @@ const Image = ({ src, alt }: { src: string; alt: string }) => (
     <img
       src={src}
       alt={alt}
-      className="transition-transform duration-300 ease-in-out hover:scale-105"
+      className="w-full transition-transform duration-300 ease-in-out hover:scale-105"
     />
   </div>
 )
 
-const BlockWrapper = ({ children }: { children: React.ReactNode }) => (
-  <div className="my-6 flex flex-col items-center md:flex-row md:space-x-6">
-    {children}
-  </div>
-)
+const BlockWrapper = ({
+  children,
+  className,
+  reverse,
+}: {
+  children: React.ReactNode
+  className?: ClassNameValue
+  reverse?: boolean
+}) => {
+  return (
+    <div
+      className={twMerge(
+        'flex flex-col items-center justify-between gap-2 md:flex-row md:space-x-6',
+        className,
+        reverse && 'md:flex-row-reverse ',
+      )}
+    >
+      {children}
+    </div>
+  )
+}
 
 export default function About() {
   const t = useTranslations('about')
@@ -30,15 +47,15 @@ export default function About() {
   const friendship = t('friendship')
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="flex flex-col gap-6">
       <BlockWrapper>
         <TextParagraph>{introduction}</TextParagraph>
         <Image src="/about/work-outside.jpg" alt="Work Outside" />
       </BlockWrapper>
 
-      <BlockWrapper>
-        <Image src="/about/work-table.jpg" alt="Work Table" />
+      <BlockWrapper reverse>
         <TextParagraph>{unique_creations}</TextParagraph>
+        <Image src="/about/work-table.jpg" alt="Work Table" />
       </BlockWrapper>
 
       <BlockWrapper>
@@ -46,9 +63,9 @@ export default function About() {
         <Image src="/about/vetrina.jpg" alt="Vetrina" />
       </BlockWrapper>
 
-      <BlockWrapper>
-        <Image src="/about/vetrina-smile.jpg" alt="Vetrina Smile" />
+      <BlockWrapper reverse>
         <TextParagraph>{founders}</TextParagraph>
+        <Image src="/about/vetrina-smile.jpg" alt="Vetrina Smile" />
       </BlockWrapper>
 
       <BlockWrapper>
