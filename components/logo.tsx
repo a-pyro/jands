@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import logo from '../public/jands-logo.png'
 import { type ClassNameValue, twMerge } from 'tailwind-merge'
 
 interface Props {
@@ -16,10 +14,10 @@ const Logo = ({
   onClick,
 }: Props) => {
   return (
-    <Image
-      src={logo}
+    //  eslint-disable-next-line
+    <img
+      src="/jands-logo.png"
       alt="J and S logo"
-      priority
       width={width}
       height={height}
       className={twMerge('cursor-pointer', className)}

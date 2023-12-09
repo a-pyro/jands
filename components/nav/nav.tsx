@@ -2,8 +2,8 @@
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
 import NavItem from './navitem'
-import { type Route } from 'next'
 import { FOOTER_NAV_ITEMS } from '../footer'
+import { LocaleSwitcher } from '../locale-switcher'
 
 interface Props {
   className?: string
@@ -43,36 +43,37 @@ export default function Nav({ className = '', isOpen, setIsOpen }: Props) {
               onClick={() => setIsOpen(false)}
             />
           ))}
+          <LocaleSwitcher />
         </div>
       </div>
     </nav>
   )
 }
 
-export type NavItemConfig<T extends string = string> = {
-  name: string
-  route: Route<T>
+export type NavItemConfig = {
+  name: Exclude<keyof IntlMessages['nav'], 'locales'>
+  route: string
 }
 export const MAIN_NAV_ITEMS: NavItemConfig[] = [
   {
     route: '/creations/earrings',
-    name: 'Orecchini',
+    name: 'earrings',
   },
 
   {
     route: '/creations/necklaces',
-    name: 'Collane',
+    name: 'necklaces',
   },
   {
     route: '/creations/rings',
-    name: 'Anelli',
+    name: 'rings',
   },
   {
     route: '/creations/customizations',
-    name: 'Personalizzazioni',
+    name: 'customizations',
   },
   {
     route: '/creations/everythingelse',
-    name: 'Altro',
+    name: 'everythingelse',
   },
 ]

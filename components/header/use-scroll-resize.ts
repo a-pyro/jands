@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import { usePathname } from '@/utils/navigation'
 import { useState, useEffect } from 'react'
 
 export function useScollResize({

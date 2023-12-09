@@ -1,0 +1,76 @@
+{
+  "home": {
+    "metadata": {
+      "title": "JandS Art",
+      "description": "JandS Creations - Arte in resina fatta a mano"
+    }
+  },
+  "about": {
+    "metadata": {
+      "title": "JandS Art - Chi siamo",
+      "description": "JandS - Conosci Giulia e Chiara"
+    },
+    "introduction": " In un tempo in cui la società ha raggiunto l’apice del suo materialismo, J and S con le sue creazioni handmade, ha deciso di fare un passo indietro nel tempo, tornando ad uno spirito di purezza, ricreando e racchiudendo con dedizione e amore ciò che oramai stiamo smarrendo, giorno dopo giorno. Rendersi conto della fragilità, della semplicità e delle meravigliose piccolezze che appartengono a questo mondo, ci ha dato l ispirazione per intraprendere questo percorso.",
+    "unique_creations": "La singolarità dei fiori che cogliamo, rende le nostre creazioni irripetibili che solo una volta indossati, ci riportano al legame con la natura. Ma non parliamo solo di fiori.",
+    "variety": "Realizziamo una varietà di opere artigianali, espandendo il nostro ambito creativo per abbracciare diversi elementi e ispirazioni senza limiti.",
+    "founders": "Chiara e Giulia, due anime affiatate, unite da un legame profondo e da un'incredibile dose di pazzia. In un momento in cui entrambe avvertono un senso di inadeguatezza, abbiamo scoperto nell'arte il nostro rifugio, trasformando il creativo in uno strumento di gioia e spensieratezza.",
+    "friendship": "La nostra amicizia è il motore che alimenta la passione per la realizzazione delle nostre creazioni. Troviamo conforto e sollievo nel dar vita a opere che riflettono la nostra visione del mondo, unendo creatività e leggerezza di spirito.",
+    "title": "Chiara e Giulia"
+  },
+  "contact": {
+    "metadata": {
+      "title": "JandS Art - Contattaci",
+      "description": "JandS Art - Chiedici tutto quello che ti interessa sapere"
+    },
+    "name": "Nome",
+    "email": "Email",
+    "message": "Messaggio",
+    "send": "Invia",
+    "contact-us": "Scrivici"
+  },
+  "nav": {
+    "home": "Home",
+    "earrings": "Orecchini",
+    "necklaces": "Collane",
+    "rings": "Anelli",
+    "customizations": "Personalizzazioni",
+    "everythingelse": "Altro",
+    "about": "Chi siamo",
+    "contact-us": "Contattaci",
+    "language": "Lingua",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "go-to-top": "Torna su",
+    "locales": {
+      "it": "Italiano",
+      "en": "Inglese",
+      "fr": "Francese"
+    }
+  },
+  "creations": {
+    "metadata": {
+      "title": "JandS",
+      "description": "JandS Creations - Scopri le nostre creazioni realizzate a mano con resina e fiori"
+    },
+    "earrings": {
+      "title": "Orecchini",
+      "description": "Orecchini in resina realizzati a mano"
+    },
+    "necklaces": {
+      "title": "Collane",
+      "description": "Collane in resina realizzate a mano"
+    },
+    "rings": {
+      "title": "Anelli",
+      "description": "Anelli in resina realizzati a mano"
+    },
+    "customizations": {
+      "title": "Personalizzazioni",
+      "description": "Personalizzazioni in resina realizzate a mano"
+    },
+    "everythingelse": {
+      "title": "Altro",
+      "description": "Altro in resina realizzato a mano"
+    }
+  }
+}

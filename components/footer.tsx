@@ -1,3 +1,5 @@
+'use client'
+import { LocaleSwitcher } from './locale-switcher'
 import { type NavItemConfig } from './nav/nav'
 import NavItem from './nav/navitem'
 
@@ -12,8 +14,9 @@ export default function Footer() {
             className="text-lg text-secondary transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
           />
         ))}
+        <LocaleSwitcher className="text-secondary hover:text-logo" />
         <NavItem
-          name="Torna su"
+          name="go-to-top"
           route="#"
           className="text-lg text-secondary transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
         />
@@ -25,19 +28,19 @@ export default function Footer() {
 export const FOOTER_NAV_ITEMS: NavItemConfig[] = [
   {
     route: '/about',
-    name: 'Chi siamo',
+    name: 'about',
   },
   {
     route: 'https://www.instagram.com/jands.handmade',
-    name: 'Instagram',
+    name: 'instagram',
   },
   {
     route: 'https://www.instagram.com/jands.handmade',
-    name: 'Facebook',
+    name: 'facebook',
   },
 
   {
     route: '/contact',
-    name: 'Contatti',
+    name: 'contact-us',
   },
 ]

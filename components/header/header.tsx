@@ -5,7 +5,7 @@ import { useScollResize, HEADER_SCOLL_SIZE_INIT } from './use-scroll-resize'
 import Nav from '../nav/nav'
 import { useState } from 'react'
 import NavIcon from '../icons/nav-icon'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter } from '@/utils/navigation'
 
 export default function Header() {
   const { logoSize, setLogoSize } = useScollResize(HEADER_SCOLL_SIZE_INIT)

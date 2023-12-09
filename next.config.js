@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
+const withNextIntl = require('next-intl/plugin')()
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    typedRoutes: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -21,4 +19,4 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
 }
 
-module.exports = nextConfig
+module.exports = withNextIntl(nextConfig)

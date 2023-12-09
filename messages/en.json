@@ -1,0 +1,76 @@
+{
+  "home": {
+    "metadata": {
+      "description": "JandS Creations - Handmade resin art",
+      "title": "JandS Art"
+    }
+  },
+  "about": {
+    "title": "Chiara and Giulia",
+    "introduction": "In a time when society has reached the peak of its materialism, J and S with its handmade creations, has decided to take a step back in time, returning to a spirit of purity, recreating and enclosing with dedication and love what we are now losing, day by day. Realizing the fragility, simplicity, and wonderful little things that belong to this world has given us the inspiration to embark on this journey.",
+    "unique_creations": "The uniqueness of the flowers we pick makes our creations one-of-a-kind, which once worn, bring us back to the connection with nature. But we are not just talking about flowers.",
+    "variety": "We create a variety of artisanal works, expanding our creative scope to embrace different elements and limitless inspirations.",
+    "founders": "Chiara and Giulia, two kindred souls, united by a deep bond and an incredible dose of madness. At a time when both of us felt a sense of inadequacy, we found in art our refuge, turning the creative into a tool of joy and carefreeness.",
+    "friendship": "Our friendship is the engine that fuels the passion for creating our works. We find comfort and relief in bringing to life works that reflect our view of the world, combining creativity and lightness of spirit.",
+    "metadata": {
+      "description": "JandS - Meet Giulia e Chiara",
+      "title": "JandS Art - About Us"
+    }
+  },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "metadata": {
+      "description": "JandS Art - Ask us everything you are interested in knowing",
+      "title": "JandS Art - Contact us"
+    },
+    "contact-us": "Write to us"
+  },
+  "nav": {
+    "home": "Home",
+    "earrings": "Earrings",
+    "necklaces": "Necklaces",
+    "rings": "Rings",
+    "customizations": "Customizations",
+    "everythingelse": "Everything Else",
+    "about": "Who we are",
+    "contact-us": "Contact Us",
+    "language": "Language",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "go-to-top": "Go to Top",
+    "locales": {
+      "en": "English",
+      "fr": "French",
+      "it": "Italian"
+    }
+  },
+  "creations": {
+    "customizations": {
+      "description": "Handmade resin customizations",
+      "title": "Customizations"
+    },
+    "earrings": {
+      "title": "Earrings",
+      "description": "Handmade resin earrings"
+    },
+    "everythingelse": {
+      "title": "Other",
+      "description": "Other handmade resin"
+    },
+    "metadata": {
+      "description": "JandS Creations - Discover our creations handmade with resin and flowers",
+      "title": "JandS"
+    },
+    "necklaces": {
+      "description": "Handmade resin necklaces",
+      "title": "Necklaces"
+    },
+    "rings": {
+      "title": "Rings",
+      "description": "Handmade resin rings"
+    }
+  }
+}
