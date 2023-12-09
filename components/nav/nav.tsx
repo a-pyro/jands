@@ -55,23 +55,23 @@ export type NavItemConfig = {
 export const MAIN_NAV_ITEMS: NavItemConfig[] = [
   {
     route: '/creations/earrings',
-    name: 'Orecchini',
+    name: 'earrings',
   },
 
   {
     route: '/creations/necklaces',
-    name: 'Collane',
+    name: 'necklaces',
   },
   {
     route: '/creations/rings',
-    name: 'Anelli',
+    name: 'rings',
   },
   {
     route: '/creations/customizations',
-    name: 'Personalizzazioni',
+    name: 'customizations',
   },
   {
     route: '/creations/everythingelse',
-    name: 'Altro',
+    name: 'everythingelse',
   },
 ]

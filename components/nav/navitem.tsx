@@ -2,6 +2,7 @@
 import { twMerge } from 'tailwind-merge'
 import { type NavItemConfig } from './nav'
 import { Link } from '@/navigation'
+import { useTranslations } from 'next-intl'
 
 interface Props extends NavItemConfig {
   onClick?: () => void
@@ -13,6 +14,7 @@ export default function NavItem({
   onClick,
   className = '',
 }: Props) {
+  const t = useTranslations('nav')
   return (
     <Link
       href={route}
@@ -23,7 +25,7 @@ export default function NavItem({
       target={route.startsWith('http') ? '_blank' : undefined}
       onClick={onClick}
     >
-      {name}
+      {t(name)}
     </Link>
   )
 }
