@@ -1,5 +1,5 @@
 import { type Metadata } from 'next'
-import SharedLayout from '../_shared/shared-layout'
+import SharedLayout from '../../_shared/shared-layout'
 
 export const metadata: Metadata = {
   title: 'JandS - About',

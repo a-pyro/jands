@@ -1,5 +1,5 @@
+import SharedLayout from '@/app/_shared/shared-layout'
 import { type Metadata } from 'next'
-import SharedLayout from '../_shared/shared-layout'
 
 export const metadata: Metadata = {
   title: 'JandS - Creations',
