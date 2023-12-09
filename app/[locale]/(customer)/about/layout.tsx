@@ -1,9 +1,8 @@
 import SharedLayout from '@/app/_shared/shared-layout'
-import { type Metadata } from 'next'
+import { type MetadataProps, getMetadata } from '@/utils/metadata'
 
-export const metadata: Metadata = {
-  title: 'JandS - About',
-  description: 'Discover more about J and S and their journey',
+export async function generateMetadata({ params: { locale } }: MetadataProps) {
+  return await getMetadata({ locale, localeNamespace: 'about' })
 }
 
 const AboutLayout = ({ children }: { children: React.ReactNode }) => (

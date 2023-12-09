@@ -1,9 +1,15 @@
 {
   "home": {
-    "title": "J and S Creations"
+    "metadata": {
+      "title": "JandS Art",
+      "description": "JandS Creations - Handmade resin art"
+    }
   },
   "about": {
-    "title": "Chi siamo",
+    "metadata": {
+      "title": "JandS Art - Chi siamo",
+      "description": "JandS Creations - Handmade resin art"
+    },
     "introduction": " In un tempo in cui la società ha raggiunto l’apice del suo materialismo, J and S con le sue creazioni handmade, ha deciso di fare un passo indietro nel tempo, tornando ad uno spirito di purezza, ricreando e racchiudendo con dedizione e amore ciò che oramai stiamo smarrendo, giorno dopo giorno. Rendersi conto della fragilità, della semplicità e delle meravigliose piccolezze che appartengono a questo mondo, ci ha dato l ispirazione per intraprendere questo percorso.",
     "unique_creations": "La singolarità dei fiori che cogliamo, rende le nostre creazioni irripetibili che solo una volta indossati, ci riportano al legame con la natura. Ma non parliamo solo di fiori.",
     "variety": "Realizziamo una varietà di opere artigianali, espandendo il nostro ambito creativo per abbracciare diversi elementi e ispirazioni senza limiti.",
@@ -11,7 +17,10 @@
     "friendship": "La nostra amicizia è il motore che alimenta la passione per la realizzazione delle nostre creazioni. Troviamo conforto e sollievo nel dar vita a opere che riflettono la nostra visione del mondo, unendo creatività e leggerezza di spirito."
   },
   "contact": {
-    "title": "Contattaci",
+    "metadata": {
+      "title": "JandS Art - Contattaci",
+      "description": "JandS Creations - Handmade resin art"
+    },
     "name": "Nome",
     "email": "Email",
     "message": "Messaggio",
@@ -30,5 +39,31 @@
     "facebook": "Facebook",
     "instagram": "Instagram",
     "go-to-top": "Torna su"
+  },
+  "creations": {
+    "metadata": {
+      "title": "JandS",
+      "description": "JandS Creations - Handmade resin art"
+    },
+    "earrings": {
+      "title": "Orecchini",
+      "description": "Orecchini in resina realizzati a mano"
+    },
+    "necklaces": {
+      "title": "Collane",
+      "description": "Collane in resina realizzate a mano"
+    },
+    "rings": {
+      "title": "Anelli",
+      "description": "Anelli in resina realizzati a mano"
+    },
+    "customizations": {
+      "title": "Personalizzazioni",
+      "description": "Personalizzazioni in resina realizzate a mano"
+    },
+    "everythingelse": {
+      "title": "Altro",
+      "description": "Altro in resina realizzato a mano"
+    }
   }
 }

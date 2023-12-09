@@ -1,17 +1,15 @@
-import type { Metadata } from 'next'
 import { Prata } from 'next/font/google'
 import '../../style/globals.css'
 import Header from '@/components/header/header'
 import Footer from '@/components/footer'
-import { type Locale } from '@/navigation'
 import { type AbstractIntlMessages, NextIntlClientProvider } from 'next-intl'
+import { type Locale } from '@/i18n'
+import { type MetadataProps, getMetadata } from '@/utils/metadata'
 
 const prata = Prata({ subsets: ['latin'], weight: ['400'] })
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
-  title: 'JandS - Home',
-  description: 'Handmade resin creations',
+export async function generateMetadata({ params: { locale } }: MetadataProps) {
+  return await getMetadata({ locale, localeNamespace: 'home' })
 }
 
 export default async function RootLayout({
