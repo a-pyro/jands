@@ -36,9 +36,11 @@ export default function About() {
   const variety = t('variety')
   const founders = t('founders')
   const friendship = t('friendship')
+  const title = t('title')
 
   return (
     <div className="flex flex-col gap-16">
+      <h1 className="text-center text-4xl font-bold">{title}</h1>
       <BlockWrapper>
         <TextParagraph>{introduction}</TextParagraph>
         <Image src="/about/work-outside.jpg" alt="Work Outside" />
