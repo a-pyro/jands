@@ -3,8 +3,9 @@ import '../../style/globals.css'
 import Header from '@/components/header/header'
 import Footer from '@/components/footer'
 import { type AbstractIntlMessages, NextIntlClientProvider } from 'next-intl'
-import { type Locale } from '@/i18n'
+import { type Locale, defaultLocale } from '@/i18n'
 import { type MetadataProps, getMetadata } from '@/utils/metadata'
+import { redirect } from 'next/navigation'
 
 const prata = Prata({ subsets: ['latin'], weight: ['400'] })
 
@@ -20,8 +21,15 @@ export default async function RootLayout({
   params: { locale: Locale }
 }) {
   const { locale } = params
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-  const messages = (await import(`../../messages/${locale}.json`)).default
+
+  let messages
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+    messages = (await import(`../../messages/${locale}.json`)).default
+  } catch (error) {
+    redirect(`/${defaultLocale}`)
+  }
+
   return (
     <html lang={locale}>
       <body className={`${prata.className}`}>
