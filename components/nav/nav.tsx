@@ -49,7 +49,7 @@ export default function Nav({ className = '', isOpen, setIsOpen }: Props) {
 }
 
 export type NavItemConfig = {
-  name: string
+  name: keyof IntlMessages['nav']
   route: string
 }
 export const MAIN_NAV_ITEMS: NavItemConfig[] = [

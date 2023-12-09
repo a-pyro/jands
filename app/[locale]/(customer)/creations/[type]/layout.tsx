@@ -15,12 +15,11 @@ export async function generateMetadata({
 }: MetadataProps) {
   const t = await getTranslations({
     locale,
-    namespace: 'creations',
   })
 
   return {
-    title: `${t('metadata.title')} ${t(`${type}.title`)}`,
-    description: t(`${type}.description`),
+    title: `${t('creations.metadata.title')} ${t(`creations.${type}.title`)}`,
+    description: t(`creations.${type}.description`),
   }
 }
 
