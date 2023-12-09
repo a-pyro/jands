@@ -8,6 +8,7 @@ import Footer from '@/components/footer'
 const prata = Prata({ subsets: ['latin'], weight: ['400'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
   title: 'JandS - Home',
   description: 'Handmade resin creations',
 }

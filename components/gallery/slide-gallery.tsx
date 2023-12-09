@@ -2,12 +2,12 @@
 import React from 'react'
 import { type GalleryProps } from './grid-gallery'
 import { type NavItemConfig } from '../nav/nav'
-import Image from 'next/image'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import Button from '../buttons/button'
 import { dictionary } from '@/lang/dictionary'
 import { type CreationType } from '@/services/types'
+import LinkImage from './link-image'
 interface Props extends GalleryProps, NavItemConfig {
   className?: string
   title: CreationType
@@ -44,19 +44,7 @@ const SlideGallery = ({ images, route, title, className }: Props) => {
       >
         {images.map((image, index) => (
           <div key={index} className="w-56 flex-none md:w-1/4">
-            <Link
-              draggable={false}
-              href={`/creations/${encodeURIComponent(image.secure_url)}`}
-            >
-              <Image
-                draggable={false}
-                src={image.secure_url}
-                alt={image.public_id}
-                className="h-full w-full overflow-hidden object-cover transition-all duration-300 ease-in-out hover:scale-105 hover:cursor-pointer"
-                width={500}
-                height={500}
-              />
-            </Link>
+            <LinkImage image={image} />
           </div>
         ))}
       </div>
