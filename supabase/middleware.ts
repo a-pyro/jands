@@ -3,13 +3,17 @@ import { env } from '@/env.mjs'
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { type NextRequest, NextResponse } from 'next/server'
 
-export const createClient = (request: NextRequest) => {
-  // Create an unmodified response
-  let response = NextResponse.next({
-    request: {
-      headers: request.headers,
-    },
-  })
+export const createMiddlewareClient = (
+  request: NextRequest,
+  response: NextResponse,
+) => {
+  // get response from previous middleware and update it
+
+  // let response = NextResponse.next({
+  //   request: {
+  //     headers: request.headers,
+  //   },
+  // })
 
   const supabase = createServerClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
