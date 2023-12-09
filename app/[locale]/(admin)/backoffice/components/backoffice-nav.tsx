@@ -1,6 +1,6 @@
 import { Link } from '@/utils/navigation'
-import { SignoutButton } from '../../signin/components/signout'
 import Button from '@/components/buttons/button'
+import AuthButton from '@/components/AuthButton'
 
 export const BackOfficeNav = () => {
   return (
@@ -9,7 +9,7 @@ export const BackOfficeNav = () => {
       <Button>
         <Link href="/backoffice">/backoffice</Link>
       </Button>
-      <SignoutButton />
+      <AuthButton />
     </aside>
   )
 }

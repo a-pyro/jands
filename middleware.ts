@@ -2,6 +2,7 @@ import createIntlMiddleware from 'next-intl/middleware'
 import { locales, defaultLocale, localePrefix } from './i18n'
 import { type NextRequest } from 'next/server'
 import { createMiddlewareClient } from './supabase/middleware'
+import { redirect } from 'next/navigation'
 
 export default async function middleware(request: NextRequest) {
   const handleI18nRouting = createIntlMiddleware({
@@ -16,7 +17,10 @@ export default async function middleware(request: NextRequest) {
   // only handle authSession on backoffice routes
   if (request.nextUrl.pathname.includes('/backoffice')) {
     const { supabase, response } = createMiddlewareClient(request, res)
-    await supabase.auth.getSession()
+    const session = await supabase.auth.getSession()
+    if (!session) {
+      return redirect('/backoffice/login')
+    }
     return response
   } else {
     return res

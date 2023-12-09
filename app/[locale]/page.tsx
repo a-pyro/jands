@@ -2,7 +2,6 @@ import SlideGallery from '@/components/gallery/slide-gallery'
 import ScrollAdaptiveWrapper from '@/components/scroll-adaptive-wrapper'
 import { ALL_CREATIONS_TYPES } from '@/services/types'
 import getResults from '@/services/getResults'
-import AuthButton from '@/components/AuthButton'
 
 export default async function Home() {
   const results = await Promise.all(
@@ -13,7 +12,6 @@ export default async function Home() {
 
   return (
     <ScrollAdaptiveWrapper className="flex flex-col gap-20">
-      <AuthButton />
       {results.map((result, index) => (
         <SlideGallery
           key={ALL_CREATIONS_TYPES[index]}
