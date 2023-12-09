@@ -1,41 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
 import { useTranslations } from 'next-intl'
-import { type ClassNameValue, twMerge } from 'tailwind-merge'
 
 const TextParagraph = ({ children }: { children: string }) => (
-  <p className="text-xl md:w-1/2 md:text-2xl lg:text-3xl">{children}</p>
+  <p className="mb-4 text-xl md:mb-0  md:w-1/2 md:text-2xl lg:text-3xl">
+    {children}
+  </p>
 )
 
 const Image = ({ src, alt }: { src: string; alt: string }) => (
-  <div className="w-full overflow-hidden md:w-1/2">
+  <div className="w-full overflow-hidden  md:w-1/2">
     <img
       src={src}
       alt={alt}
-      className="w-full transition-transform duration-300 ease-in-out hover:scale-105"
+      className="h-auto w-full transition-transform duration-300 ease-in-out hover:scale-110"
     />
   </div>
 )
 
 const BlockWrapper = ({
   children,
-  className,
   reverse,
 }: {
   children: React.ReactNode
-  className?: ClassNameValue
   reverse?: boolean
 }) => {
-  return (
-    <div
-      className={twMerge(
-        'flex flex-col items-center justify-between gap-2 md:flex-row md:space-x-6',
-        className,
-        reverse && 'md:flex-row-reverse ',
-      )}
-    >
-      {children}
-    </div>
-  )
+  const baseClasses = 'flex flex-col items-center gap-6 md:gap-8'
+  const flexOrder = reverse ? 'md:flex-row-reverse' : 'md:flex-row'
+  return <div className={`${baseClasses} ${flexOrder} w-full`}>{children}</div>
 }
 
 export default function About() {
@@ -47,7 +38,7 @@ export default function About() {
   const friendship = t('friendship')
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-16">
       <BlockWrapper>
         <TextParagraph>{introduction}</TextParagraph>
         <Image src="/about/work-outside.jpg" alt="Work Outside" />
