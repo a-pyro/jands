@@ -2,8 +2,9 @@ import { ContactForm } from '@/components/form/contact-form'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
 
-export default function Page({ params: { url } }: { params: { url: string } }) {
-  const decoded_url = decodeURIComponent(url)
+export default function Page({ params: { id } }: { params: { id: string } }) {
+  // for now it's url, will be id later
+  const decoded_url = decodeURIComponent(id)
   return (
     <div className="mx-auto mt-5 flex flex-col items-center gap-5 lg:flex-row lg:gap-10">
       <Image

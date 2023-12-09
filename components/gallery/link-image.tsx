@@ -1,6 +1,6 @@
 import { type ClassNameValue, twMerge } from 'tailwind-merge'
-import Link from 'next/link'
 import { type CloudinaryImage } from '@/utils/cloudinary'
+import { Link } from '@/navigation'
 
 type Props = {
   image: CloudinaryImage
@@ -11,7 +11,7 @@ export default function LinkImage({ image, className = '' }: Props) {
   return (
     <Link
       className="overflow-hidden"
-      href={`/creations/${encodeURIComponent(image.secure_url)}`}
+      href={`/creations/detail/${encodeURIComponent(image.secure_url)}`}
       draggable={false}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}

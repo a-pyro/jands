@@ -2,7 +2,6 @@
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
 import NavItem from './navitem'
-import { type Route } from 'next'
 import { FOOTER_NAV_ITEMS } from '../footer'
 
 interface Props {
@@ -49,9 +48,9 @@ export default function Nav({ className = '', isOpen, setIsOpen }: Props) {
   )
 }
 
-export type NavItemConfig<T extends string = string> = {
+export type NavItemConfig = {
   name: string
-  route: Route<T>
+  route: string
 }
 export const MAIN_NAV_ITEMS: NavItemConfig[] = [
   {

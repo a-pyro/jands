@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "check:types": "tsc --noEmit",
+    "check:all": "npm run lint && npm run check:types",
     "db:login": "npx supabase login",
     "db:types": "npx supabase gen types typescript --project-id \"gdojzjukedyrroxsvxil\" --schema public > supabase/types.ts"
   },

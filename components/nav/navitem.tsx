@@ -1,7 +1,7 @@
 'use client'
-import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { type NavItemConfig } from './nav'
+import { Link } from '@/navigation'
 
 interface Props extends NavItemConfig {
   onClick?: () => void

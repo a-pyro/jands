@@ -2,12 +2,12 @@
 import React from 'react'
 import { type GalleryProps } from './grid-gallery'
 import { type NavItemConfig } from '../nav/nav'
-import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import Button from '../buttons/button'
 import { dictionary } from '@/lang/dictionary'
 import { type CreationType } from '@/services/types'
 import LinkImage from './link-image'
+import { Link } from '@/navigation'
 interface Props extends GalleryProps, NavItemConfig {
   className?: string
   title: CreationType
