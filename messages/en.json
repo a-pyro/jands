@@ -1,7 +1,5 @@
 {
-  "home": {
-    "title": "J and S Creations"
-  },
+  "home": {},
   "about": {
     "title": "About Us",
     "introduction": "In a time when society has reached the peak of its materialism, J and S with its handmade creations, has decided to take a step back in time, returning to a spirit of purity, recreating and enclosing with dedication and love what we are now losing, day by day. Realizing the fragility, simplicity, and wonderful little things that belong to this world has given us the inspiration to embark on this journey.",
@@ -11,7 +9,6 @@
     "friendship": "Our friendship is the engine that fuels the passion for creating our works. We find comfort and relief in bringing to life works that reflect our view of the world, combining creativity and lightness of spirit."
   },
   "contact": {
-    "title": "Contact Us",
     "name": "Name",
     "email": "Email",
     "message": "Message",
