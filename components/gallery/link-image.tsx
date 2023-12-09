@@ -12,6 +12,7 @@ export default function LinkImage({ image, className = '' }: Props) {
     <Link
       className="overflow-hidden"
       href={`/creations/${encodeURIComponent(image.secure_url)}`}
+      draggable={false}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
