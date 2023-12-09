@@ -40,7 +40,12 @@
     "language": "Language",
     "facebook": "Facebook",
     "instagram": "Instagram",
-    "go-to-top": "Go to Top"
+    "go-to-top": "Go to Top",
+    "locales": {
+      "en": "English",
+      "fr": "French",
+      "it": "Italian"
+    }
   },
   "creations": {
     "customizations": {

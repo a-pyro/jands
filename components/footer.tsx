@@ -1,3 +1,5 @@
+'use client'
+import { LocaleSwitcher } from './locale-switcher'
 import { type NavItemConfig } from './nav/nav'
 import NavItem from './nav/navitem'
 
@@ -12,6 +14,7 @@ export default function Footer() {
             className="text-lg text-secondary transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
           />
         ))}
+        <LocaleSwitcher className="text-secondary hover:text-logo" />
         <NavItem
           name="go-to-top"
           route="#"
