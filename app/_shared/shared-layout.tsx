@@ -1,12 +1,13 @@
-import ScrollAdaptiveWrapper from '@/components/scroll-adaptive-wrapper'
-import { twMerge, type ClassNameValue } from 'tailwind-merge'
+import { type ClassNameValue, twMerge } from 'tailwind-merge';
 
-const SharedLayout = ({
+import { ScrollAdaptiveWrapper } from '@/components/scroll-adaptive-wrapper';
+
+export const SharedLayout = ({
   children,
   className = '',
 }: {
-  children: React.ReactNode
-  className?: ClassNameValue
+  children: React.ReactNode;
+  className?: ClassNameValue;
 }) => {
   return (
     <ScrollAdaptiveWrapper
@@ -14,7 +15,5 @@ const SharedLayout = ({
     >
       {children}
     </ScrollAdaptiveWrapper>
-  )
-}
-
-export default SharedLayout
+  );
+};

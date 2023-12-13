@@ -1,33 +1,35 @@
-import { Prata } from 'next/font/google'
-import '../../style/globals.css'
-import Header from '@/components/header/header'
-import Footer from '@/components/footer'
-import { type AbstractIntlMessages, NextIntlClientProvider } from 'next-intl'
-import { type Locale, defaultLocale } from '@/i18n'
-import { type MetadataProps, getMetadata } from '@/utils/metadata'
-import { redirect } from 'next/navigation'
+import { Prata } from 'next/font/google';
+import '../../style/globals.css';
+import { redirect } from 'next/navigation';
+import { type AbstractIntlMessages, NextIntlClientProvider } from 'next-intl';
 
-const prata = Prata({ subsets: ['latin'], weight: ['400'] })
+import { Footer } from '@/components/footer';
+import { Header } from '@/components/header/header';
+import { type Locale, defaultLocale } from '@/i18n';
+import { type MetadataProps, getMetadata } from '@/utils/metadata';
+
+const prata = Prata({ subsets: ['latin'], weight: ['400'] });
 
 export async function generateMetadata({ params: { locale } }: MetadataProps) {
-  return await getMetadata({ locale, localeNamespace: 'home' })
+  const metadata = await getMetadata({ locale, localeNamespace: 'home' });
+  return metadata;
 }
 
 export default async function RootLayout({
   children,
   params,
 }: {
-  children: React.ReactNode
-  params: { locale: Locale }
+  children: React.ReactNode;
+  params: { locale: Locale };
 }) {
-  const { locale } = params
+  const { locale } = params;
 
-  let messages
+  let messages;
   try {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-    messages = (await import(`../../messages/${locale}.json`)).default
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access -- we trust the import
+    messages = (await import(`../../messages/${locale}.json`)).default;
   } catch (error) {
-    redirect(`/${defaultLocale}`)
+    redirect(`/${defaultLocale}`);
   }
 
   return (
@@ -42,5 +44,5 @@ export default async function RootLayout({
         </NextIntlClientProvider>
       </body>
     </html>
-  )
+  );
 }

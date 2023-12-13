@@ -1,10 +1,14 @@
-'use client'
-import { useState, useMemo } from 'react'
-import { type ClassNameValue, twMerge } from 'tailwind-merge'
-import Button from '../buttons/button'
-import { Input, TextArea } from '.'
-import { useTranslations } from 'next-intl'
-import { Link } from '@/utils/navigation'
+'use client';
+import { useTranslations } from 'next-intl';
+import { useMemo, useState } from 'react';
+import { type ClassNameValue, twMerge } from 'tailwind-merge';
+
+import { Link } from '@/utils/navigation';
+
+import { Button } from '../buttons/button';
+
+import { Input } from './input';
+import { TextArea } from './text-area';
 
 // export type ContactForm = {
 //   name?: string
@@ -138,66 +142,64 @@ import { Link } from '@/utils/navigation'
 // }
 
 export type ContactForm = {
-  name?: string
+  name?: string;
   // replyTo?: string
-  message?: string
-  imageUrl?: string
-}
+  message?: string;
+  imageUrl?: string;
+};
 
 const initForm: ContactForm = {
   name: '',
   // replyTo: '',
   message: '',
-}
+};
 export const ContactForm = ({
   className = '',
-  imageUrl,
 }: {
-  className?: ClassNameValue
-  imageUrl?: string
+  className?: ClassNameValue;
+  imageUrl?: string;
 }) => {
-  console.log('🚀 ~ imageUrl:', imageUrl)
-  const [form, setForm] = useState<ContactForm>({ ...initForm })
-  const t = useTranslations('contact')
+  const [form, setForm] = useState<ContactForm>({ ...initForm });
+  const t = useTranslations('contact');
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const mailtoLink = useMemo(
     () =>
       `mailto:ardi.germenji@gmail.com?subject=Richiesta Info&body=Nome: ${form.name}%0D%0AMessaggio: ${form.message}` as const,
     [form],
-  )
+  );
 
   return (
     <div className={twMerge('flex w-full flex-col md:max-w-lg', className)}>
       <h1 className="mb-5 text-3xl font-medium">{t('contact-us')}</h1>
 
       <form
-        onSubmit={(e) => e.preventDefault()}
         className="flex w-full flex-col gap-2"
+        onSubmit={(e) => e.preventDefault()}
       >
         <Input
           label={t('name')}
           name="name"
-          value={form.name ?? ''}
           onChange={handleChange}
+          value={form.name ?? ''}
         />
         <TextArea
           label={t('message')}
           name="message"
-          value={form.message ?? ''}
           onChange={handleChange}
+          value={form.message ?? ''}
         />
         <Button>
           <Link href={mailtoLink}>{t('send')}</Link>
         </Button>
       </form>
     </div>
-  )
-}
+  );
+};

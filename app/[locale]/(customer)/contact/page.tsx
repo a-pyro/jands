@@ -1,5 +1,7 @@
-import { ContactForm } from '@/components'
+import { ContactForm } from '@/components';
 
-export default function Contact() {
-  return <ContactForm className="mx-auto" />
-}
+const ContactPage = () => {
+  return <ContactForm className="mx-auto" />;
+};
+
+export default ContactPage;

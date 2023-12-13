@@ -1,11 +1,11 @@
-import { type ButtonHTMLAttributes, type PropsWithChildren } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { type ButtonHTMLAttributes, type PropsWithChildren } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  loading?: boolean
-}
+  loading?: boolean;
+};
 
-const Button = ({
+export const Button = ({
   className = '',
   children,
   loading = false,
@@ -13,17 +13,16 @@ const Button = ({
 }: PropsWithChildren<Props>) => {
   return (
     <button
-      disabled={loading}
       className={twMerge(
         'border border-dark px-6 py-1.5 text-xl  hover:bg-dark hover:text-logo',
         loading ? 'animate-pulse cursor-wait' : '',
         className,
       )}
+      disabled={loading}
+      type="button"
       {...rest}
     >
       {loading ? 'Wait please...' : children}
     </button>
-  )
-}
-
-export default Button
+  );
+};

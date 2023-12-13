@@ -1,31 +1,28 @@
-'use client'
-import { twMerge } from 'tailwind-merge'
-import { type NavItemConfig } from './nav'
-import { Link } from '@/utils/navigation'
-import { useTranslations } from 'next-intl'
+'use client';
+import { useTranslations } from 'next-intl';
+import { twMerge } from 'tailwind-merge';
 
-interface Props extends NavItemConfig {
-  onClick?: () => void
-  className?: string
-}
-export default function NavItem({
-  name,
-  route,
-  onClick,
-  className = '',
-}: Props) {
-  const t = useTranslations('nav')
+import { Link } from '@/utils/navigation';
+
+import { type NavItemConfig } from './nav';
+
+type Props = {
+  onClick?: () => void;
+  className?: string;
+} & NavItemConfig;
+export const NavItem = ({ name, route, onClick, className = '' }: Props) => {
+  const t = useTranslations('nav');
   return (
     <Link
-      href={route}
       className={twMerge(
         'transform text-primary transition-transform hover:skew-x-12',
         className,
       )}
-      target={route.startsWith('http') ? '_blank' : undefined}
+      href={route}
       onClick={onClick}
+      target={route.startsWith('http') ? '_blank' : undefined}
     >
       {t(name)}
     </Link>
-  )
-}
+  );
+};
