@@ -42,10 +42,11 @@
     "instagram": "Instagram",
     "go-to-top": "Retour en haut",
     "locales": {
-      "en": "Anglais",
-      "fr": "Français",
-      "it": "Italien"
-    }
+      "it": "Italiano",
+      "en": "English",
+      "fr": "Français"
+    },
+    "backoffice": "Backoffice"
   },
   "creations": {
     "customizations": {

@@ -1,23 +1,22 @@
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers'
 
-import { createServerClient } from '@/supabase/server';
-import { Link } from '@/utils/navigation';
+import { createServerClient } from '@/supabase/server'
+import { Link, redirect } from '@/utils/navigation'
 
+const signOut = async () => {
+  'use server'
+  const cookieStore = cookies()
+  const supabase = createServerClient(cookieStore)
+  await supabase.auth.signOut()
+  return redirect('/login')
+}
 export const AuthButton = async () => {
-  const cookieStore = cookies();
-  const supabase = createServerClient(cookieStore);
+  const cookieStore = cookies()
+  const supabase = createServerClient(cookieStore)
 
   const {
     data: { user },
-  } = await supabase.auth.getUser();
-
-  const signOut = async () => {
-    'use server';
-
-    await supabase.auth.signOut();
-    return redirect('/login');
-  };
+  } = await supabase.auth.getUser()
 
   return user ? (
     <div className="flex items-center gap-4">
@@ -25,7 +24,7 @@ export const AuthButton = async () => {
       <form action={signOut}>
         <button
           className="bg-btn-background hover:bg-btn-background-hover rounded-md px-4 py-2 no-underline"
-          type="button"
+          type="submit"
         >
           Logout
         </button>
@@ -38,5 +37,5 @@ export const AuthButton = async () => {
     >
       Login
     </Link>
-  );
-};
+  )
+}

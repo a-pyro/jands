@@ -1,6 +1,6 @@
-import { AuthButton } from '@/components/auth-button';
-import { Button } from '@/components/buttons/button';
-import { Link } from '@/utils/navigation';
+import { AuthButton } from '@/components/auth-button'
+import { Button } from '@/components/buttons/button'
+import { Link } from '@/utils/navigation'
 
 export const BackOfficeNav = () => {
   return (
@@ -11,5 +11,5 @@ export const BackOfficeNav = () => {
       </Button>
       <AuthButton />
     </aside>
-  );
-};
+  )
+}
