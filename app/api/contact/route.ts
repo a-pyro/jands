@@ -1,23 +1,24 @@
-'use server'
-import { contactFormSchema } from '@/supabase/schemas'
-import { varifyCaptcha } from '@/services/recaptcha'
-import sgMail from '@sendgrid/mail'
-import { NextResponse } from 'next/server'
+'use server';
+import sgMail from '@sendgrid/mail';
+import { NextResponse } from 'next/server';
 
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY ?? ''
-const to = process.env.SENDGRID_TO_EMAIL ?? ''
-const from = process.env.SENDGRID_FROM_EMAIL ?? ''
+import { varifyCaptcha } from '@/services/recaptcha';
+import { contactFormSchema } from '@/supabase/schemas';
 
-sgMail.setApiKey(SENDGRID_API_KEY)
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY ?? '';
+const to = process.env.SENDGRID_TO_EMAIL ?? '';
+const from = process.env.SENDGRID_FROM_EMAIL ?? '';
+
+sgMail.setApiKey(SENDGRID_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    const data = contactFormSchema.parse(await request.json())
-    const { name, replyTo, message, captchaToken, imageUrl } = data
+    const data = contactFormSchema.parse(await request.json());
+    const { name, replyTo, message, captchaToken, imageUrl } = data;
 
-    const text = `${message}` + imageUrl ? `\nImmagine: ${imageUrl}` : ''
+    const text = `${message}${imageUrl}` ? `\nImmagine: ${imageUrl}` : '';
 
-    await varifyCaptcha(captchaToken)
+    await varifyCaptcha(captchaToken);
 
     const msg = {
       to,
@@ -26,15 +27,14 @@ export async function POST(request: Request) {
       subject: `Nuovo messaggio da ${name}`,
       text,
       //  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-    }
-    await sgMail.send(msg)
+    };
+    await sgMail.send(msg);
     return NextResponse.json({
       data,
       status: 200,
       message: `Email sent to ${to}, from ${replyTo}`,
-    })
+    });
   } catch (error) {
-    console.error(error)
-    return NextResponse.json({ error, status: 400 })
+    return NextResponse.json({ error, status: 400 });
   }
 }

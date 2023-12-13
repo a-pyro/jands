@@ -1,17 +1,19 @@
-'use client'
-import React from 'react'
-import { twMerge } from 'tailwind-merge'
-import NavItem from './navitem'
-import { FOOTER_NAV_ITEMS } from '../footer'
-import { LocaleSwitcher } from '../locale-switcher'
+'use client';
+import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
-interface Props {
-  className?: string
-  isOpen: boolean
-  setIsOpen: (isOpen: boolean) => void
-}
+import { FOOTER_NAV_ITEMS } from '../footer';
+import { LocaleSwitcher } from '../locale-switcher';
 
-export default function Nav({ className = '', isOpen, setIsOpen }: Props) {
+import { NavItem } from './navitem';
+
+type Props = {
+  className?: string;
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
+};
+
+export const Nav = ({ className = '', isOpen, setIsOpen }: Props) => {
   return (
     <nav
       className={twMerge(
@@ -47,13 +49,13 @@ export default function Nav({ className = '', isOpen, setIsOpen }: Props) {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
 export type NavItemConfig = {
-  name: Exclude<keyof IntlMessages['nav'], 'locales'>
-  route: string
-}
+  name: Exclude<keyof IntlMessages['nav'], 'locales'>;
+  route: string;
+};
 export const MAIN_NAV_ITEMS: NavItemConfig[] = [
   {
     route: '/creations/earrings',
@@ -76,4 +78,4 @@ export const MAIN_NAV_ITEMS: NavItemConfig[] = [
     route: '/creations/everythingelse',
     name: 'everythingelse',
   },
-]
+];

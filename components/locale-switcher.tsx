@@ -1,19 +1,20 @@
-import { locales, type Locale } from '@/i18n'
-import { usePathname, useRouter } from '@/utils/navigation'
-import { useTranslations } from 'next-intl'
-import { type HTMLAttributes } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { useTranslations } from 'next-intl';
+import { type HTMLAttributes } from 'react';
+import { twMerge } from 'tailwind-merge';
 
-type Props = HTMLAttributes<HTMLDivElement>
+import { type Locale, locales } from '@/i18n';
+import { usePathname, useRouter } from '@/utils/navigation';
+
+type Props = HTMLAttributes<HTMLDivElement>;
 
 export const LocaleSwitcher = ({ className = '' }: Props) => {
-  const t = useTranslations('nav.locales')
-  const router = useRouter()
-  const pathname = usePathname()
+  const t = useTranslations('nav.locales');
+  const router = useRouter();
+  const pathname = usePathname();
 
   const switchLocale = (locale: Locale) => {
-    router.push(pathname, { locale })
-  }
+    router.push(pathname, { locale });
+  };
 
   return (
     <div className="flex gap-2">
@@ -25,10 +26,11 @@ export const LocaleSwitcher = ({ className = '' }: Props) => {
           )}
           key={locale}
           onClick={() => switchLocale(locale)}
+          type="button"
         >
           {t(locale)}
         </button>
       ))}
     </div>
-  )
-}
+  );
+};

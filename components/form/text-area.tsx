@@ -1,11 +1,10 @@
-import { type InputHTMLAttributes } from 'react'
-import { type ClassNameValue, twMerge } from 'tailwind-merge'
+import { type InputHTMLAttributes } from 'react';
+import { type ClassNameValue, twMerge } from 'tailwind-merge';
 
-interface TextAreaProps
-  extends Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'className'> {
-  label?: string
-  className?: ClassNameValue
-}
+type TextAreaProps = {
+  label?: string;
+  className?: ClassNameValue;
+} & Omit<InputHTMLAttributes<HTMLTextAreaElement>, 'className'>;
 export const TextArea = ({
   label,
   name,
@@ -14,7 +13,7 @@ export const TextArea = ({
 }: TextAreaProps) => {
   return (
     <div>
-      <label htmlFor={name} className="mb-2 block text-base text-gray-700">
+      <label className="mb-2 block text-base text-gray-700" htmlFor={name}>
         {label}:
       </label>
       <textarea
@@ -27,5 +26,5 @@ export const TextArea = ({
         )}
       />
     </div>
-  )
-}
+  );
+};

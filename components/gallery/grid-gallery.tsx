@@ -1,16 +1,17 @@
-import LinkImage from './link-image'
-import { type CloudinaryImage } from '@/utils/cloudinary'
+import { type CloudinaryImage } from '@/utils/cloudinary';
 
-export interface GalleryProps {
-  images: CloudinaryImage[]
-}
+import { LinkImage } from './link-image';
 
-export default function GridGallery({ images }: GalleryProps) {
+export type GalleryProps = {
+  images: CloudinaryImage[];
+};
+
+export const GridGallery = ({ images }: GalleryProps) => {
   return (
     <div className="grid auto-rows-auto grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {images.map((image) => (
-        <LinkImage key={image.public_id} image={image} />
+        <LinkImage image={image} key={image.public_id} />
       ))}
     </div>
-  )
-}
+  );
+};

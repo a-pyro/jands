@@ -1,3 +1,5 @@
-export default function Page() {
-  return <div>bo layout</div>
-}
+const Page = () => {
+  return <div>bo layout</div>;
+};
+
+export default Page;

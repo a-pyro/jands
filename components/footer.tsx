@@ -1,9 +1,9 @@
-'use client'
-import { LocaleSwitcher } from './locale-switcher'
-import { type NavItemConfig } from './nav/nav'
-import NavItem from './nav/navitem'
+'use client';
+import { LocaleSwitcher } from './locale-switcher';
+import { type NavItemConfig } from './nav/nav';
+import { NavItem } from './nav/navitem';
 
-export default function Footer() {
+export const Footer = () => {
   return (
     <footer>
       <div className="flex flex-wrap items-center justify-center gap-2 py-4">
@@ -16,14 +16,14 @@ export default function Footer() {
         ))}
         <LocaleSwitcher className="text-secondary hover:text-logo" />
         <NavItem
+          className="text-lg text-secondary transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
           name="go-to-top"
           route="#"
-          className="text-lg text-secondary transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
         />
       </div>
     </footer>
-  )
-}
+  );
+};
 
 export const FOOTER_NAV_ITEMS: NavItemConfig[] = [
   {
@@ -43,4 +43,4 @@ export const FOOTER_NAV_ITEMS: NavItemConfig[] = [
     route: '/contact',
     name: 'contact-us',
   },
-]
+];

@@ -1,16 +1,15 @@
-import { type InputHTMLAttributes } from 'react'
-import { type ClassNameValue, twMerge } from 'tailwind-merge'
+import { type InputHTMLAttributes } from 'react';
+import { type ClassNameValue, twMerge } from 'tailwind-merge';
 
-interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'className'> {
-  label?: string
-  className?: ClassNameValue
-}
+type InputProps = {
+  label?: string;
+  className?: ClassNameValue;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'className'>;
 
 export const Input = ({ label, name, className, ...props }: InputProps) => {
   return (
     <div>
-      <label htmlFor={name} className="mb-2 block text-base text-gray-700">
+      <label className="mb-2 block text-base text-gray-700" htmlFor={name}>
         {label}:
       </label>
       <input
@@ -23,5 +22,5 @@ export const Input = ({ label, name, className, ...props }: InputProps) => {
         )}
       />
     </div>
-  )
-}
+  );
+};
