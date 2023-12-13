@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 
 import { GridGallery } from '@/components/gallery/grid-gallery';
 import { getResults } from '@/services/get-results';
@@ -11,7 +11,7 @@ export const CreationPage = async ({
   creationType: CreationType;
 }) => {
   const result = await getResults({ folderName: creationType, limit: 100 });
-  const t = useTranslations('creations');
+  const t = await getTranslations('creations');
 
   return (
     <div className="flex flex-col">
