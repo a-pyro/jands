@@ -1,14 +1,14 @@
-'use client';
-import { useTranslations } from 'next-intl';
-import { useMemo, useState } from 'react';
-import { type ClassNameValue, twMerge } from 'tailwind-merge';
+'use client'
+import { useTranslations } from 'next-intl'
+import { useMemo, useState } from 'react'
+import { type ClassNameValue, twMerge } from 'tailwind-merge'
 
-import { Link } from '@/utils/navigation';
+import { Link } from '@/utils/navigation'
 
-import { Button } from '../buttons/button';
+import { Button } from '../buttons/button'
 
-import { Input } from './input';
-import { TextArea } from './text-area';
+import { Input } from './input'
+import { TextArea } from './text-area'
 
 // export type ContactForm = {
 //   name?: string
@@ -142,39 +142,39 @@ import { TextArea } from './text-area';
 // }
 
 export type ContactForm = {
-  name?: string;
+  name?: string
   // replyTo?: string
-  message?: string;
-  imageUrl?: string;
-};
+  message?: string
+  imageUrl?: string
+}
 
 const initForm: ContactForm = {
   name: '',
   // replyTo: '',
   message: '',
-};
+}
 export const ContactForm = ({
   className = '',
 }: {
-  className?: ClassNameValue;
-  imageUrl?: string;
+  className?: ClassNameValue
+  imageUrl?: string
 }) => {
-  const [form, setForm] = useState<ContactForm>({ ...initForm });
-  const t = useTranslations('contact');
+  const [form, setForm] = useState<ContactForm>({ ...initForm })
+  const t = useTranslations('contact')
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const mailtoLink = useMemo(
     () =>
       `mailto:ardi.germenji@gmail.com?subject=Richiesta Info&body=Nome: ${form.name}%0D%0AMessaggio: ${form.message}` as const,
     [form],
-  );
+  )
 
   return (
     <div className={twMerge('flex w-full flex-col md:max-w-lg', className)}>
@@ -196,10 +196,10 @@ export const ContactForm = ({
           onChange={handleChange}
           value={form.message ?? ''}
         />
-        <Button>
-          <Link href={mailtoLink}>{t('send')}</Link>
-        </Button>
+        <Link href={mailtoLink}>
+          <Button>{t('send')}</Button>
+        </Link>
       </form>
     </div>
-  );
-};
+  )
+}
