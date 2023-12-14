@@ -172,7 +172,7 @@ export const ContactForm = ({
 
   const mailtoLink = useMemo(
     () =>
-      `mailto:ardi.germenji@gmail.com?subject=Richiesta Info&body=Nome: ${form.name}%0D%0AMessaggio: ${form.message}` as const,
+      `mailto:jandshandmadeart@gmail.com?subject=Richiesta Info&body=Nome: ${form.name}%0D%0AMessaggio: ${form.message}` as const,
     [form],
   )
 
