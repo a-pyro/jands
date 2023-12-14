@@ -1,39 +1,38 @@
-// import { headers, cookies } from 'next/headers'
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers'
+import Link from 'next/link'
 
-import { createServerClient } from '@/supabase/server';
-import { Link } from '@/utils/navigation';
+import { createServerClient } from '@/supabase/server'
+import { redirect } from '@/utils/navigation'
 
-const LoginPage = ({ searchParams }: { searchParams: { message: string } }) => {
+const Page = ({ searchParams }: { searchParams: { message: string } }) => {
   const signIn = async (formData: FormData) => {
-    'use server';
+    'use server'
 
-    const email = formData.get('email') as string;
-    const password = formData.get('password') as string;
-    const cookieStore = cookies();
-    const supabase = createServerClient(cookieStore);
+    const email = formData.get('email') as string
+    const password = formData.get('password') as string
+    const cookieStore = cookies()
+    const supabase = createServerClient(cookieStore)
 
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
-    });
+    })
 
     if (error) {
-      return redirect('/login?message=Could not authenticate user');
+      return redirect('/login?message=Could not authenticate user')
     }
 
-    return redirect('/');
-  };
+    return redirect('/backoffice')
+  }
 
   // const signUp = async (formData: FormData) => {
-  //   'use server'
+  //   'use server';
 
-  //   const origin = headers().get('origin')
-  //   const email = formData.get('email') as string
-  //   const password = formData.get('password') as string
-  //   const cookieStore = cookies()
-  //   const supabase = createServerClient(cookieStore)
+  //   const origin = headers().get('origin');
+  //   const email = formData.get('email') as string;
+  //   const password = formData.get('password') as string;
+  //   const cookieStore = cookies();
+  //   const supabase = createClient(cookieStore);
 
   //   const { error } = await supabase.auth.signUp({
   //     email,
@@ -41,14 +40,14 @@ const LoginPage = ({ searchParams }: { searchParams: { message: string } }) => {
   //     options: {
   //       emailRedirectTo: `${origin}/auth/callback`,
   //     },
-  //   })
+  //   });
 
   //   if (error) {
-  //     return redirect('/login?message=Could not authenticate user')
+  //     return redirect('/login?message=Could not authenticate user');
   //   }
 
-  //   return redirect('/login?message=Check email to continue sign in process')
-  // }
+  //   return redirect('/login?message=Check email to continue sign in process');
+  // };
 
   return (
     <div className="flex w-full flex-1 flex-col justify-center gap-2 px-8 sm:max-w-md">
@@ -98,13 +97,13 @@ const LoginPage = ({ searchParams }: { searchParams: { message: string } }) => {
         />
         <button
           className="text-foreground mb-2 rounded-md bg-green-700 px-4 py-2"
-          type="button"
+          type="submit"
         >
           Sign In
         </button>
         {/* <button
+          className="border border-foreground/20 rounded-md px-4 py-2 text-foreground mb-2"
           formAction={signUp}
-          className="border-foreground/20 text-foreground mb-2 rounded-md border px-4 py-2"
         >
           Sign Up
         </button> */}
@@ -115,7 +114,7 @@ const LoginPage = ({ searchParams }: { searchParams: { message: string } }) => {
         ) : null}
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default Page

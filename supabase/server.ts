@@ -1,9 +1,10 @@
-import { env } from '@/env.mjs'
 import {
-  createServerClient as supabaseCreateServerClient,
   type CookieOptions,
-} from '@supabase/ssr'
-import { type cookies } from 'next/headers'
+  createServerClient as supabaseCreateServerClient,
+} from '@supabase/ssr';
+import { type cookies } from 'next/headers';
+
+import { env } from '@/env.mjs';
 
 export const createServerClient = (cookieStore: ReturnType<typeof cookies>) => {
   return supabaseCreateServerClient(
@@ -12,12 +13,12 @@ export const createServerClient = (cookieStore: ReturnType<typeof cookies>) => {
     {
       cookies: {
         get(name: string) {
-          return cookieStore.get(name)?.value
+          return cookieStore.get(name)?.value;
         },
         set(name: string, value: string, options: CookieOptions) {
           try {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-            cookieStore.set({ name, value, ...options })
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- cookieStore.set is not typed
+            cookieStore.set({ name, value, ...options });
           } catch (error) {
             // The `set` method was called from a Server Component.
             // This can be ignored if you have middleware refreshing
@@ -26,8 +27,8 @@ export const createServerClient = (cookieStore: ReturnType<typeof cookies>) => {
         },
         remove(name: string, options: CookieOptions) {
           try {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-            cookieStore.set({ name, value: '', ...options })
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- cookieStore.set is not typed
+            cookieStore.delete({ name, ...options });
           } catch (error) {
             // The `delete` method was called from a Server Component.
             // This can be ignored if you have middleware refreshing
@@ -36,5 +37,5 @@ export const createServerClient = (cookieStore: ReturnType<typeof cookies>) => {
         },
       },
     },
-  )
-}
+  );
+};

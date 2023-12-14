@@ -1,17 +1,19 @@
-'use client';
-import React from 'react';
-import { twMerge } from 'tailwind-merge';
+'use client'
+import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
-import { FOOTER_NAV_ITEMS } from '../footer';
-import { LocaleSwitcher } from '../locale-switcher';
+// import { isFeatureEnabled } from '@/utils/feature-toggler';
 
-import { NavItem } from './navitem';
+import { FOOTER_NAV_ITEMS } from '../footer'
+import { LocaleSwitcher } from '../locale-switcher'
+
+import { NavItem } from './navitem'
 
 type Props = {
-  className?: string;
-  isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => void;
-};
+  className?: string
+  isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
+}
 
 export const Nav = ({ className = '', isOpen, setIsOpen }: Props) => {
   return (
@@ -34,6 +36,14 @@ export const Nav = ({ className = '', isOpen, setIsOpen }: Props) => {
               onClick={() => setIsOpen(false)}
             />
           ))}
+          {/* {isFeatureEnabled('backoffice') && ( */}
+          <NavItem
+            className="text-2xl  md:text-3xl lg:text-5xl"
+            name="backoffice"
+            onClick={() => setIsOpen(false)}
+            route="/backoffice"
+          />
+          {/* )} */}
         </div>
 
         <div className="flex flex-col items-center justify-center ">
@@ -49,13 +59,13 @@ export const Nav = ({ className = '', isOpen, setIsOpen }: Props) => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
 export type NavItemConfig = {
-  name: Exclude<keyof IntlMessages['nav'], 'locales'>;
-  route: string;
-};
+  name: Exclude<keyof IntlMessages['nav'], 'locales'>
+  route: string
+}
 export const MAIN_NAV_ITEMS: NavItemConfig[] = [
   {
     route: '/creations/earrings',
@@ -78,4 +88,4 @@ export const MAIN_NAV_ITEMS: NavItemConfig[] = [
     route: '/creations/everythingelse',
     name: 'everythingelse',
   },
-];
+]

@@ -12,7 +12,6 @@
     "dev": "next dev",
     "start": "next start"
   },
-  "prettier": "@vercel/style-guide/prettier",
   "dependencies": {
     "@clerk/nextjs": "^4.27.3",
     "@sendgrid/mail": "^7.7.0",
