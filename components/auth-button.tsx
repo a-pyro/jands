@@ -1,14 +1,13 @@
 import { cookies } from 'next/headers'
 
 import { createServerClient } from '@/supabase/server'
-import { Link, redirect } from '@/utils/navigation'
+import { Link } from '@/utils/navigation'
 
 const signOut = async () => {
   'use server'
   const cookieStore = cookies()
   const supabase = createServerClient(cookieStore)
   await supabase.auth.signOut()
-  return redirect('/login')
 }
 export const AuthButton = async () => {
   const cookieStore = cookies()

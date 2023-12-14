@@ -1,10 +1,12 @@
-import { type NextRequest } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 import createIntlMiddleware from 'next-intl/middleware'
 
 import { defaultLocale, locales } from './i18n'
-// import { createMiddlewareClient } from './supabase/middleware';
+import createMiddlewareClient from './supabase/middleware'
 
-export default function middleware(request: NextRequest) {
+export default async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname
+
   const handleI18nRouting = createIntlMiddleware({
     locales,
     defaultLocale,
@@ -14,22 +16,21 @@ export default function middleware(request: NextRequest) {
 
   //https://www.reddit.com/r/nextjs/comments/17t32o1/nextintl_supabase_and_the_middleware/
   // only handle authSession on backoffice routes
-  // if (request.nextUrl.pathname.includes('/backoffice')) {
-  //   const { supabase, response } = createMiddlewareClient(request, res);
-  //   const session = await supabase.auth.getSession();
-  //   console.log(
-  //     '🚀 ~ middleware ~ request.nextUrl.pathname:',
-  //     request.nextUrl.pathname,
-  //   );
-  //   if (session.data.session === null) {
-  //     return NextResponse.redirect(new URL('/login', request.url));
-  //   }
-  //   return response;
-  // }
+
+  if (pathname.includes('backoffice')) {
+    const { supabase, response } = createMiddlewareClient(request, res)
+    const {
+      data: { session },
+    } = await supabase.auth.getSession()
+    if (session === null) {
+      return NextResponse.redirect(new URL(`/it/login`, request.url))
+    }
+    return response
+  }
+
   return res
 }
 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(it|en|fr)/:path*'],
+  // Match all routes
 }

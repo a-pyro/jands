@@ -1,19 +1,18 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { env } from '@/env.mjs'
-import { createServerClient, type CookieOptions } from '@supabase/ssr'
+import { type CookieOptions, createServerClient } from '@supabase/ssr'
 import { type NextRequest, NextResponse } from 'next/server'
 
-export const createMiddlewareClient = (
+import { env } from '@/env.mjs'
+
+const createMiddlewareClient = (
   request: NextRequest,
   response: NextResponse,
 ) => {
-  // get response from previous middleware and update it
-
-  // let response = NextResponse.next({
-  //   request: {
-  //     headers: request.headers,
-  //   },
-  // })
+  let innerResponse = NextResponse.next({
+    ...response,
+    request: {
+      headers: request.headers,
+    },
+  })
 
   const supabase = createServerClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
@@ -25,17 +24,19 @@ export const createMiddlewareClient = (
         },
         set(name: string, value: string, options: CookieOptions) {
           // If the cookie is updated, update the cookies for the request and response
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- required for supabase
           request.cookies.set({
             name,
             value,
             ...options,
           })
-          response = NextResponse.next({
+          innerResponse = NextResponse.next({
             request: {
               headers: request.headers,
             },
           })
-          response.cookies.set({
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- required for
+          innerResponse.cookies.set({
             name,
             value,
             ...options,
@@ -43,17 +44,19 @@ export const createMiddlewareClient = (
         },
         remove(name: string, options: CookieOptions) {
           // If the cookie is removed, update the cookies for the request and response
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- required for supabase
           request.cookies.set({
             name,
             value: '',
             ...options,
           })
-          response = NextResponse.next({
+          innerResponse = NextResponse.next({
             request: {
               headers: request.headers,
             },
           })
-          response.cookies.set({
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument -- required for supabase
+          innerResponse.cookies.set({
             name,
             value: '',
             ...options,
@@ -63,5 +66,7 @@ export const createMiddlewareClient = (
     },
   )
 
-  return { supabase, response }
+  return { supabase, response: innerResponse }
 }
+
+export default createMiddlewareClient
