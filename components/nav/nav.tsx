@@ -37,12 +37,12 @@ export const Nav = ({ className = '', isOpen, setIsOpen }: Props) => {
             />
           ))}
           {/* {isFeatureEnabled('backoffice') && ( */}
-          <NavItem
+          {/* <NavItem
             className="text-2xl  md:text-3xl lg:text-5xl"
             name="backoffice"
             onClick={() => setIsOpen(false)}
             route="/backoffice"
-          />
+          /> */}
           {/* )} */}
         </div>
 
