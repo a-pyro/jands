@@ -141,6 +141,7 @@ module.exports = {
         'app/sitemap.ts',
         'app/robots.ts',
         'app/manifest.ts',
+        'app/opengraph-image.tsx',
       ],
       rules: {
         'import/no-default-export': 'off',

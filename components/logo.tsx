@@ -1,11 +1,11 @@
-import { type ClassNameValue, twMerge } from 'tailwind-merge';
+import { type ClassNameValue, twMerge } from 'tailwind-merge'
 
 type Props = {
-  className?: ClassNameValue;
-  width?: number;
-  height?: number;
-  onClick?: () => void;
-};
+  className?: ClassNameValue
+  width?: number
+  height?: number
+  onClick?: () => void
+}
 
 export const Logo = ({
   className = '',
@@ -20,8 +20,8 @@ export const Logo = ({
       className={twMerge('cursor-pointer', className)}
       height={height}
       onClick={onClick}
-      src="/jands-logo.png"
+      src="/logo.png"
       width={width}
     />
-  );
-};
+  )
+}
