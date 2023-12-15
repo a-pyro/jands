@@ -47,9 +47,9 @@
 // https://github.com/vercel/style-guide#eslint
 // https://mwskwong.com/blog/enforcing-coding-style-with-vercel-style-guide
 
-const { resolve } = require('node:path');
+const { resolve } = require('node:path')
 
-const project = resolve(__dirname, 'tsconfig.json');
+const project = resolve(__dirname, 'tsconfig.json')
 
 module.exports = {
   root: true,
@@ -140,6 +140,7 @@ module.exports = {
         'app/**/loading.tsx',
         'app/sitemap.ts',
         'app/robots.ts',
+        'app/manifest.ts',
       ],
       rules: {
         'import/no-default-export': 'off',
@@ -152,4 +153,4 @@ module.exports = {
       rules: { 'import/no-default-export': 'off' },
     },
   ],
-};
+}
