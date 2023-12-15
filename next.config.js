@@ -5,14 +5,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'uvogrrsrsvbxweesxnho.supabase.co',
-        protocol: 'https',
-      },
-      {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         port: '',
-        pathname: '/a-pyro/**',
+        pathname: '/jands-art/**',
       },
     ],
   },
