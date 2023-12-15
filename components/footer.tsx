@@ -1,7 +1,7 @@
-'use client';
-import { LocaleSwitcher } from './locale-switcher';
-import { type NavItemConfig } from './nav/nav';
-import { NavItem } from './nav/navitem';
+'use client'
+import { LocaleSwitcher } from './locale-switcher'
+import { type NavItemConfig } from './nav/nav'
+import { NavItem } from './nav/navitem'
 
 export const Footer = () => {
   return (
@@ -22,8 +22,8 @@ export const Footer = () => {
         />
       </div>
     </footer>
-  );
-};
+  )
+}
 
 export const FOOTER_NAV_ITEMS: NavItemConfig[] = [
   {
@@ -35,7 +35,7 @@ export const FOOTER_NAV_ITEMS: NavItemConfig[] = [
     name: 'instagram',
   },
   {
-    route: 'https://www.instagram.com/jands.handmade',
+    route: 'https://www.facebook.com/profile.php?id=100091625349280',
     name: 'facebook',
   },
 
@@ -43,4 +43,4 @@ export const FOOTER_NAV_ITEMS: NavItemConfig[] = [
     route: '/contact',
     name: 'contact-us',
   },
-];
+]
