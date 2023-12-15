@@ -5,7 +5,7 @@ import { NavItem } from './nav/navitem'
 
 export const Footer = () => {
   return (
-    <footer>
+    <footer className="flex flex-col items-center pb-4">
       <div className="flex flex-wrap items-center justify-center gap-2 py-4">
         {FOOTER_NAV_ITEMS.map((item) => (
           <NavItem
@@ -14,13 +14,14 @@ export const Footer = () => {
             className="text-lg text-secondary transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
           />
         ))}
-        <LocaleSwitcher className="text-secondary hover:text-logo" />
+
         <NavItem
           className="text-lg text-secondary transition-colors hover:skew-x-[-10deg] hover:text-logo md:text-xl"
           name="go-to-top"
           route="#"
         />
       </div>
+      <LocaleSwitcher className="text-secondary hover:text-logo" />
     </footer>
   )
 }
