@@ -19,7 +19,7 @@ export const Intersecting = ({
             className={twJoin(inView ? classNameInView : classNameNotInView)}
             ref={ref}
           >
-            {inView ? children : null}
+            {children}
           </div>
         )
       }}

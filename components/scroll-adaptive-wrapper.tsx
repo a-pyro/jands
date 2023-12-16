@@ -1,19 +1,16 @@
-'use client';
-import { twMerge } from 'tailwind-merge';
+'use client'
+import { twMerge } from 'tailwind-merge'
 
-import {
-  HEADER_SCOLL_SIZE_INIT,
-  useScollResize,
-} from './header/use-scroll-resize';
+import { LOGO_SIZE_INIT, useLogoSize } from './header/use-logo-size'
 
 export const ScrollAdaptiveWrapper = ({
   children,
   className = '',
 }: {
-  children: React.ReactNode;
-  className?: string;
+  children: React.ReactNode
+  className?: string
 }) => {
-  const { logoSize } = useScollResize(HEADER_SCOLL_SIZE_INIT);
+  const { logoSize } = useLogoSize(LOGO_SIZE_INIT)
   return (
     <div
       className={twMerge(className)}
@@ -23,5 +20,5 @@ export const ScrollAdaptiveWrapper = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}
