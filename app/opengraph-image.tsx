@@ -4,6 +4,7 @@ import { ImageResponse } from 'next/og'
 // Image metadata
 export const alt = 'About JandS'
 
+// ! This is the size of the image that works on whatsapp,along with 300x300! Other sizes breaks
 export const size = {
   width: 300,
   height: 200,
