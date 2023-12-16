@@ -26,7 +26,7 @@ const CTAButton = ({ text }: Props) => {
 
 export const Hero = () => {
   return (
-    <div className="container mx-auto h-[calc(100dvh-200px)] px-4 py-12">
+    <div className="flex h-[calc(100dvh-200px)] place-content-center pb-28">
       <div className="flex flex-col items-center justify-center text-center">
         <Title text="Arte che risuona con la Natura" />
         <Subtitle text="Scopri l'unicità dell'arte fatta a mano" />
