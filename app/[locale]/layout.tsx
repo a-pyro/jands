@@ -46,7 +46,7 @@ const RootLayout = async ({
     <html lang={locale}>
       <body className={`${prata.className}`}>
         <NextIntlClientProvider messages={messages as AbstractIntlMessages}>
-          <div className="flex min-h-[100dvh] flex-col overflow-hidden">
+          <div className="flex min-h-[100dvh] flex-col overflow-clip">
             <Header />
             <main>{children}</main>
             {env.NODE_ENV === 'production' && <Analytics />}

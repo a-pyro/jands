@@ -30,7 +30,7 @@ export const Header = () => {
   }
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-10 flex justify-center">
+    <header className="sticky top-0 z-10 flex justify-center">
       <Logo
         className="z-20 mt-3"
         height={logoSize}

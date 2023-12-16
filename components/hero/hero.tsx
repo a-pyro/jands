@@ -29,14 +29,14 @@ const HeroCta = ({ text }: Props) => {
 }
 
 export const Hero = () => {
-  const { logoSize } = useLogoSize()
-  const position = logoSize !== LOGO_SIZE_INIT.minSize ? 'fixed' : 'absolute'
+  // const { logoSize } = useLogoSize()
+  // const position = logoSize !== LOGO_SIZE_INIT.minSize ? 'fixed' : 'absolute'
 
   return (
     <div
       className={twJoin(
         'flex h-[calc(100dvh-200px)] place-content-center',
-        position,
+        // position,
       )}
     >
       <div className="flex flex-col items-center justify-center text-center">
