@@ -20,6 +20,7 @@
     "@supabase/ssr": "^0.0.10",
     "@supabase/supabase-js": "^2.39.0",
     "@t3-oss/env-nextjs": "^0.7.1",
+    "@vercel/analytics": "^1.1.1",
     "cloudinary": "^1.41.0",
     "next": "^14.0.4",
     "next-intl": "^3.3.1",
