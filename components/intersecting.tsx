@@ -12,14 +12,14 @@ export const Intersecting = ({
   classNameNotInView?: ClassNameValue
 }) => {
   return (
-    <InView delay={500} threshold={0.1} trackVisibility triggerOnce>
+    <InView threshold={0.1} triggerOnce>
       {({ inView, ref }) => {
         return (
           <div
             className={twJoin(inView ? classNameInView : classNameNotInView)}
             ref={ref}
           >
-            {children}
+            {inView ? children : null}
           </div>
         )
       }}

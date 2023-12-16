@@ -1,4 +1,4 @@
-import { SharedLayout } from '@/app/_shared/shared-layout'
+import { SharedLayout } from '@/components/_shared/shared-layout'
 
 import { BackOfficeNav } from './components/backoffice-nav'
 

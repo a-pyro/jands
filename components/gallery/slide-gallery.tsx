@@ -46,7 +46,7 @@ export const SlideGallery = async ({ creationType }: Props) => {
         draggable={false}
       >
         {images.map((image) => (
-          <div className="w-56 flex-none md:w-1/4" key={image.public_id}>
+          <div className="h-72 flex-none md:w-1/4" key={image.public_id}>
             <LinkImage image={image} />
           </div>
         ))}

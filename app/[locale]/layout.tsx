@@ -7,6 +7,7 @@ import { type AbstractIntlMessages, NextIntlClientProvider } from 'next-intl'
 
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header/header'
+import { env } from '@/env.mjs'
 import { type Locale, defaultLocale } from '@/i18n'
 import { type MetadataProps, getMetadata } from '@/utils/metadata'
 
@@ -48,7 +49,7 @@ const RootLayout = async ({
           <div className="flex min-h-[100dvh] flex-col overflow-hidden">
             <Header />
             <main>{children}</main>
-            <Analytics />
+            {env.NODE_ENV === 'production' && <Analytics />}
           </div>
           <Footer />
         </NextIntlClientProvider>

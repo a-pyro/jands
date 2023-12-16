@@ -1,6 +1,7 @@
-import { type CreationType } from '@/services/types';
+import 'server-only'
+import { type CreationType } from '@/services/types'
 
-import { type CloudinaryResults, cloudinaryClient } from '../utils/cloudinary';
+import { type CloudinaryResults, cloudinaryClient } from '../utils/cloudinary'
 
 const cachedResults: { [K in CreationType | 'about']?: CloudinaryResults } = {
   about: undefined,
@@ -9,20 +10,20 @@ const cachedResults: { [K in CreationType | 'about']?: CloudinaryResults } = {
   necklaces: undefined,
   rings: undefined,
   everythingelse: undefined,
-};
+}
 export const getResults = async ({
   folderName,
   limit = 4,
 }: {
-  folderName: CreationType | 'about';
-  limit?: number;
+  folderName: CreationType | 'about'
+  limit?: number
 }) => {
   if (!cachedResults[folderName]) {
     const fetchedResults = (await cloudinaryClient.v2.search
       .max_results(limit)
       .expression(`folder:jands/${folderName}/*`)
       .sort_by('public_id', 'desc')
-      .execute()) as CloudinaryResults;
+      .execute()) as CloudinaryResults
 
     // eslint-disable-next-line no-console -- wanna know rate limit
     console.log(`
@@ -31,9 +32,9 @@ export const getResults = async ({
         Rate limit allowed: ${fetchedResults.rate_limit_allowed}
         Rate limit reset at: ${fetchedResults.rate_limit_reset_at}
         Total count: ${fetchedResults.total_count}
-      `);
+      `)
 
-    cachedResults[folderName] = fetchedResults;
+    cachedResults[folderName] = fetchedResults
   }
-  return cachedResults[folderName];
-};
+  return cachedResults[folderName]
+}
