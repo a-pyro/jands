@@ -1,3 +1,4 @@
+import aspectRatio from '@tailwindcss/aspect-ratio'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -30,6 +31,9 @@ const config: Config = {
       center: true,
     },
   },
-  plugins: [],
+  corePlugins: {
+    aspectRatio: false,
+  },
+  plugins: [aspectRatio],
 }
 export default config

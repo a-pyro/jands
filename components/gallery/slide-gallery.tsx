@@ -33,6 +33,7 @@ export const SlideGallery = async ({ creationType }: Props) => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
+                className="aspect-h-4 aspect-w-3 w-56 flex-none md:aspect-h-4 md:aspect-w-3 md:w-1/4"
                 d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -46,7 +47,10 @@ export const SlideGallery = async ({ creationType }: Props) => {
         draggable={false}
       >
         {images.map((image) => (
-          <div className="h-72 flex-none md:w-1/4" key={image.public_id}>
+          <div
+            className="aspect-h-3 aspect-w-3 w-56 flex-none md:aspect-h-2 md:aspect-w-4 md:w-1/4"
+            key={image.public_id}
+          >
             <LinkImage image={image} />
           </div>
         ))}

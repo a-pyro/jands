@@ -148,6 +148,7 @@ module.exports = {
         'app/manifest.ts',
         'app/opengraph-image.tsx',
         'app/twitter-image.tsx',
+        'tailwind.config.ts',
       ],
       rules: {
         'import/no-default-export': 'off',
