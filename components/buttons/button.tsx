@@ -1,9 +1,9 @@
-import { type ButtonHTMLAttributes, type PropsWithChildren } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { type ButtonHTMLAttributes, type PropsWithChildren } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
-  loading?: boolean;
-};
+  loading?: boolean
+}
 
 export const Button = ({
   className = '',
@@ -24,5 +24,5 @@ export const Button = ({
     >
       {loading ? 'Wait please...' : children}
     </button>
-  );
-};
+  )
+}
