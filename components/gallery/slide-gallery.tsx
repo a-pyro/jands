@@ -1,37 +1,29 @@
-import { getTranslations } from 'next-intl/server';
-import React from 'react';
-import { twMerge } from 'tailwind-merge';
+import { getTranslations } from 'next-intl/server'
+import React from 'react'
 
-import { type CreationType } from '@/services/types';
-import { Link } from '@/utils/navigation';
+import { getResults } from '@/services/get-results'
+import { type CreationType } from '@/services/types'
+import { Link } from '@/utils/navigation'
 
-import { Button } from '../buttons/button';
-import { type NavItemConfig } from '../nav/nav';
+import { Button } from '../buttons/button'
 
-import { type GalleryProps } from './grid-gallery';
-import { LinkImage } from './link-image';
+import { LinkImage } from './link-image'
 
 type Props = {
-  className?: string;
-  type: CreationType;
-  totalCount: number;
-} & GalleryProps &
-  NavItemConfig;
+  creationType: CreationType
+}
 
-export const SlideGallery = async ({
-  images,
-  route,
-  type,
-  className,
-}: Props) => {
-  const t = await getTranslations('creations');
-  const title = t(`${type}.title`);
+export const SlideGallery = async ({ creationType }: Props) => {
+  const t = await getTranslations('creations')
+  const results = await getResults({ folderName: creationType, limit: 4 })
+  const images = results?.resources ?? []
+  const title = t(`${creationType}.title`)
   return (
-    <div className={twMerge('flex flex-col gap-3 p-3 md:container', className)}>
+    <div className="flex flex-col gap-3 p-3 md:container">
       <div className="flex w-full items-center justify-between">
         <h2 className="text-3xl capitalize md:text-5xl">{title}</h2>
         <Button className="px-2">
-          <Link href={route}>
+          <Link href={`/${creationType}`}>
             <svg
               className="h-6 w-6"
               fill="none"
@@ -60,5 +52,5 @@ export const SlideGallery = async ({
         ))}
       </div>
     </div>
-  );
-};
+  )
+}

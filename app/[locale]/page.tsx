@@ -1,27 +1,35 @@
-import { SlideGallery } from '@/components/gallery/slide-gallery';
-import { ScrollAdaptiveWrapper } from '@/components/scroll-adaptive-wrapper';
-import { getResults } from '@/services/get-results';
-import { ALL_CREATIONS_TYPES } from '@/services/types';
+import { twJoin } from 'tailwind-merge'
 
-export default async function Home() {
-  const results = await Promise.all(
-    ALL_CREATIONS_TYPES.map((folder) =>
-      getResults({ folderName: folder, limit: 4 }),
-    ),
-  );
+import { SlideGallery } from '@/components/gallery/slide-gallery'
+import { Intersecting } from '@/components/intersecting'
+import { ScrollAdaptiveWrapper } from '@/components/scroll-adaptive-wrapper'
+import { ALL_CREATIONS_TYPES } from '@/services/types'
 
+const delaysClasses = [
+  'delay-100',
+  'delay-200',
+  'delay-300',
+  'delay-400',
+  'delay-500',
+]
+
+const Home = () => {
   return (
     <ScrollAdaptiveWrapper className="flex flex-col gap-20">
-      {results.map((result, index) => (
-        <SlideGallery
-          images={result?.resources ?? []}
-          key={ALL_CREATIONS_TYPES[index]}
-          name={ALL_CREATIONS_TYPES[index]}
-          route={`/creations/${ALL_CREATIONS_TYPES[index]}`}
-          totalCount={result?.total_count ?? 0}
-          type={ALL_CREATIONS_TYPES[index]}
-        />
+      {ALL_CREATIONS_TYPES.map((creationType, index) => (
+        <Intersecting
+          classNameInView={twJoin(
+            'opacity-100 translate-y-0 transition-all duration-500',
+            delaysClasses[index % delaysClasses.length],
+          )}
+          classNameNotInView="opacity-0 translate-y-10"
+          key={creationType}
+        >
+          <SlideGallery creationType={creationType} />
+        </Intersecting>
       ))}
     </ScrollAdaptiveWrapper>
-  );
+  )
 }
+
+export default Home
