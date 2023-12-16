@@ -142,6 +142,7 @@ module.exports = {
         'app/robots.ts',
         'app/manifest.ts',
         'app/opengraph-image.tsx',
+        'app/twitter-image.tsx',
       ],
       rules: {
         'import/no-default-export': 'off',
