@@ -1,6 +1,6 @@
-import { FlowerLoading } from '../_shared/flower-loading';
+import { FlowerLoading } from '../_shared/flower-loading'
 
 const Loading = () => {
-  return <FlowerLoading />;
-};
-export default Loading;
+  return <FlowerLoading />
+}
+export default Loading
