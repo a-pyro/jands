@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { Prata } from 'next/font/google'
 import '../../style/globals.css'
 import { redirect } from 'next/navigation'
@@ -39,6 +40,7 @@ export default async function RootLayout({
           <div className="flex min-h-[100dvh] flex-col overflow-hidden">
             <Header />
             <main>{children}</main>
+            <Analytics />
           </div>
           <Footer />
         </NextIntlClientProvider>
