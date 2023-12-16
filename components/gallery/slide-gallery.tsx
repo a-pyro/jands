@@ -23,7 +23,7 @@ export const SlideGallery = async ({ creationType }: Props) => {
       <div className="flex w-full items-center justify-between">
         <h2 className="text-3xl capitalize md:text-5xl">{title}</h2>
         <Button className="px-2">
-          <Link href={`/${creationType}`}>
+          <Link href={`creations/${creationType}`}>
             <svg
               className="h-6 w-6"
               fill="none"

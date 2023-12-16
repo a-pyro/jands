@@ -12,7 +12,7 @@ export const Intersecting = ({
   classNameNotInView?: ClassNameValue
 }) => {
   return (
-    <InView threshold={0.5} triggerOnce>
+    <InView threshold={0.3} triggerOnce>
       {({ inView, ref }) => (
         <div
           className={twJoin(inView ? classNameInView : classNameNotInView)}
