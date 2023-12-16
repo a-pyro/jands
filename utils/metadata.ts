@@ -37,6 +37,23 @@ export async function getMetadata({
       'necklaces',
       'earrings',
       'custom',
+      'made in italy',
+      'fiori',
+      'amici',
+      'regali',
+      'anelli',
+      'collane',
+      'orecchini',
+      'personalizzati',
+      'fatti a mano',
+      'resina',
+      'arte',
+      'italia',
+      'accessories',
+      'jewelry',
+      'crafts',
+      'unique',
+      'design',
     ],
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
     alternates: {
@@ -46,5 +63,5 @@ export async function getMetadata({
         fr: '/fr',
       },
     },
-  } as const
+  }
 }

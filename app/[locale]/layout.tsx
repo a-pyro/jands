@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react'
+import { Metadata } from 'next'
 import { Prata } from 'next/font/google'
 import '../../style/globals.css'
 import { redirect } from 'next/navigation'
@@ -11,9 +12,16 @@ import { type MetadataProps, getMetadata } from '@/utils/metadata'
 
 const prata = Prata({ subsets: ['latin'], weight: ['400'] })
 
-export async function generateMetadata({ params: { locale } }: MetadataProps) {
+export async function generateMetadata({
+  params: { locale },
+}: MetadataProps): Promise<Metadata> {
   const metadata = await getMetadata({ locale, localeNamespace: 'home' })
-  return metadata
+  return {
+    ...metadata,
+    verification: {
+      google: 'FM0rw-Kp4MDRShwshRp7CS8wSzEaBTewsZwcMoojv2s',
+    },
+  }
 }
 
 export default async function RootLayout({
