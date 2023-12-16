@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/private/',
+      disallow: '/backoffice/',
     },
     sitemap: `${env.NEXT_PUBLIC_APP_URL}/sitemap.xml`,
     host: env.NEXT_PUBLIC_APP_URL,
