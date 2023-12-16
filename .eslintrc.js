@@ -88,7 +88,13 @@ module.exports = {
     },
   },
   rules: {
-    '@typescript-eslint/consistent-type-imports': 'off',
+    '@typescript-eslint/consistent-type-imports': [
+      'warn',
+      {
+        prefer: 'type-imports',
+        fixStyle: 'inline-type-imports',
+      },
+    ],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/no-confusing-void-expression': [
@@ -100,7 +106,7 @@ module.exports = {
       'error',
       { checksVoidReturn: false },
     ],
-    // such that @/* imports will not be considered as external dependencies
+
     'react/function-component-definition': [
       'warn',
       {
@@ -108,7 +114,6 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
-    // sort import statements
     'import/order': [
       'warn',
       {

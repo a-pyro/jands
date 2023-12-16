@@ -1,6 +1,6 @@
 'use client'
 import { InView } from 'react-intersection-observer'
-import { ClassNameValue, twJoin } from 'tailwind-merge'
+import { type ClassNameValue, twJoin } from 'tailwind-merge'
 
 export const Intersecting = ({
   children,

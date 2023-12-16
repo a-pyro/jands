@@ -1,4 +1,4 @@
-import { ClassNameValue, twJoin } from 'tailwind-merge'
+import { type ClassNameValue, twJoin } from 'tailwind-merge'
 
 import { SlideGallery } from '@/components/gallery/slide-gallery'
 import { Intersecting } from '@/components/intersecting'

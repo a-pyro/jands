@@ -1,5 +1,5 @@
 import { Analytics } from '@vercel/analytics/react'
-import { Metadata } from 'next'
+import { type Metadata } from 'next'
 import { Prata } from 'next/font/google'
 import '../../style/globals.css'
 import { redirect } from 'next/navigation'
@@ -24,13 +24,13 @@ export async function generateMetadata({
   }
 }
 
-export default async function RootLayout({
+const RootLayout = async ({
   children,
   params,
 }: {
   children: React.ReactNode
   params: { locale: Locale }
-}) {
+}) => {
   const { locale } = params
 
   let messages
@@ -56,3 +56,5 @@ export default async function RootLayout({
     </html>
   )
 }
+
+export default RootLayout
