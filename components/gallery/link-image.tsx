@@ -19,7 +19,8 @@ export const LinkImage = ({ image, className = '' }: Props) => {
       <img
         alt={`${image.public_id} creation`}
         className={twMerge(
-          'h-full w-full object-cover object-center duration-300 ease-in-out hover:scale-105 hover:cursor-pointer',
+          'h-full w-full object-cover object-center',
+          'md:duration-300 md:ease-in-out  md:hover:scale-110 md:hover:cursor-pointer',
           className,
         )}
         draggable={false}
