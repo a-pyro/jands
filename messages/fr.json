@@ -78,5 +78,8 @@
     "cta": "Explorer",
     "subtitle": "Découvrez le caractère unique du fait main",
     "title": "Un art en résonance avec la nature"
+  },
+  "errors": {
+    "somethig-wrong": "Désolé, quelque chose s'est mal passé. \nNous travaillons à restaurer le système le plus rapidement possible."
   }
 }

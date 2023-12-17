@@ -1,5 +1,4 @@
 // 'use client'
-import { twMerge } from 'tailwind-merge'
 
 // import { useLogoSize } from './header/use-logo-size'
 
@@ -13,7 +12,7 @@ export const ScrollAdaptiveWrapper = ({
   // const { logoSize } = useLogoSize()
   return (
     <div
-      className={twMerge(className)}
+      className={className}
       // style={{
       // marginTop: `${logoSize}px`,
       // }}

@@ -15,10 +15,19 @@ type Props = {
 }
 
 export const SlideGallery = async ({ creationType, id }: Props) => {
-  const t = await getTranslations('creations')
-  const results = await getResults({ folderName: creationType, limit: 4 })
+  const t = await getTranslations()
+  const results = await getResults({ folderName: creationType })
   const images = results?.resources ?? []
-  const title = t(`${creationType}.title`)
+  const title = t(`creations.${creationType}.title`)
+
+  // if result undefined disaplay sorry message and welbee back soon
+  if (!results)
+    return (
+      <div className="px-2">
+        <h2 className="px-4">{t('errors.somethig-wrong')}</h2>
+      </div>
+    )
+
   return (
     <div className="flex flex-col gap-3 p-3 md:container" id={id}>
       <div className="flex w-full items-center justify-between">

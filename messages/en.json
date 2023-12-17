@@ -78,5 +78,8 @@
     "cta": "Explore",
     "subtitle": "Discover the uniqueness of handmade",
     "title": "Art that resonates with nature"
+  },
+  "errors": {
+    "somethig-wrong": "Sorry, something went wrong. \nWe are working to restore the system as soon as possible."
   }
 }

@@ -4,11 +4,7 @@ import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { twJoin, twMerge } from 'tailwind-merge'
 
-import { scrollIntoView } from '@/utils/ui'
-
-import { Button } from '../buttons/button'
-
-import { Subtitle, Title } from './text'
+import { HeroCta, Subtitle, Title } from './text'
 
 const backgroundImageBgUrls = [
   "bg-[url('/hero/1.jpg')]",
@@ -30,7 +26,7 @@ export const Hero = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prevIdx) => (prevIdx + 1) % backgroundImageBgUrls.length)
-    }, 5000) // Cambia immagine ogni 5 secondi
+    }, 4000) // Cambia immagine ogni 5 secondi
     return () => clearInterval(timer)
   }, [])
 
@@ -48,16 +44,11 @@ export const Hero = () => {
         )}
       />
 
-      <div className="z-10 flex flex-col items-center justify-center gap-6 pb-16">
+      <div className="z-10 flex h-full flex-col items-center justify-center gap-6 pb-16">
+        {/* <Description text="Immergiti in un mondo dove ogni pezzo racconta una storia unica - una fusione tra natura, creatività e amore." /> */}
         <Title text={t('title')} />
         <Subtitle text={t('subtitle')} />
-        {/* <Description text="Immergiti in un mondo dove ogni pezzo racconta una storia unica - una fusione tra natura, creatività e amore." /> */}
-        <Button
-          className="border-logo text-logo hover:bg-logo hover:text-white"
-          onClick={() => scrollIntoView('necklaces')}
-        >
-          {t('cta')}
-        </Button>
+        <HeroCta text={t('cta')} />
       </div>
       {/* QUI UIMMAGINI O ALTRA ROBA */}
     </div>
