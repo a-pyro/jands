@@ -73,5 +73,13 @@
       "title": "Altro",
       "description": "Altro in resina realizzato a mano"
     }
+  },
+  "hero": {
+    "title": "Arte che risuona con la natura",
+    "subtitle": "Scopri l'unicità dell'handmade",
+    "cta": "Esplora"
+  },
+  "errors": {
+    "somethig-wrong": "Scusa, qualcosa è andato storto. Stiamo lavorando per rispristinare al più presto il sistema."
   }
 }

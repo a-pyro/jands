@@ -19,7 +19,9 @@ export const Nav = ({ className = '', isOpen, setIsOpen }: Props) => {
   return (
     <nav
       className={twMerge(
-        'fixed inset-0 z-10 flex h-[100dvh] w-screen transform flex-col items-center justify-center gap-20 overflow-hidden bg-secondary bg-opacity-50 transition-all duration-300 ease-in-out',
+        'fixed inset-0 z-10',
+        'flex h-[100dvh] w-screen flex-col items-center justify-center gap-20',
+        'transform  overflow-hidden bg-secondary bg-opacity-50 transition-all duration-300 ease-in-out',
         isOpen
           ? 'pointer-events-auto translate-y-0'
           : 'pointer-events-none -translate-y-full',

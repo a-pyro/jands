@@ -1,5 +1,6 @@
-import { env } from '@/env.mjs'
 import { createBrowserClient as supabaseCreateBrowserClient } from '@supabase/ssr'
+
+import { env } from '@/env.mjs'
 
 export const createBrowserClient = () =>
   supabaseCreateBrowserClient(

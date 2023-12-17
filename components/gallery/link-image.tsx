@@ -1,12 +1,12 @@
-import { type ClassNameValue, twMerge } from 'tailwind-merge';
+import { type ClassNameValue, twMerge } from 'tailwind-merge'
 
-import { type CloudinaryImage } from '@/utils/cloudinary';
-import { Link } from '@/utils/navigation';
+import { type CloudinaryImage } from '@/utils/cloudinary'
+import { Link } from '@/utils/navigation'
 
 type Props = {
-  image: CloudinaryImage;
-  className?: ClassNameValue;
-};
+  image: CloudinaryImage
+  className?: ClassNameValue
+}
 
 export const LinkImage = ({ image, className = '' }: Props) => {
   return (
@@ -19,12 +19,13 @@ export const LinkImage = ({ image, className = '' }: Props) => {
       <img
         alt={`${image.public_id} creation`}
         className={twMerge(
-          'h-full w-full object-cover duration-300 ease-in-out hover:scale-105 hover:cursor-pointer',
+          'h-full w-full object-cover object-center',
+          'md:duration-300 md:ease-in-out  md:hover:scale-110 md:hover:cursor-pointer',
           className,
         )}
         draggable={false}
         src={image.secure_url}
       />
     </Link>
-  );
-};
+  )
+}

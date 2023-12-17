@@ -1,6 +1,5 @@
 import { getTranslations } from 'next-intl/server'
 
-import { env } from '@/env.mjs'
 import { type Locale } from '@/i18n'
 
 export type MetadataProps = {
@@ -55,7 +54,7 @@ export async function getMetadata({
       'unique',
       'design',
     ],
-    metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
+    metadataBase: new URL('https://jands.vercel.app'),
     alternates: {
       canonical: '/',
       languages: {

@@ -1,5 +1,5 @@
 import { Analytics } from '@vercel/analytics/react'
-import { Metadata } from 'next'
+import { type Metadata } from 'next'
 import { Prata } from 'next/font/google'
 import '../../style/globals.css'
 import { redirect } from 'next/navigation'
@@ -7,6 +7,7 @@ import { type AbstractIntlMessages, NextIntlClientProvider } from 'next-intl'
 
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header/header'
+import { env } from '@/env.mjs'
 import { type Locale, defaultLocale } from '@/i18n'
 import { type MetadataProps, getMetadata } from '@/utils/metadata'
 
@@ -24,13 +25,13 @@ export async function generateMetadata({
   }
 }
 
-export default async function RootLayout({
+const RootLayout = async ({
   children,
   params,
 }: {
   children: React.ReactNode
   params: { locale: Locale }
-}) {
+}) => {
   const { locale } = params
 
   let messages
@@ -45,10 +46,10 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={`${prata.className}`}>
         <NextIntlClientProvider messages={messages as AbstractIntlMessages}>
-          <div className="flex min-h-[100dvh] flex-col overflow-hidden">
+          <div className="flex min-h-[100dvh] flex-col overflow-clip">
             <Header />
             <main>{children}</main>
-            <Analytics />
+            {env.NODE_ENV === 'production' && <Analytics />}
           </div>
           <Footer />
         </NextIntlClientProvider>
@@ -56,3 +57,5 @@ export default async function RootLayout({
     </html>
   )
 }
+
+export default RootLayout

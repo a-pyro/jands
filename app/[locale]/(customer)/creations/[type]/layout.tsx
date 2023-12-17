@@ -1,15 +1,15 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server'
 
-import { SharedLayout } from '@/app/_shared/shared-layout';
-import { Locale } from '@/i18n';
-import { type CreationType } from '@/services/types';
+import { SharedLayout } from '@/components/_shared/shared-layout'
+import { type Locale } from '@/i18n'
+import { type CreationType } from '@/services/types'
 
 type MetadataProps = {
   params: {
-    locale: Locale;
-    type: CreationType;
-  };
-};
+    locale: Locale
+    type: CreationType
+  }
+}
 
 export async function generateMetadata({
   params: { locale, type },
@@ -17,16 +17,16 @@ export async function generateMetadata({
   const t = await getTranslations({
     locale,
     namespace: 'creations',
-  });
+  })
 
   return {
     title: `${t('metadata.title')} ${t(`${type}.title`)}`,
     description: t(`${type}.description`),
-  };
+  }
 }
 
 const CreationsLayout = ({ children }: { children: React.ReactNode }) => (
   <SharedLayout>{children}</SharedLayout>
-);
+)
 
-export default CreationsLayout;
+export default CreationsLayout

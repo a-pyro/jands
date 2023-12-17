@@ -1,7 +1,7 @@
-import { FlowerLoading } from '@/app/_shared/flower-loading';
+import { FlowerLoading } from '@/components/_shared/flower-loading'
 
 const Loading = () => {
-  return <FlowerLoading />;
-};
+  return <FlowerLoading />
+}
 
-export default Loading;
+export default Loading
