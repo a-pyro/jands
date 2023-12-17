@@ -30,6 +30,15 @@ const config: Config = {
     container: {
       center: true,
     },
+    animation: {
+      'ltr-linear-infinite': 'ltr-linear-infinite 100s linear infinite',
+    },
+    keyframes: {
+      'ltr-linear-infinite': {
+        from: { 'background-position': '0 0' },
+        to: { 'background-position': '400% 0%' },
+      },
+    },
   },
   corePlugins: {
     aspectRatio: false,
