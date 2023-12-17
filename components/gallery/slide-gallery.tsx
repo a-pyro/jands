@@ -11,15 +11,16 @@ import { LinkImage } from './link-image'
 
 type Props = {
   creationType: CreationType
+  id: string
 }
 
-export const SlideGallery = async ({ creationType }: Props) => {
+export const SlideGallery = async ({ creationType, id }: Props) => {
   const t = await getTranslations('creations')
   const results = await getResults({ folderName: creationType, limit: 4 })
   const images = results?.resources ?? []
   const title = t(`${creationType}.title`)
   return (
-    <div className="flex flex-col gap-3 p-3 md:container">
+    <div className="flex flex-col gap-3 p-3 md:container" id={id}>
       <div className="flex w-full items-center justify-between">
         <h2 className="text-3xl capitalize md:text-5xl">{title}</h2>
         <Button className="px-2">

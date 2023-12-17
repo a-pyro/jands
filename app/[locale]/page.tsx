@@ -8,14 +8,6 @@ import { Intersecting } from '@/components/intersecting'
 import { ScrollAdaptiveWrapper } from '@/components/scroll-adaptive-wrapper'
 import { ALL_CREATIONS_TYPES } from '@/services/types'
 
-// const delaysClasses: ClassNameValue = [
-//   'delay-500',
-//   'delay-700',
-//   'delay-300',
-//   'delay-200',
-//   'delay-100',
-// ]
-
 const Home = () => {
   return (
     <ScrollAdaptiveWrapper className="flex flex-col">
@@ -25,11 +17,10 @@ const Home = () => {
           <Intersecting
             classNameInView={twJoin(
               'opacity-100 translate-y-0 transition-all duration-500',
-              // delaysClasses[idx],
             )}
             classNameNotInView="opacity-0 translate-y-10"
           >
-            <SlideGallery creationType={creationType} />
+            <SlideGallery creationType={creationType} id={creationType} />
           </Intersecting>
         </Suspense>
       ))}
