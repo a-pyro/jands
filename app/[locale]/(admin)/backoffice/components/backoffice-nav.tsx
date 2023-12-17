@@ -1,4 +1,4 @@
-import { AuthButton } from '@/components/auth-button'
+import { AuthButton } from '@/components/buttons/auth-button'
 import { Button } from '@/components/buttons/button'
 import { Link } from '@/utils/navigation'
 

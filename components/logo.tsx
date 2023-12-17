@@ -5,12 +5,14 @@ type Props = {
   width?: number
   height?: number
   onClick?: () => void
+  color?: 'white' | 'black'
 }
 
 export const Logo = ({
   className = '',
   width = 300,
   height = 300,
+  color = 'black',
   onClick,
 }: Props) => {
   return (
@@ -20,7 +22,7 @@ export const Logo = ({
       className={twMerge('cursor-pointer', className)}
       height={height}
       onClick={onClick}
-      src="/logo.png"
+      src={`/logo-${color}.png`}
       width={width}
     />
   )

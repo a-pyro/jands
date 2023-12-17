@@ -43,7 +43,7 @@ html {
 }
 
 h1 {
-  @apply text-4xl font-bold capitalize;
+  @apply text-4xl font-bold;
 }
 
 .image-view-transition {
@@ -59,4 +59,19 @@ h1 {
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.3s ease-in-out;
 }

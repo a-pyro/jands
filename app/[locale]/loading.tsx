@@ -1,4 +1,4 @@
-import { FlowerLoading } from '../_shared/flower-loading'
+import { FlowerLoading } from '../../components/_shared/flower-loading'
 
 const Loading = () => {
   return <FlowerLoading />

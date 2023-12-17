@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 
-import { SharedLayout } from '@/app/_shared/shared-layout'
+import { SharedLayout } from '@/components/_shared/shared-layout'
 import { type Locale } from '@/i18n'
 import { type CreationType } from '@/services/types'
 

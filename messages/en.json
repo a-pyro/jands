@@ -35,8 +35,8 @@
     "rings": "Rings",
     "customizations": "Customizations",
     "everythingelse": "Everything Else",
-    "about": "Who we are",
-    "contact-us": "Contact Us",
+    "about": "About us",
+    "contact-us": "Contact",
     "language": "Language",
     "facebook": "Facebook",
     "instagram": "Instagram",
@@ -73,5 +73,13 @@
       "title": "Rings",
       "description": "Handmade resin rings"
     }
+  },
+  "hero": {
+    "cta": "Explore",
+    "subtitle": "Discover the uniqueness of handmade",
+    "title": "Art that resonates with nature"
+  },
+  "errors": {
+    "somethig-wrong": "Sorry, something went wrong. \nWe are working to restore the system as soon as possible."
   }
 }
