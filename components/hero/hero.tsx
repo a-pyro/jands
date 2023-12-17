@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { twJoin, twMerge } from 'tailwind-merge'
 
@@ -7,7 +8,7 @@ import { getRandomNumber, scrollIntoView } from '@/utils/ui'
 
 import { Button } from '../buttons/button'
 
-import { Description, Subtitle, Title } from './text'
+import { Subtitle, Title } from './text'
 
 const backgroundImageBgUrls = [
   "bg-[url('/hero/1.jpg')]",
@@ -24,6 +25,7 @@ const backgroundImageBgUrls = [
 
 export const Hero = () => {
   const [index, setIndex] = useState(0)
+  const t = useTranslations('hero')
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -46,15 +48,15 @@ export const Hero = () => {
         )}
       />
 
-      <div className="z-10 flex flex-col gap-6">
-        <Title text="Arte che risuona con la Natura" />
-        <Subtitle text="Scopri l'unicità dell'arte fatta a mano" />
-        <Description text="Immergiti in un mondo dove ogni pezzo racconta una storia unica - una fusione tra natura, creatività e amore." />
+      <div className="z-10 flex flex-col items-center justify-center gap-6">
+        <Title text={t('title')} />
+        <Subtitle text={t('subtitle')} />
+        {/* <Description text="Immergiti in un mondo dove ogni pezzo racconta una storia unica - una fusione tra natura, creatività e amore." /> */}
         <Button
-          className="border-primary text-primary hover:bg-primary hover:text-white"
+          className="border-logo text-logo hover:bg-logo hover:text-white"
           onClick={() => scrollIntoView('necklaces')}
         >
-          Esplora le Nostre Creazioni
+          {t('cta')}
         </Button>
       </div>
       {/* QUI UIMMAGINI O ALTRA ROBA */}

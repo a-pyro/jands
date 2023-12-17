@@ -14,7 +14,7 @@ export const Button = ({
   return (
     <button
       className={twMerge(
-        'border border-dark px-6 py-1.5 text-xl  hover:bg-dark hover:text-logo',
+        'border border-dark px-6 py-1.5  text-xl hover:bg-dark hover:text-logo',
         loading ? 'animate-pulse cursor-wait' : '',
         className,
       )}

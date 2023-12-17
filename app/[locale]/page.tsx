@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <ScrollAdaptiveWrapper className="flex flex-col">
       <Hero />
-      {ALL_CREATIONS_TYPES.map((creationType) => (
+      {/* {ALL_CREATIONS_TYPES.map((creationType) => (
         <Suspense fallback={<FlowerLoading />} key={creationType}>
           <Intersecting
             classNameInView={twJoin(
@@ -23,7 +23,7 @@ const Home = () => {
             <SlideGallery creationType={creationType} id={creationType} />
           </Intersecting>
         </Suspense>
-      ))}
+      ))} */}
     </ScrollAdaptiveWrapper>
   )
 }

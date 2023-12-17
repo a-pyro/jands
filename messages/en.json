@@ -73,5 +73,10 @@
       "title": "Rings",
       "description": "Handmade resin rings"
     }
+  },
+  "hero": {
+    "cta": "Explore",
+    "subtitle": "Discover the uniqueness of handmade",
+    "title": "Art that resonates with nature"
   }
 }

@@ -73,5 +73,10 @@
       "title": "Anneaux",
       "description": "Bagues en résine faites à la main"
     }
+  },
+  "hero": {
+    "cta": "Explorer",
+    "subtitle": "Découvrez le caractère unique du fait main",
+    "title": "Un art en résonance avec la nature"
   }
 }
