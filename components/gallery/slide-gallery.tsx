@@ -29,7 +29,7 @@ export const SlideGallery = async ({ creationType, id }: Props) => {
     )
 
   return (
-    <div className="flex flex-col gap-3 p-3 md:container" id={id}>
+    <div className="mb-6 flex flex-col gap-3 p-3 md:container" id={id}>
       <div className="flex w-full items-center justify-between">
         <h2 className="text-3xl capitalize md:text-5xl">{title}</h2>
         <Button className="px-2">
@@ -56,7 +56,7 @@ export const SlideGallery = async ({ creationType, id }: Props) => {
         className="scrollbar-hide flex gap-3 overflow-x-auto overflow-y-hidden md:w-auto md:flex-row md:justify-center"
         draggable={false}
       >
-        {images.map((image) => (
+        {images.slice(0, 4).map((image) => (
           <div
             className="aspect-h-3 aspect-w-3 w-56 flex-none md:aspect-h-2 md:aspect-w-4 md:w-1/4"
             key={image.public_id}
