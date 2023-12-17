@@ -33,6 +33,7 @@ export const Header = () => {
     <header className="sticky top-0 z-20 flex justify-center">
       <Logo
         className="z-20 mt-3"
+        color={pathname === '/' ? 'white' : 'black'}
         height={logoSize}
         onClick={onLogoClick}
         width={logoSize}

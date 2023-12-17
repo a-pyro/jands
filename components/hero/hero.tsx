@@ -48,7 +48,7 @@ export const Hero = () => {
         )}
       />
 
-      <div className="z-10 flex flex-col items-center justify-center gap-6">
+      <div className="z-10 flex flex-col items-center justify-center gap-6 pb-16">
         <Title text={t('title')} />
         <Subtitle text={t('subtitle')} />
         {/* <Description text="Immergiti in un mondo dove ogni pezzo racconta una storia unica - una fusione tra natura, creatività e amore." /> */}
