@@ -31,7 +31,7 @@ const config: Config = {
       center: true,
     },
     animation: {
-      'ltr-linear-infinite': 'ltr-linear-infinite 100s linear infinite',
+      'ltr-linear-infinite': 'ltr-linear-infinite 1000s linear infinite',
     },
     keyframes: {
       'ltr-linear-infinite': {

@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { twJoin, twMerge } from 'tailwind-merge'
 
-import { scrollIntoView } from '@/utils/scroll-into-view'
+import { getRandomNumber, scrollIntoView } from '@/utils/ui'
 
 import { Button } from '../buttons/button'
 
@@ -15,6 +15,11 @@ const backgroundImageBgUrls = [
   "bg-[url('/hero/3.jpg')]",
   "bg-[url('/hero/4.jpg')]",
   "bg-[url('/hero/5.jpg')]",
+  "bg-[url('/hero/6.jpg')]",
+  "bg-[url('/hero/7.jpg')]",
+  "bg-[url('/hero/8.jpg')]",
+  "bg-[url('/hero/9.jpg')]",
+  "bg-[url('/hero/10.jpg')]",
 ]
 
 export const Hero = () => {
@@ -22,7 +27,7 @@ export const Hero = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % backgroundImageBgUrls.length)
+      setIndex(getRandomNumber(0, backgroundImageBgUrls.length - 1))
     }, 5000) // Cambia immagine ogni 5 secondi
     return () => clearInterval(timer)
   }, [])
@@ -30,13 +35,18 @@ export const Hero = () => {
   return (
     <div
       className={twMerge(
-        'flex h-[calc(100dvh-100px)] items-center px-10 pb-32 text-center',
-        backgroundImageBgUrls[index],
-        'bg-cover bg-center bg-no-repeat transition-all',
+        'flex h-[calc(100dvh)] items-center justify-center px-10 pb-32 text-center',
       )}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-60" />
-      <div className="relative z-10 flex flex-col gap-6">
+      <div className="absolute inset-0 z-10 bg-black bg-opacity-40" />
+      <div
+        className={twJoin(
+          backgroundImageBgUrls[index],
+          'absolute inset-0 bg-contain bg-center bg-no-repeat transition-all duration-1000',
+        )}
+      />
+
+      <div className="z-10 flex flex-col gap-6">
         <Title text="Arte che risuona con la Natura" />
         <Subtitle text="Scopri l'unicità dell'arte fatta a mano" />
         <Description text="Immergiti in un mondo dove ogni pezzo racconta una storia unica - una fusione tra natura, creatività e amore." />
