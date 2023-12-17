@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { twJoin, twMerge } from 'tailwind-merge'
 
-import { getRandomNumber, scrollIntoView } from '@/utils/ui'
+import { scrollIntoView } from '@/utils/ui'
 
 import { Button } from '../buttons/button'
 
@@ -29,7 +29,7 @@ export const Hero = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex(getRandomNumber(0, backgroundImageBgUrls.length - 1))
+      setIndex((prevIdx) => (prevIdx + 1) % backgroundImageBgUrls.length)
     }, 5000) // Cambia immagine ogni 5 secondi
     return () => clearInterval(timer)
   }, [])
@@ -44,7 +44,7 @@ export const Hero = () => {
       <div
         className={twJoin(
           backgroundImageBgUrls[index],
-          'absolute inset-0 bg-contain bg-center bg-no-repeat transition-all duration-1000',
+          'absolute inset-0 bg-cover bg-center bg-no-repeat transition-all',
         )}
       />
 
