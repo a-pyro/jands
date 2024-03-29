@@ -1,4 +1,5 @@
 import 'server-only'
+
 export const varifyCaptcha = async (token: string) => {
   const secret = process.env.RECAPTCHA_SECRET_KEY ?? ''
   const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${token}`
@@ -6,5 +7,10 @@ export const varifyCaptcha = async (token: string) => {
   if (res.ok) {
     console.log('Captcha verification success')
     return 'success'
-  } else throw new Error('Captcha verification failed')
+  }
+  throw new Error('Captcha verification failed')
+}
+
+export function asd() {
+  return 'recaptcha'
 }
